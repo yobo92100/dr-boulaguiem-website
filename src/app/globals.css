@@ -11,11 +11,29 @@ html {
 }
 
 body {
-  background: #ffffff;
-  color: #12344d;
+  background: #fbf7ee;
+  color: #17352c;
 }
 
 ::selection {
   background: #cfeee2;
   color: #12344d;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-dm-sans), "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: 0;
+}
+
+.soft-grid {
+  background-color: #fbf7ee;
+  background-image:
+    linear-gradient(rgba(27, 107, 74, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(27, 107, 74, 0.045) 1px, transparent 1px);
+  background-size: 36px 36px;
 }

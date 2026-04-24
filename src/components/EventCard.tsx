@@ -15,7 +15,7 @@ export function EventCard({ event }: EventCardProps) {
     }[event.city] ?? "bg-[#E1F5EE] text-[#0F6E56]";
 
   return (
-    <article className="flex h-full flex-col rounded-xl border border-[#1b6b4a]/10 bg-white p-5 shadow-soft">
+    <article className="flex h-full flex-col rounded-xl border border-[#1b6b4a]/10 bg-white/95 p-5 shadow-soft">
       <div className="flex flex-wrap items-center gap-2">
         <span className={`rounded-full px-3 py-1 text-[11px] font-semibold ${cityClasses}`}>
           {event.city}
@@ -24,7 +24,7 @@ export function EventCard({ event }: EventCardProps) {
           {event.remainingPlaces} places restantes
         </span>
       </div>
-      <h3 className="mt-4 text-lg font-medium leading-7 text-medical-navy">
+      <h3 className="mt-4 font-heading text-lg font-medium leading-7 text-medical-navy">
         {event.title}
       </h3>
       <p className="mt-3 text-sm text-slate-600">

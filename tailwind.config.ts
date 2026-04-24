@@ -6,18 +6,22 @@ const config: Config = {
     extend: {
       colors: {
         medical: {
-          blue: "#1266a3",
-          navy: "#12344d",
-          sky: "#e8f5fb"
+          blue: "#1B6B4A",
+          navy: "#17352c",
+          sky: "#edf6f1"
         },
         pharmacy: {
-          green: "#1f8a70",
-          mint: "#e7f6ef"
+          green: "#1B6B4A",
+          mint: "#d4eddf"
         },
         ivory: "#fbf7ee"
       },
+      fontFamily: {
+        sans: ["var(--font-inter)", "Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+        heading: ["var(--font-dm-sans)", "DM Sans", "ui-sans-serif", "system-ui", "sans-serif"]
+      },
       boxShadow: {
-        soft: "0 16px 40px rgba(18, 52, 77, 0.08)"
+        soft: "0 18px 55px rgba(27, 107, 74, 0.08)"
       }
     }
   },
