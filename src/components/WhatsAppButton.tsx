@@ -1,4 +1,5 @@
 import { Button } from "@/components/Button";
+import { WhatsAppIcon } from "@/components/Icons";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 type WhatsAppButtonProps = {
@@ -20,7 +21,8 @@ export function WhatsAppButton({
       rel="noreferrer"
       className={className}
     >
-      {children}
+      <WhatsAppIcon />
+      <span>{children}</span>
     </Button>
   );
 }

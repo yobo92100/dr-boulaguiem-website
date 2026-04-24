@@ -6,6 +6,8 @@ export type EventItem = {
   venue: string;
   shortText: string;
   limitedPlaces: boolean;
+  remainingPlaces: number;
+  price: string;
   whatsappMessage: string;
 };
 
@@ -17,8 +19,10 @@ export const events: EventItem[] = [
     city: "Casablanca",
     venue: "Lieu à confirmer",
     shortText:
-      "Une journée de formation pédagogique pour comprendre les bases, le cadre d'utilisation responsable et les limites de l'homéopathie.",
+      "8h de formation structurée : principes fondamentaux, cas pratiques, limites d'application. Groupe max 20 personnes. Ouvert aux professionnels et novices.",
     limitedPlaces: true,
+    remainingPlaces: 5,
+    price: "600 MAD / pers.",
     whatsappMessage:
       "Bonjour Dr Boulaguiem, je souhaite m'inscrire à la formation Initiation structurée à l'homéopathie à Casablanca. Est-ce qu'il reste des places ?"
   },
@@ -29,8 +33,10 @@ export const events: EventItem[] = [
     city: "Rabat",
     venue: "Centre de formation partenaire",
     shortText:
-      "Une introduction claire au Sujok comme approche complémentaire, avec un cadre pédagogique accessible aux professionnels et au grand public.",
+      "Introduction pratique au Sujok avec exercices sur séance. Aucun prérequis médical. Matériel fourni. Attestation de participation remise.",
     limitedPlaces: true,
+    remainingPlaces: 8,
+    price: "600 MAD / pers.",
     whatsappMessage:
       "Bonjour Dr Boulaguiem, je souhaite m'inscrire à la formation Découverte du Sujok en pratique à Rabat. Est-ce qu'il reste des places ?"
   },
@@ -41,8 +47,10 @@ export const events: EventItem[] = [
     city: "Marrakech",
     venue: "Salle de formation locale",
     shortText:
-      "Formation dédiée aux repères pratiques, à la posture professionnelle et à la complémentarité avec le suivi médical classique.",
+      "Repères pratiques, posture professionnelle et complémentarité avec le suivi médical classique. Format interactif avec études de cas.",
     limitedPlaces: false,
+    remainingPlaces: 12,
+    price: "600 MAD / pers.",
     whatsappMessage:
       "Bonjour Dr Boulaguiem, je souhaite m'inscrire à la formation Homéopathie et accompagnement responsable à Marrakech. Est-ce qu'il reste des places ?"
   }
@@ -58,7 +66,9 @@ export const events: EventItem[] = [
   4. limitedPlaces accepte seulement true ou false :
      - true affiche "Places limitées"
      - false n'affiche pas ce badge
-  5. whatsappMessage est le texte qui s'ouvre automatiquement dans WhatsApp.
+  5. remainingPlaces indique le nombre de places restantes affiché sur la carte.
+  6. price affiche le prix public sur la carte.
+  7. whatsappMessage est le texte qui s'ouvre automatiquement dans WhatsApp.
      Gardez une phrase simple avec le titre et la ville.
-  6. Le site n'affiche pas de prix et n'affiche pas de niveau.
+  8. Le site n'affiche pas de niveau.
 */
