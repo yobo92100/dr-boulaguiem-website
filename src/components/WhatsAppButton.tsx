@@ -15,6 +15,7 @@ export function WhatsAppButton({
   return (
     <Button
       href={getWhatsAppUrl(message)}
+      variant="whatsapp"
       target="_blank"
       rel="noreferrer"
       className={className}

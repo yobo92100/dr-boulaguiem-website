@@ -4,7 +4,7 @@ import type { AnchorHTMLAttributes, ReactNode } from "react";
 type ButtonProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
   children: ReactNode;
   href: string;
-  variant?: "primary" | "secondary" | "ghost";
+  variant?: "primary" | "secondary" | "ghost" | "whatsapp";
 };
 
 const variants = {
@@ -13,7 +13,9 @@ const variants = {
   secondary:
     "border border-medical-blue/20 bg-white text-medical-navy hover:border-medical-blue hover:bg-medical-sky focus-visible:outline-medical-blue",
   ghost:
-    "text-medical-navy hover:bg-medical-sky focus-visible:outline-medical-blue"
+    "text-medical-navy hover:bg-medical-sky focus-visible:outline-medical-blue",
+  whatsapp:
+    "bg-pharmacy-green text-white shadow-soft hover:bg-[#176f5a] focus-visible:outline-pharmacy-green"
 };
 
 export function Button({
