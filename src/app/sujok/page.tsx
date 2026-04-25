@@ -15,9 +15,7 @@ export default function SujokPage() {
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.9fr_1.1fr]">
           <div className="rounded-3xl border border-slate-200 bg-white p-4 shadow-soft">
             <div className="flex min-h-[340px] items-center justify-center rounded-2xl bg-medical-sky text-center">
-              <p className="max-w-sm px-6 text-xl font-bold text-medical-navy">
-                Espace réservé à une image de démonstration Sujok
-              </p>
+              <div className="h-24 w-24 rounded-full bg-pharmacy-mint" />
             </div>
           </div>
           <div>
@@ -29,9 +27,9 @@ export default function SujokPage() {
               promesse de résultat.
             </p>
             <p className="mt-4 leading-8 text-slate-600">
-              Cette approche ne remplace pas l'avis d'un médecin, un diagnostic ou un
-              traitement. Elle est abordée dans un cadre pédagogique, en complément
-              d'un accompagnement de santé responsable.
+              Les exercices sont présentés de manière simple, progressive et
+              accessible, afin que chaque participant puisse comprendre avant de
+              pratiquer.
             </p>
             <Button href="/formations" className="mt-8">
               Voir les formations

@@ -22,9 +22,8 @@ export default function HomeopathiePage() {
               l'apprentissage, l'accompagnement et les limites à respecter.
             </p>
             <p className="mt-4 leading-8 text-slate-600">
-              Les formations ne remplacent pas une consultation médicale, un
-              diagnostic ou un traitement prescrit par un professionnel de santé.
-              Elles s'inscrivent dans une démarche d'éducation et de complémentarité.
+              La progression alterne explications, exemples et cas pratiques pour
+              aider chaque participant à construire des repères solides.
             </p>
             <Button href="/formations" className="mt-8">
               Voir les formations
@@ -32,9 +31,7 @@ export default function HomeopathiePage() {
           </div>
           <div className="rounded-3xl border border-slate-200 bg-white p-4 shadow-soft">
             <div className="flex min-h-[340px] items-center justify-center rounded-2xl bg-ivory text-center">
-              <p className="max-w-sm px-6 text-xl font-bold text-medical-navy">
-                Espace réservé à une image de cours ou de formation
-              </p>
+              <div className="h-24 w-24 rounded-full bg-pharmacy-mint" />
             </div>
           </div>
         </div>

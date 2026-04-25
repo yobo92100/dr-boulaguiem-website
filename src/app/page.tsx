@@ -1,12 +1,36 @@
 import { Button } from "@/components/Button";
 import { EventCard } from "@/components/EventCard";
-import { PersonIcon, WhatsAppIcon } from "@/components/Icons";
+import {
+  ExperienceIcon,
+  PersonIcon,
+  PharmacyIcon,
+  StudentsIcon,
+  WhatsAppIcon
+} from "@/components/Icons";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { siteConfig } from "@/config/site";
 import { events } from "@/data/events";
 
 const homeMessage =
-  "Bonjour Dr Boulaguiem, je souhaite réserver une place pour une formation en homéopathie ou Sujok au Maroc.";
+  "Bonjour Dr Boulaguiem, je souhaite m'inscrire à une formation en homéopathie ou Sujok au Maroc.";
+
+const credibilityItems = [
+  {
+    icon: PharmacyIcon,
+    title: "Docteur en pharmacie",
+    text: "Une base scientifique et une pédagogie claire."
+  },
+  {
+    icon: ExperienceIcon,
+    title: "+15 ans d'expérience",
+    text: "Un enseignement nourri par le terrain."
+  },
+  {
+    icon: StudentsIcon,
+    title: "+500 personnes formées",
+    text: "Des participants au Maroc, en France et en Belgique."
+  }
+];
 
 const testimonials = [
   {
@@ -52,85 +76,151 @@ const faqItems = [
 export default function Home() {
   return (
     <>
-      <section className="soft-grid">
-        <div className="mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 md:grid-cols-[1.35fr_0.9fr] lg:px-8 lg:py-24">
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#fbf7ee] via-white to-[#edf6f1]">
+        <div className="absolute -right-28 top-20 h-72 w-72 rounded-full bg-[#d4eddf]/50 blur-3xl" />
+        <div className="absolute -left-32 bottom-10 h-72 w-72 rounded-full bg-[#e8f5fb]/70 blur-3xl" />
+        <div className="relative mx-auto grid max-w-7xl gap-12 px-4 py-12 sm:px-6 md:grid-cols-[1.15fr_0.85fr] lg:px-8 lg:py-16">
           <div className="flex flex-col justify-center">
-            <span className="w-fit rounded-full bg-[#D4EDDF] px-4 py-2 text-xs font-medium text-[#1B6B4A]">
-              Docteur en pharmacie · Formateur certifié
-            </span>
-            <h1 className="mt-6 max-w-3xl font-heading text-4xl font-semibold leading-[1.05] text-medical-navy sm:text-5xl lg:text-6xl">
-              Des formations médicales en{" "}
-              <span className="text-[#1B6B4A]">homéopathie & Sujok.</span>
+            <p className="font-heading text-xl font-semibold text-medical-navy sm:text-2xl">
+              Dr Noureddine Boulaguiem
+            </p>
+            <p className="mt-3 max-w-xl text-base font-medium text-[#1B6B4A] sm:text-lg">
+              Formations en homéopathie & Sujok au Maroc
+            </p>
+            <h1 className="mt-7 max-w-4xl font-heading text-5xl font-semibold leading-[1.02] text-medical-navy sm:text-6xl lg:text-[4.75rem]">
+              Bien-être & Equilibre Naturel
             </h1>
-            <p className="mt-5 text-xl font-normal text-[#1B6B4A]">
-              Bien-être & Équilibre Naturel
+            <div className="mt-6 flex max-w-2xl flex-wrap gap-2">
+              {["Docteur en pharmacie", "+15 ans d'expérience", "+500 élèves formés"].map(
+                (item) => (
+                  <span
+                    key={item}
+                    className="rounded-full border border-[#1b6b4a]/10 bg-white/75 px-4 py-2 text-sm font-medium text-slate-700 shadow-sm"
+                  >
+                    {item}
+                  </span>
+                )
+              )}
+            </div>
+            <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600 lg:whitespace-nowrap">
+              Des formations accessibles, structurées et orientées vers la pratique.
             </p>
-            <p className="mt-6 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
-              Animées par un pharmacien avec 15 ans de terrain. Pour professionnels
-              de santé et apprenants sérieux — à Casablanca, Rabat, Marrakech.
-            </p>
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <WhatsAppButton message={homeMessage}>Réserver une place</WhatsAppButton>
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+              <WhatsAppButton message={homeMessage}>S'inscrire via WhatsApp</WhatsAppButton>
               <Button
                 href="#formations"
                 variant="secondary"
-                className="border-[#1B6B4A]/30 bg-transparent text-[#1B6B4A]"
+                className="border-[#12344d]/15 bg-white/70 text-medical-navy hover:bg-white"
               >
                 Voir les formations
               </Button>
             </div>
           </div>
 
-          <div className="rounded-2xl border border-white/70 bg-white/75 p-4 shadow-soft">
-            <div className="flex min-h-[220px] flex-col items-center justify-center rounded-xl bg-[#C8DDD4] text-center md:min-h-[320px]">
-              <div className="flex h-28 w-28 items-center justify-center rounded-full bg-[#D4EDDF] text-[#5A8A7A]">
-                <PersonIcon className="h-16 w-16" />
+          <div className="relative">
+            <div className="absolute -right-6 -top-6 h-28 w-28 rounded-full bg-[#1B6B4A]/10 blur-2xl" />
+            <div className="relative rounded-[2rem] border border-white bg-white/85 p-4 shadow-soft">
+              <div className="flex min-h-[240px] flex-col items-center justify-center rounded-[1.5rem] bg-gradient-to-br from-[#C8DDD4] to-[#eef7f2] text-center md:min-h-[380px]">
+                <div className="flex h-32 w-32 items-center justify-center rounded-full bg-white/55 text-[#5A8A7A] shadow-soft">
+                  <PersonIcon className="h-20 w-20" />
+                </div>
+                <p className="mt-5 text-xs font-medium text-slate-600">Photo Dr Boulaguiem</p>
+                <div className="mt-8 rounded-full bg-white/75 px-4 py-2 text-xs font-medium text-medical-navy">
+                  Formateur en homéopathie & Sujok
+                </div>
               </div>
-              <p className="mt-4 text-[11px] text-slate-500">Photo Dr Boulaguiem</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-[#1B6B4A] px-4 py-6 sm:px-6 lg:px-8">
-        <div className="mx-auto grid max-w-6xl grid-cols-3 divide-x divide-white/15 text-center">
-          {[
-            ["Docteur", "en pharmacie"],
-            ["+15 ans", "d'expérience terrain"],
-            ["+500", "élèves formés au Maroc"]
-          ].map(([number, label]) => (
-            <div key={label} className="px-3 py-6">
-              <p className="font-heading text-2xl font-semibold text-white sm:text-3xl">
-                {number}
-              </p>
-              <p className="mt-3 text-xs leading-5 text-white/75 sm:text-sm">
-                {label}
-              </p>
-            </div>
-          ))}
+      <section className="bg-white px-4 py-14 sm:px-6 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-5 md:grid-cols-3">
+          {credibilityItems.map((item) => {
+            const Icon = item.icon;
+            return (
+            <article
+              key={item.title}
+              className="flex gap-5 rounded-[1.75rem] border border-[#12344d]/10 bg-[#fbf7ee] p-6 shadow-soft transition duration-300 hover:-translate-y-1 hover:bg-white/80 sm:p-8"
+            >
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#1B6B4A] text-white">
+                <Icon className="h-6 w-6" />
+              </div>
+              <div>
+                <h2 className="font-heading text-xl font-semibold leading-7 text-medical-navy">
+                  {item.title}
+                </h2>
+                <p className="mt-2 max-w-sm text-sm leading-6 text-slate-600">
+                  {item.text}
+                </p>
+              </div>
+            </article>
+            );
+          })}
         </div>
       </section>
 
-      <section id="formations" className="bg-[#fbf7ee] px-4 py-20 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-6xl rounded-2xl border border-[#1b6b4a]/10 bg-white/75 p-5 shadow-soft sm:p-8">
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <h2 className="font-heading text-3xl font-semibold text-medical-navy">
-                Inscrivez-vous — places limitées
-              </h2>
-              <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-600">
-                Des formations organisées dans plusieurs villes du Maroc :
-                Casablanca, Rabat, Marrakech et autres.
-              </p>
+      <section className="bg-[#fbf7ee] px-4 py-24 sm:px-6 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+          <div className="relative">
+            <div className="absolute -left-6 -top-6 h-32 w-32 rounded-full bg-[#d4eddf]/70 blur-2xl" />
+            <div className="relative rounded-[2rem] border border-white bg-white p-4 shadow-soft">
+              <div className="flex min-h-[360px] flex-col items-center justify-center rounded-[1.5rem] bg-gradient-to-br from-[#C8DDD4] to-[#eef7f2] text-[#5A8A7A]">
+                <div className="flex h-32 w-32 items-center justify-center rounded-full bg-white/55 shadow-soft">
+                  <PersonIcon className="h-20 w-20" />
+                </div>
+                <div className="mt-8 rounded-full bg-white/70 px-4 py-2 text-xs font-medium text-medical-navy">
+                  Docteur en pharmacie
+                </div>
+              </div>
             </div>
-            <a href="/formations" className="text-sm font-medium text-[#1B6B4A]">
-              Toutes les dates →
+          </div>
+          <div>
+            <p className="font-heading text-base font-semibold text-[#1B6B4A] sm:text-lg">À propos</p>
+            <h2 className="mt-4 max-w-3xl font-heading text-5xl font-semibold leading-tight text-medical-navy">
+              Qui est Dr Boulaguiem ?
+            </h2>
+            <p className="mt-7 max-w-2xl text-xl leading-9 text-slate-700">
+              Pharmacien de formation, Dr Noureddine Boulaguiem transmet depuis plus
+              de 15 ans son expérience en homéopathie et en Sujok.
+            </p>
+            <p className="mt-5 max-w-2xl text-xl leading-9 text-slate-700">
+              Son approche est simple, progressive et centrée sur la pratique, avec
+              une attention particulière à la clarté et à la compréhension.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              {["Pharmacie clinique", "Homéopathie", "Sujok", "Pédagogie médicale"].map(
+                (tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-full border border-[#1b6b4a]/10 bg-white px-4 py-2 text-sm text-medical-navy shadow-sm"
+                  >
+                    {tag}
+                  </span>
+                )
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="formations" className="bg-white px-4 py-24 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+            <div>
+              <p className="font-heading text-base font-semibold text-[#1B6B4A] sm:text-lg">Agenda</p>
+              <h2 className="mt-4 max-w-3xl font-heading text-5xl font-semibold leading-tight text-medical-navy">
+                Prochaines formations
+              </h2>
+            </div>
+            <a
+              href="/formations"
+              className="inline-flex min-h-11 w-fit items-center justify-center rounded-full border border-[#1B6B4A]/20 bg-[#edf6f1] px-5 py-3 text-sm font-semibold text-[#1B6B4A] transition hover:-translate-y-0.5 hover:bg-[#d4eddf]"
+            >
+              Voir toutes les dates →
             </a>
           </div>
-          <div className="mt-5 w-fit rounded-md bg-[#FAEEDA] px-4 py-2 text-[11px] font-medium text-[#B05530]">
-            Prochaine session : 18 mai à Casablanca — il reste 5 places.
-          </div>
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
             {events.slice(0, 3).map((event) => (
               <EventCard key={`${event.title}-${event.city}`} event={event} />
             ))}
@@ -138,156 +228,162 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-white px-4 py-20 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-6xl">
-          <h2 className="font-heading text-4xl font-semibold text-medical-navy">
+      <section className="bg-[#edf6f1] px-4 py-24 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <p className="font-heading text-base font-semibold text-[#1B6B4A] sm:text-lg">Programmes</p>
+          <h2 className="mt-4 font-heading text-5xl font-semibold text-medical-navy">
             Les formations
           </h2>
-          <div className="mt-8 grid gap-5 md:grid-cols-2">
-            <article className="rounded-2xl bg-[#edf6f1] p-7 shadow-soft">
-              <h3 className="font-heading text-2xl font-medium text-medical-navy">
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
+            <article className="rounded-[2rem] bg-white p-8 shadow-soft transition duration-300 hover:-translate-y-1">
+              <h3 className="font-heading text-3xl font-semibold text-medical-navy">
                 Homéopathie
               </h3>
-              <p className="mt-4 leading-8 text-slate-600">
-                Formation progressive permettant de découvrir les principes de base
-                de l'homéopathie à travers des exemples concrets et des cas
-                pratiques.
+              <p className="mt-5 max-w-xl text-base leading-8 text-slate-600">
+                Formation progressive pour découvrir les principes de base de
+                l'homéopathie à travers des exemples concrets et des cas pratiques.
               </p>
             </article>
-            <article className="rounded-2xl bg-[#fbf7ee] p-7 shadow-soft">
-              <h3 className="font-heading text-2xl font-medium text-medical-navy">
+            <article className="rounded-[2rem] bg-white p-8 shadow-soft transition duration-300 hover:-translate-y-1">
+              <h3 className="font-heading text-3xl font-semibold text-medical-navy">
                 Sujok
               </h3>
-              <p className="mt-4 leading-8 text-slate-600">
-                Formation pratique permettant d'apprendre les techniques de base du
-                Sujok et leur utilisation au quotidien.
+              <p className="mt-5 max-w-xl text-base leading-8 text-slate-600">
+                Formation pratique pour apprendre les techniques de base du Sujok et
+                leur utilisation au quotidien.
               </p>
             </article>
           </div>
         </div>
       </section>
 
-      <section className="bg-[#f7f1e6] px-4 py-20 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-6xl rounded-[1.5rem] bg-white p-7 shadow-soft sm:p-10">
-          <div className="grid gap-7 md:grid-cols-[120px_1fr]">
-            <div className="flex h-[120px] w-[120px] items-center justify-center rounded-full bg-[#C8DDD4] text-[#5A8A7A]">
-              <PersonIcon className="h-16 w-16" />
-            </div>
-            <div>
-              <h2 className="font-heading text-3xl font-semibold text-medical-navy sm:text-4xl">
-                Qui est Dr Noureddine Boulaguiem ?
-              </h2>
-              <p className="mt-2 text-base font-medium text-[#1B6B4A]">
-                Docteur en pharmacie · Formateur depuis 2009
-              </p>
-              <p className="mt-8 max-w-5xl text-lg leading-9 text-slate-700">
-                Pharmacien de formation, Dr Noureddine Boulaguiem accompagne depuis plus de 15
-                ans des professionnels de santé et des apprenants à travers le Maroc.
-                Ses formations ne font pas de promesses médicales — elles donnent des
-                repères solides, des outils pratiques et une posture professionnelle.
-              </p>
-              <div className="mt-9 flex flex-wrap gap-3">
-                {["Pharmacie clinique", "Homéopathie", "Sujok", "Pédagogie médicale"].map(
-                  (tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full border border-[#1b6b4a]/10 bg-[#fbf7ee] px-5 py-2 text-sm text-medical-navy"
-                    >
-                      {tag}
-                    </span>
-                  )
-                )}
+      <section className="bg-[#fbf7ee] px-4 py-24 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <p className="font-heading text-base font-semibold text-[#1B6B4A] sm:text-lg">Galerie</p>
+          <h2 className="mt-4 font-heading text-5xl font-semibold text-medical-navy">
+            Formations en images
+          </h2>
+          <p className="mt-5 max-w-2xl text-base leading-7 text-slate-600">
+            Un aperçu des formations, des échanges et des moments de pratique.
+          </p>
+          <div className="mt-10 grid gap-6 lg:grid-cols-[2fr_1fr]">
+            <div className="rounded-[2rem] border border-[#12344d]/10 bg-white p-3 shadow-soft">
+              <div className="flex aspect-[4/3] items-end rounded-[1.5rem] bg-gradient-to-br from-[#C8DDD4] via-[#edf6f1] to-white p-5">
+                <p className="rounded-full bg-white/85 px-4 py-2 text-sm font-medium text-medical-navy">
+                  Sessions de formation
+                </p>
               </div>
+            </div>
+            <div className="grid gap-6">
+              {["Groupes de participants", "Moments d'échange"].map((item) => (
+                <div
+                  key={item}
+                  className="rounded-[2rem] border border-[#12344d]/10 bg-white p-3 shadow-soft"
+                >
+                  <div className="flex aspect-[4/3] items-end rounded-[1.5rem] bg-gradient-to-br from-[#C8DDD4] via-[#edf6f1] to-white p-5">
+                    <p className="rounded-full bg-white/85 px-4 py-2 text-sm font-medium text-medical-navy">
+                      {item}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-[#fbf7ee] px-4 py-20 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-6xl">
-          <div className="max-w-3xl">
-            <h2 className="font-heading text-4xl font-semibold text-medical-navy">
-              Formations en images
-            </h2>
-            <p className="mt-4 text-base leading-7 text-slate-600">
-              Un aperçu des formations, des échanges et des moments de pratique.
-            </p>
-          </div>
-          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {["Formation", "Échanges", "Pratique"].map((label) => (
-              <div
-                key={label}
-                className="rounded-2xl border border-[#1b6b4a]/10 bg-white p-3 shadow-soft"
-              >
-                <div className="aspect-[4/3] rounded-xl bg-gradient-to-br from-[#C8DDD4] to-[#fbf7ee]" />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white px-4 py-20 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-6xl">
-          <h2 className="font-heading text-3xl font-semibold text-medical-navy">
+      <section className="bg-white px-4 py-24 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <p className="font-heading text-base font-semibold text-[#1B6B4A] sm:text-lg">
+            Témoignages
+          </p>
+          <h2 className="mt-4 max-w-3xl font-heading text-5xl font-semibold leading-tight text-medical-navy">
             Ce que disent les participants
           </h2>
-          <div className="mt-8 grid gap-5 md:grid-cols-3">
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
             {testimonials.map((testimonial) => (
               <article
                 key={testimonial.author}
-                className="rounded-lg border border-[#1b6b4a]/10 bg-[#fbf7ee] p-5 shadow-soft"
+                className="rounded-2xl border border-[#12344d]/10 bg-[#fbf7ee] p-7 shadow-soft"
               >
-                <p className="text-[11px] text-[#BA7517]">★★★★★</p>
-                <p className="mt-3 text-sm italic leading-7 text-slate-700">
+                <p className="text-sm tracking-[0.18em] text-[#BA7517]">★★★★★</p>
+                <p className="mt-5 text-base italic leading-8 text-slate-700">
                   “{testimonial.quote}”
                 </p>
-                <p className="mt-4 text-xs text-slate-500">{testimonial.author}</p>
+                <p className="mt-6 text-sm font-medium text-medical-navy">
+                  {testimonial.author}
+                </p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-[#fbf7ee] px-4 py-20 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-4xl rounded-2xl bg-white p-6 shadow-soft sm:p-8">
-          <h2 className="font-heading text-3xl font-semibold text-medical-navy">
-            Questions fréquentes
-          </h2>
-          <div className="mt-6">
-            {faqItems.map((item) => (
+      <section className="bg-[#fbf7ee] px-4 py-24 sm:px-6 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.75fr_1.25fr]">
+          <div>
+            <p className="font-heading text-base font-semibold text-[#1B6B4A] sm:text-lg">
+              FAQ
+            </p>
+            <h2 className="mt-4 font-heading text-5xl font-semibold leading-tight text-medical-navy">
+              Questions fréquentes
+            </h2>
+            <p className="mt-6 max-w-sm text-base leading-7 text-slate-600">
+              Les réponses essentielles avant de réserver votre place ou de poser une
+              question par WhatsApp.
+            </p>
+            <a
+              href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(homeMessage)}`}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-8 inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[#1B6B4A] px-5 py-3 text-sm font-semibold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-[#15553b]"
+            >
+              <WhatsAppIcon />
+              Poser une question
+            </a>
+          </div>
+          <div className="rounded-[2rem] border border-[#12344d]/10 bg-white p-4 shadow-soft sm:p-6">
+            {faqItems.map((item, index) => (
               <div
                 key={item.question}
-                className="border-t border-slate-200/70 py-4 first:border-t-0"
+                className="group grid gap-4 rounded-2xl p-4 transition hover:bg-[#fbf7ee] sm:grid-cols-[48px_1fr] sm:p-5"
               >
-                <h3 className="text-[13px] font-medium text-medical-navy">
-                  {item.question}
-                </h3>
-                <p className="mt-2 text-xs leading-6 text-slate-600">
-                  {item.answer}
-                </p>
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#edf6f1] font-heading text-sm font-semibold text-[#1B6B4A]">
+                  {String(index + 1).padStart(2, "0")}
+                </div>
+                <div>
+                  <h3 className="font-heading text-xl font-semibold text-medical-navy">
+                    {item.question}
+                  </h3>
+                  <p className="mt-3 text-base leading-7 text-slate-600">
+                    {item.answer}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-[#1B6B4A] px-6 py-14 text-center">
-        <h2 className="font-heading text-3xl font-semibold leading-tight text-white">
-          Intéressé par une formation ?
-        </h2>
-        <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-white/75">
-          Pour connaître les prochaines dates ou réserver votre place, vous pouvez
-          contacter directement via WhatsApp.
-        </p>
-        <a
-          href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(homeMessage)}`}
-          target="_blank"
-          rel="noreferrer"
-          className="mt-7 inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-medium text-[#1B6B4A] shadow-soft"
-        >
-          <WhatsAppIcon />
-          S'inscrire via WhatsApp
-        </a>
+      <section className="bg-[#1B6B4A] px-4 py-24 text-center sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-3xl">
+          <h2 className="font-heading text-5xl font-semibold leading-tight text-white">
+            Intéressé par une formation ?
+          </h2>
+          <p className="mx-auto mt-6 max-w-xl text-base leading-8 text-white/75">
+            Contactez directement via WhatsApp pour connaître les prochaines dates et
+            réserver votre place.
+          </p>
+          <a
+            href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(homeMessage)}`}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-9 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-white px-7 py-4 text-base font-semibold text-[#1B6B4A] shadow-soft transition hover:-translate-y-0.5 hover:bg-[#f7fbf9]"
+          >
+            <WhatsAppIcon />
+            S'inscrire via WhatsApp
+          </a>
+        </div>
       </section>
     </>
   );
