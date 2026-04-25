@@ -28,17 +28,10 @@ export function PharmacyIcon({ className = "h-6 w-6" }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
       <path
-        d="M7.5 4.5h9M9 4.5v5.25M15 4.5v5.25M8 10h8a3 3 0 0 1 3 3v4.5a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3V13a3 3 0 0 1 3-3Z"
+        d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6V3Z"
         stroke="currentColor"
         strokeWidth="1.8"
-        strokeLinecap="round"
         strokeLinejoin="round"
-      />
-      <path
-        d="M12 13.25v4M10 15.25h4"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
       />
     </svg>
   );
@@ -62,11 +55,29 @@ export function StudentsIcon({ className = "h-6 w-6" }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
       <path
-        d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM16 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM4 20c.5-3.2 2.1-5 4-5s3.5 1.8 4 5M12 20c.5-3.2 2.1-5 4-5s3.5 1.8 4 5"
+        d="M6.5 3.5h11A1.5 1.5 0 0 1 19 5v14.5l-3-1.8-3 1.8-3-1.8-3 1.8V5a1.5 1.5 0 0 1 1.5-1.5Z"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M9 8h6M9 11.5h6M9 15h3"
         stroke="currentColor"
         strokeWidth="1.8"
         strokeLinecap="round"
-        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+export function MenuIcon({ className = "h-5 w-5" }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <path
+        d="M4 7h16M4 12h16M4 17h16"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
     </svg>
   );

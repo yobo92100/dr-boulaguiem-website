@@ -40,7 +40,7 @@ export function EventCard({ event }: EventCardProps) {
         href={getWhatsAppUrl(event.whatsappMessage)}
         target="_blank"
         rel="noreferrer"
-        className="mt-7 inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[#1B6B4A] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#15553b]"
+        className="mt-7 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full bg-[#1B6B4A] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#15553b]"
       >
         <WhatsAppIcon />
         S'inscrire via WhatsApp
