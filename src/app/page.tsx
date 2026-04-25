@@ -175,16 +175,13 @@ export default function Home() {
             </div>
             <div>
               <h2 className="font-heading text-3xl font-semibold text-medical-navy sm:text-4xl">
-                Qui est Dr Boulaguiem ?
+                Qui est Dr Noureddine Boulaguiem ?
               </h2>
-              <p className="mt-7 text-2xl font-medium text-medical-navy">
-                Dr Noureddine Boulaguiem
-              </p>
               <p className="mt-2 text-base font-medium text-[#1B6B4A]">
                 Docteur en pharmacie · Formateur depuis 2009
               </p>
               <p className="mt-8 max-w-5xl text-lg leading-9 text-slate-700">
-                Pharmacien de formation, Dr Boulaguiem accompagne depuis plus de 15
+                Pharmacien de formation, Dr Noureddine Boulaguiem accompagne depuis plus de 15
                 ans des professionnels de santé et des apprenants à travers le Maroc.
                 Ses formations ne font pas de promesses médicales — elles donnent des
                 repères solides, des outils pratiques et une posture professionnelle.
