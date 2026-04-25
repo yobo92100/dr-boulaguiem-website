@@ -63,7 +63,7 @@ export default function Home() {
               <span className="text-[#1B6B4A]">homéopathie & Sujok.</span>
             </h1>
             <p className="mt-5 text-xl font-normal text-[#1B6B4A]">
-              Apprendre & pratiquer
+              Bien-être & Équilibre Naturel
             </p>
             <p className="mt-6 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
               Animées par un pharmacien avec 15 ans de terrain. Pour professionnels
@@ -92,22 +92,22 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-[#1B6B4A] px-4 py-5 sm:px-6 lg:px-8">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-center gap-2 text-center text-white sm:flex-row sm:gap-4">
-          <span className="font-heading text-base font-semibold sm:text-lg">
-            Docteur en pharmacie
-          </span>
-          <span className="hidden h-1 w-1 rounded-full bg-white/45 sm:block" />
-          <span className="text-sm text-white/85 sm:text-base">
-            Plus de <strong className="font-semibold text-white">15 ans</strong>{" "}
-            d'expérience
-          </span>
-          <span className="hidden h-1 w-1 rounded-full bg-white/45 sm:block" />
-          <span className="text-sm text-white/85 sm:text-base">
-            Plus de{" "}
-            <strong className="font-semibold text-white">500 participants</strong>{" "}
-            formés
-          </span>
+      <section className="bg-[#1B6B4A] px-4 py-6 sm:px-6 lg:px-8">
+        <div className="mx-auto grid max-w-6xl grid-cols-3 divide-x divide-white/15 text-center">
+          {[
+            ["Docteur", "en pharmacie"],
+            ["+15 ans", "d'expérience terrain"],
+            ["+500", "élèves formés au Maroc"]
+          ].map(([number, label]) => (
+            <div key={label} className="px-3 py-6">
+              <p className="font-heading text-2xl font-semibold text-white sm:text-3xl">
+                {number}
+              </p>
+              <p className="mt-3 text-xs leading-5 text-white/75 sm:text-sm">
+                {label}
+              </p>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -168,25 +168,39 @@ export default function Home() {
       </section>
 
       <section className="bg-[#f7f1e6] px-4 py-20 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-4xl rounded-2xl bg-white p-7 shadow-soft sm:p-10">
-          <div className="grid gap-6 md:grid-cols-[120px_1fr]">
-            <div className="flex h-24 w-24 items-center justify-center rounded-full bg-[#C8DDD4] text-[#5A8A7A]">
-              <PersonIcon className="h-14 w-14" />
+        <div className="mx-auto max-w-6xl rounded-[1.5rem] bg-white p-7 shadow-soft sm:p-10">
+          <div className="grid gap-7 md:grid-cols-[120px_1fr]">
+            <div className="flex h-[120px] w-[120px] items-center justify-center rounded-full bg-[#C8DDD4] text-[#5A8A7A]">
+              <PersonIcon className="h-16 w-16" />
             </div>
-            <div className="space-y-5 text-base leading-8 text-slate-600">
-              <p>
-                Pharmacien de formation, Dr Noureddine Boulaguiem transmet depuis
-                plus de 15 ans son expérience en homéopathie et en Sujok.
+            <div>
+              <h2 className="font-heading text-3xl font-semibold text-medical-navy sm:text-4xl">
+                Qui est Dr Boulaguiem ?
+              </h2>
+              <p className="mt-7 text-2xl font-medium text-medical-navy">
+                Dr Noureddine Boulaguiem
               </p>
-              <p>
-                Au fil des années, il a formé plus de 500 participants à travers le
-                Maroc, issus aussi bien du domaine de la santé que du grand public.
+              <p className="mt-2 text-base font-medium text-[#1B6B4A]">
+                Docteur en pharmacie · Formateur depuis 2009
               </p>
-              <p>
-                Son approche repose sur une pédagogie simple, progressive et centrée
-                sur la compréhension et la pratique, afin de rendre ces disciplines
-                accessibles à tous.
+              <p className="mt-8 max-w-5xl text-lg leading-9 text-slate-700">
+                Pharmacien de formation, Dr Boulaguiem accompagne depuis plus de 15
+                ans des professionnels de santé et des apprenants à travers le Maroc.
+                Ses formations ne font pas de promesses médicales — elles donnent des
+                repères solides, des outils pratiques et une posture professionnelle.
               </p>
+              <div className="mt-9 flex flex-wrap gap-3">
+                {["Pharmacie clinique", "Homéopathie", "Sujok", "Pédagogie médicale"].map(
+                  (tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full border border-[#1b6b4a]/10 bg-[#fbf7ee] px-5 py-2 text-sm text-medical-navy"
+                    >
+                      {tag}
+                    </span>
+                  )
+                )}
+              </div>
             </div>
           </div>
         </div>
