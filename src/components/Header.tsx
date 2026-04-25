@@ -18,8 +18,9 @@ export function Header() {
       <header className="sticky top-0 z-50 border-b border-[#1b6b4a]/10 bg-[#fbf7ee]/90 backdrop-blur-xl">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
           <Link href="/" className="min-w-0">
-            <p className="truncate font-heading text-base font-semibold text-medical-navy">
-              <span className="text-[#1B6B4A]">Dr</span> Boulaguiem
+            <p className="truncate font-heading text-base font-semibold text-medical-navy sm:text-lg">
+              <span className="text-[#1B6B4A]">Dr</span> Noureddine{" "}
+              <span className="text-[#1B6B4A]">Boulaguiem</span>
             </p>
           </Link>
           <nav className="hidden items-center gap-1 md:flex" aria-label="Navigation principale">

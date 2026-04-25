@@ -6,7 +6,7 @@ import { siteConfig } from "@/config/site";
 import { events } from "@/data/events";
 
 const homeMessage =
-  "Bonjour Dr Boulaguiem, je souhaite m'inscrire à une formation en homéopathie ou Sujok au Maroc.";
+  "Bonjour Dr Boulaguiem, je souhaite réserver une place pour une formation en homéopathie ou Sujok au Maroc.";
 
 const testimonials = [
   {
@@ -55,27 +55,28 @@ export default function Home() {
       <section className="soft-grid">
         <div className="mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 md:grid-cols-[1.35fr_0.9fr] lg:px-8 lg:py-24">
           <div className="flex flex-col justify-center">
-            <p className="font-heading text-xl font-semibold text-medical-navy sm:text-2xl">
-              Dr Noureddine Boulaguiem
-            </p>
-            <p className="mt-3 text-base font-medium text-[#1B6B4A] sm:text-lg">
-              Formations en homéopathie & Sujok au Maroc
-            </p>
-            <h1 className="mt-8 max-w-3xl font-heading text-5xl font-semibold leading-[1.02] text-medical-navy sm:text-6xl lg:text-7xl">
-              Apprendre & pratiquer
+            <span className="w-fit rounded-full bg-[#D4EDDF] px-4 py-2 text-xs font-medium text-[#1B6B4A]">
+              Docteur en pharmacie · Formateur certifié
+            </span>
+            <h1 className="mt-6 max-w-3xl font-heading text-4xl font-semibold leading-[1.05] text-medical-navy sm:text-5xl lg:text-6xl">
+              Des formations médicales en{" "}
+              <span className="text-[#1B6B4A]">homéopathie & Sujok.</span>
             </h1>
-            <p className="mt-6 text-sm font-medium text-slate-700 sm:text-base">
-              Docteur en pharmacie · +15 ans d'expérience · +500 élèves formés
+            <p className="mt-5 text-xl font-normal text-[#1B6B4A]">
+              Apprendre & pratiquer
             </p>
             <p className="mt-6 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
-              Des formations accessibles, structurées et orientées vers la pratique,
-              pour découvrir et approfondir ces disciplines dans un cadre clair et
-              pédagogique.
+              Animées par un pharmacien avec 15 ans de terrain. Pour professionnels
+              de santé et apprenants sérieux — à Casablanca, Rabat, Marrakech.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <WhatsAppButton message={homeMessage}>S'inscrire via WhatsApp</WhatsAppButton>
-              <Button href="#formations" variant="secondary" className="border-[#1B6B4A]/30 bg-transparent text-[#1B6B4A]">
-                Voir les prochaines formations
+              <WhatsAppButton message={homeMessage}>Réserver une place</WhatsAppButton>
+              <Button
+                href="#formations"
+                variant="secondary"
+                className="border-[#1B6B4A]/30 bg-transparent text-[#1B6B4A]"
+              >
+                Voir les formations
               </Button>
             </div>
           </div>
@@ -91,62 +92,43 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-[#1B6B4A] px-4 py-4 sm:px-6 lg:px-8">
-        <div className="mx-auto grid max-w-6xl grid-cols-3 divide-x divide-white/15 text-center">
-          {[
-            ["Dr.", "Docteur en pharmacie"],
-            ["+15 ans", "d'expérience"],
-            ["+500", "élèves formés"]
-          ].map(([number, label]) => (
-            <div key={label} className="px-2 py-4">
-              <p className="text-base font-medium text-white sm:text-xl">{number}</p>
-              <p className="mt-1 text-[10px] leading-4 text-white/70 sm:text-[11px]">
-                {label}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="bg-[#f7f1e6] px-4 py-20 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-4xl rounded-2xl bg-white p-7 shadow-soft sm:p-10">
-          <div className="grid gap-6 md:grid-cols-[120px_1fr]">
-            <div className="flex h-24 w-24 items-center justify-center rounded-full bg-[#C8DDD4] text-[#5A8A7A]">
-              <PersonIcon className="h-14 w-14" />
-            </div>
-            <div className="space-y-5 text-base leading-8 text-slate-600">
-              <p>
-                Pharmacien de formation, Dr Noureddine Boulaguiem transmet depuis
-                plus de 15 ans son expérience en homéopathie et en Sujok.
-              </p>
-              <p>
-                Au fil des années, il a formé plus de 500 participants à travers le
-                Maroc, issus aussi bien du domaine de la santé que du grand public.
-              </p>
-              <p>
-                Son approche repose sur une pédagogie simple, progressive et centrée
-                sur la compréhension et la pratique, afin de rendre ces disciplines
-                accessibles à tous.
-              </p>
-            </div>
-          </div>
+      <section className="bg-[#1B6B4A] px-4 py-5 sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-center gap-2 text-center text-white sm:flex-row sm:gap-4">
+          <span className="font-heading text-base font-semibold sm:text-lg">
+            Docteur en pharmacie
+          </span>
+          <span className="hidden h-1 w-1 rounded-full bg-white/45 sm:block" />
+          <span className="text-sm text-white/85 sm:text-base">
+            Plus de <strong className="font-semibold text-white">15 ans</strong>{" "}
+            d'expérience
+          </span>
+          <span className="hidden h-1 w-1 rounded-full bg-white/45 sm:block" />
+          <span className="text-sm text-white/85 sm:text-base">
+            Plus de{" "}
+            <strong className="font-semibold text-white">500 participants</strong>{" "}
+            formés
+          </span>
         </div>
       </section>
 
       <section id="formations" className="bg-[#fbf7ee] px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-6xl rounded-2xl border border-[#1b6b4a]/10 bg-white/75 p-5 shadow-soft sm:p-8">
-          <div className="max-w-3xl">
-            <h2 className="font-heading text-4xl font-semibold text-medical-navy">
-              Prochaines formations
-            </h2>
-            <p className="mt-4 text-base leading-7 text-slate-600">
-              Des formations sont régulièrement organisées dans plusieurs villes du
-              Maroc, notamment à Casablanca, Rabat et Marrakech.
-            </p>
-            <p className="mt-3 text-sm leading-6 text-slate-600">
-              Les places étant limitées, il est recommandé de s'inscrire à l'avance
-              pour garantir sa participation.
-            </p>
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <h2 className="font-heading text-3xl font-semibold text-medical-navy">
+                Inscrivez-vous — places limitées
+              </h2>
+              <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-600">
+                Des formations organisées dans plusieurs villes du Maroc :
+                Casablanca, Rabat, Marrakech et autres.
+              </p>
+            </div>
+            <a href="/formations" className="text-sm font-medium text-[#1B6B4A]">
+              Toutes les dates →
+            </a>
+          </div>
+          <div className="mt-5 w-fit rounded-md bg-[#FAEEDA] px-4 py-2 text-[11px] font-medium text-[#B05530]">
+            Prochaine session : 18 mai à Casablanca — il reste 5 places.
           </div>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             {events.slice(0, 3).map((event) => (
@@ -185,6 +167,31 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="bg-[#f7f1e6] px-4 py-20 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-4xl rounded-2xl bg-white p-7 shadow-soft sm:p-10">
+          <div className="grid gap-6 md:grid-cols-[120px_1fr]">
+            <div className="flex h-24 w-24 items-center justify-center rounded-full bg-[#C8DDD4] text-[#5A8A7A]">
+              <PersonIcon className="h-14 w-14" />
+            </div>
+            <div className="space-y-5 text-base leading-8 text-slate-600">
+              <p>
+                Pharmacien de formation, Dr Noureddine Boulaguiem transmet depuis
+                plus de 15 ans son expérience en homéopathie et en Sujok.
+              </p>
+              <p>
+                Au fil des années, il a formé plus de 500 participants à travers le
+                Maroc, issus aussi bien du domaine de la santé que du grand public.
+              </p>
+              <p>
+                Son approche repose sur une pédagogie simple, progressive et centrée
+                sur la compréhension et la pratique, afin de rendre ces disciplines
+                accessibles à tous.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="bg-[#fbf7ee] px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-6xl">
           <div className="max-w-3xl">
@@ -197,7 +204,10 @@ export default function Home() {
           </div>
           <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {["Formation", "Échanges", "Pratique"].map((label) => (
-              <div key={label} className="rounded-2xl border border-[#1b6b4a]/10 bg-white p-3 shadow-soft">
+              <div
+                key={label}
+                className="rounded-2xl border border-[#1b6b4a]/10 bg-white p-3 shadow-soft"
+              >
                 <div className="aspect-[4/3] rounded-xl bg-gradient-to-br from-[#C8DDD4] to-[#fbf7ee]" />
               </div>
             ))}
@@ -212,7 +222,10 @@ export default function Home() {
           </h2>
           <div className="mt-8 grid gap-5 md:grid-cols-3">
             {testimonials.map((testimonial) => (
-              <article key={testimonial.author} className="rounded-lg border border-[#1b6b4a]/10 bg-[#fbf7ee] p-5 shadow-soft">
+              <article
+                key={testimonial.author}
+                className="rounded-lg border border-[#1b6b4a]/10 bg-[#fbf7ee] p-5 shadow-soft"
+              >
                 <p className="text-[11px] text-[#BA7517]">★★★★★</p>
                 <p className="mt-3 text-sm italic leading-7 text-slate-700">
                   “{testimonial.quote}”
@@ -231,11 +244,16 @@ export default function Home() {
           </h2>
           <div className="mt-6">
             {faqItems.map((item) => (
-              <div key={item.question} className="border-t border-slate-200/70 py-4 first:border-t-0">
+              <div
+                key={item.question}
+                className="border-t border-slate-200/70 py-4 first:border-t-0"
+              >
                 <h3 className="text-[13px] font-medium text-medical-navy">
                   {item.question}
                 </h3>
-                <p className="mt-2 text-xs leading-6 text-slate-600">{item.answer}</p>
+                <p className="mt-2 text-xs leading-6 text-slate-600">
+                  {item.answer}
+                </p>
               </div>
             ))}
           </div>
