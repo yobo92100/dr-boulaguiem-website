@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DM_Sans, Inter } from "next/font/google";
+import { Fraunces, Inter } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { siteConfig } from "@/config/site";
@@ -11,16 +11,25 @@ const inter = Inter({
   display: "swap"
 });
 
-const dmSans = DM_Sans({
+const fraunces = Fraunces({
   subsets: ["latin"],
-  variable: "--font-dm-sans",
-  display: "swap"
+  variable: "--font-fraunces",
+  display: "swap",
+  style: ["normal", "italic"]
 });
 
 export const metadata: Metadata = {
   title: `${siteConfig.name} | Formations en homéopathie & Sujok au Maroc`,
   description:
-    "Formations en homéopathie et Sujok au Maroc avec Dr Noureddine Boulaguiem, docteur en pharmacie."
+    "Formations en homéopathie et Sujok au Maroc avec Dr Noureddine Boulaguiem, docteur en pharmacie. Une pédagogie claire, responsable et complémentaire — à Casablanca, Rabat et Marrakech.",
+  metadataBase: new URL("https://www.example.com"),
+  openGraph: {
+    title: `${siteConfig.name} | Formations en homéopathie & Sujok`,
+    description:
+      "Formations en homéopathie et Sujok au Maroc — une pédagogie claire et responsable.",
+    locale: "fr_FR",
+    type: "website"
+  }
 };
 
 export default function RootLayout({
@@ -30,7 +39,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body className={`${inter.variable} ${dmSans.variable} font-sans antialiased`}>
+      <body
+        className={`${inter.variable} ${fraunces.variable} bg-cream font-sans text-ink antialiased`}
+      >
         <Header />
         <main>{children}</main>
         <Footer />

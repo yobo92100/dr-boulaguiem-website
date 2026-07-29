@@ -2,20 +2,44 @@ type SectionTitleProps = {
   eyebrow?: string;
   title: string;
   text?: string;
+  align?: "center" | "left";
+  tone?: "dark" | "light";
 };
 
-export function SectionTitle({ eyebrow, title, text }: SectionTitleProps) {
+export function SectionTitle({
+  eyebrow,
+  title,
+  text,
+  align = "center",
+  tone = "dark"
+}: SectionTitleProps) {
+  const isCenter = align === "center";
+  const isLight = tone === "light";
+
   return (
-    <div className="mx-auto max-w-3xl text-center">
+    <div className={isCenter ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}>
       {eyebrow ? (
-        <p className="text-sm font-semibold uppercase tracking-wide text-pharmacy-green">
+        <p className={`eyebrow ${isLight ? "!text-gold-light" : ""}`}>
+          <span className="rule-gold" aria-hidden="true" />
           {eyebrow}
         </p>
       ) : null}
-      <h2 className="mt-3 text-3xl font-bold text-medical-navy sm:text-4xl">
+      <h2
+        className={`mt-4 font-display text-3xl font-semibold leading-[1.1] tracking-tight sm:text-4xl ${
+          isLight ? "text-cream" : "text-ink"
+        }`}
+      >
         {title}
       </h2>
-      {text ? <p className="mt-4 text-base leading-8 text-slate-600">{text}</p> : null}
+      {text ? (
+        <p
+          className={`mt-5 text-base leading-8 ${
+            isLight ? "text-cream/70" : "text-muted"
+          } ${isCenter ? "mx-auto max-w-xl" : ""}`}
+        >
+          {text}
+        </p>
+      ) : null}
     </div>
   );
 }

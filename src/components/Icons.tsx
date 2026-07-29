@@ -16,10 +16,134 @@ export function PersonIcon({ className = "h-12 w-12" }: IconProps) {
       <path
         d="M12 12.25a4.25 4.25 0 1 0 0-8.5 4.25 4.25 0 0 0 0 8.5ZM4.75 20.25c.8-3.25 3.35-5.25 7.25-5.25s6.45 2 7.25 5.25"
         stroke="currentColor"
-        strokeWidth="1.8"
+        strokeWidth="1.6"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
     </svg>
   );
+}
+
+function base(children: React.ReactNode, className: string) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      {children}
+    </svg>
+  );
+}
+
+export function ArrowRightIcon({ className = "h-4 w-4" }: IconProps) {
+  return base(
+    <>
+      <path d="M5 12h14" />
+      <path d="m13 6 6 6-6 6" />
+    </>,
+    className
+  );
+}
+
+export function LeafIcon({ className = "h-5 w-5" }: IconProps) {
+  return base(
+    <>
+      <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" />
+      <path d="M2 21c0-3 1.85-5.36 5.08-6" />
+    </>,
+    className
+  );
+}
+
+export function SparkIcon({ className = "h-5 w-5" }: IconProps) {
+  return base(
+    <path d="M12 3v4m0 10v4m9-9h-4M7 12H3m14.66-6.66-2.83 2.83M9.17 14.83l-2.83 2.83m11.32 0-2.83-2.83M9.17 9.17 6.34 6.34" />,
+    className
+  );
+}
+
+export function HandIcon({ className = "h-5 w-5" }: IconProps) {
+  return base(
+    <>
+      <path d="M18 11V6a2 2 0 0 0-2-2 2 2 0 0 0-2 2" />
+      <path d="M14 10V4a2 2 0 0 0-2-2 2 2 0 0 0-2 2v2" />
+      <path d="M10 10.5V6a2 2 0 0 0-2-2 2 2 0 0 0-2 2v8" />
+      <path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15" />
+    </>,
+    className
+  );
+}
+
+export function CertificateIcon({ className = "h-5 w-5" }: IconProps) {
+  return base(
+    <>
+      <circle cx="12" cy="8" r="5" />
+      <path d="M8.5 12.5 7 22l5-3 5 3-1.5-9.5" />
+    </>,
+    className
+  );
+}
+
+export function MapPinIcon({ className = "h-4 w-4" }: IconProps) {
+  return base(
+    <>
+      <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+      <circle cx="12" cy="10" r="3" />
+    </>,
+    className
+  );
+}
+
+export function CalendarIcon({ className = "h-4 w-4" }: IconProps) {
+  return base(
+    <>
+      <rect x="3" y="4.5" width="18" height="17" rx="2.5" />
+      <path d="M3 9.5h18M8 2.5v4M16 2.5v4" />
+    </>,
+    className
+  );
+}
+
+export function ClockIcon({ className = "h-4 w-4" }: IconProps) {
+  return base(
+    <>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M12 7.5V12l3 2" />
+    </>,
+    className
+  );
+}
+
+export function CheckIcon({ className = "h-4 w-4" }: IconProps) {
+  return base(<path d="m5 13 4 4L19 7" />, className);
+}
+
+export function QuoteIcon({ className = "h-6 w-6" }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M9.5 5C6.46 5 4 7.46 4 10.5V19h7v-8H7.5c0-1.66 1.34-3 3-3V5H9.5Zm10 0C16.46 5 14 7.46 14 10.5V19h7v-8h-3.5c0-1.66 1.34-3 3-3V5h-1Z" opacity="0.9" />
+    </svg>
+  );
+}
+
+export function StarIcon({ className = "h-4 w-4" }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path d="m12 2.5 2.9 5.88 6.5.94-4.7 4.58 1.11 6.47L12 17.9l-5.81 3.06 1.11-6.47-4.7-4.58 6.5-.94L12 2.5Z" />
+    </svg>
+  );
+}
+
+export function MenuIcon({ className = "h-6 w-6" }: IconProps) {
+  return base(<path d="M4 7h16M4 12h16M4 17h16" />, className);
+}
+
+export function CloseIcon({ className = "h-6 w-6" }: IconProps) {
+  return base(<path d="M6 6l12 12M18 6 6 18" />, className);
 }
