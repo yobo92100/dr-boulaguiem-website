@@ -62,8 +62,8 @@ export default function HomeopathiePage() {
             <div className="img-zoom relative overflow-hidden rounded-5xl shadow-lift">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={images.eucalyptus}
-                alt="Approche naturelle et botanique"
+                src={images.homeo2}
+                alt="Remèdes homéopathiques et plantes"
                 className="aspect-[4/5] w-full object-cover"
               />
               <div className="absolute inset-0 ring-1 ring-inset ring-forest-900/10" />

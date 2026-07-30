@@ -34,14 +34,14 @@ const disciplines = [
   {
     name: "Homéopathie",
     href: "/homeopathie",
-    image: images.spaStill,
+    image: images.homeo2,
     icon: LeafIcon,
     text: "Une découverte progressive des principes fondamentaux à travers des cas concrets, un vocabulaire clair et un cadre d'usage responsable."
   },
   {
     name: "Sujok",
     href: "/sujok",
-    image: images.hotStone,
+    image: images.sujokSession,
     icon: HandIcon,
     text: "Une initiation pratique aux techniques de base et à leur usage prudent au quotidien. Accessible sans prérequis médical."
   }
@@ -110,11 +110,11 @@ const faqItems = [
 ];
 
 const galleryImages = [
-  { src: images.seminar, label: "En formation", span: "lg:col-span-2 lg:row-span-2" },
-  { src: images.eucalyptus, label: "Nature & équilibre", span: "" },
-  { src: images.spaStill, label: "Bien-être", span: "" },
-  { src: images.healthyBowl, label: "Hygiène de vie", span: "" },
-  { src: images.therapyBW, label: "Pratique", span: "" }
+  { src: images.teachingAlt, label: "En formation", span: "lg:col-span-2 lg:row-span-2" },
+  { src: images.sessionWide2, label: "Séance Sujok", span: "" },
+  { src: images.homeo1, label: "Homéopathie", span: "" },
+  { src: images.sujokBall, label: "Pratique", span: "" },
+  { src: images.sessionWide1, label: "Accompagnement", span: "" }
 ];
 
 export default function Home() {
@@ -151,7 +151,7 @@ export default function Home() {
             </div>
             <div className="mt-10 flex items-center gap-5 text-sm text-muted">
               <div className="flex -space-x-2">
-                {[images.eucalyptus, images.spaStill, images.healthyBowl].map((src) => (
+                {[images.participant1, images.participant2, images.participant3].map((src) => (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
                     key={src}
@@ -173,8 +173,8 @@ export default function Home() {
             <div className="img-zoom relative w-full max-w-sm overflow-hidden rounded-[2.5rem] border border-white/60 shadow-lift">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={images.eucalyptus}
-                alt="Approche naturelle et botanique"
+                src={images.heroPortrait}
+                alt="Dr Noureddine Boulaguiem en séance"
                 className="aspect-[4/5] w-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-forest-900/30 to-transparent" />
@@ -311,7 +311,7 @@ export default function Home() {
             <div className="img-zoom relative overflow-hidden rounded-4xl shadow-lift">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={images.seminar}
+                src={images.teaching}
                 alt="Une formation en cours"
                 className="aspect-[4/3] w-full object-cover"
               />
@@ -355,19 +355,14 @@ export default function Home() {
           <Reveal>
             <div className="overflow-hidden rounded-5xl border border-forest-900/8 bg-white/80 shadow-soft">
               <div className="grid gap-0 md:grid-cols-[0.8fr_1.2fr]">
-                <div className="relative flex min-h-[18rem] items-center justify-center bg-forest-radial p-10">
-                  <div className="glow-warm absolute inset-0 opacity-40" />
-                  <div className="relative flex flex-col items-center text-center">
-                    <span className="flex h-28 w-28 items-center justify-center rounded-full bg-cream/10 font-display text-4xl font-semibold text-cream ring-1 ring-cream/20">
-                      NB
-                    </span>
-                    <p className="mt-5 font-display text-lg font-medium text-cream">
-                      Dr N. Boulaguiem
-                    </p>
-                    <p className="mt-1 text-xs text-cream/60">
-                      Photo à venir
-                    </p>
-                  </div>
+                <div className="img-zoom relative min-h-[18rem] overflow-hidden">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={images.portrait}
+                    alt="Dr Noureddine Boulaguiem"
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-forest-900/30 to-transparent" />
                 </div>
                 <div className="p-8 sm:p-10 lg:p-12">
                   <p className="eyebrow">

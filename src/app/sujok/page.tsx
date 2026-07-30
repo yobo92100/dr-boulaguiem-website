@@ -40,7 +40,7 @@ export default function SujokPage() {
             <div className="img-zoom relative overflow-hidden rounded-5xl shadow-lift">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={images.hotStone}
+                src={images.sujokSession}
                 alt="Démonstration de Sujok"
                 className="aspect-[4/5] w-full object-cover"
               />
@@ -114,6 +114,46 @@ export default function SujokPage() {
                   M'inscrire en Sujok
                 </WhatsAppButton>
               </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Pedagogical: reflexology map */}
+      <section className="py-20 sm:py-24">
+        <div className="container-x grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+          <Reveal>
+            <div>
+              <p className="eyebrow">
+                <span className="rule-gold" aria-hidden="true" />
+                Le principe
+              </p>
+              <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+                Une cartographie du corps
+              </h2>
+              <p className="mt-6 text-base leading-8 text-muted">
+                Le Sujok repose sur l'idée de zones de correspondance : certaines
+                régions des mains et des pieds sont associées, point par point, aux
+                différentes parties du corps.
+              </p>
+              <p className="mt-4 text-base leading-8 text-muted">
+                La formation apprend à repérer et à comprendre ces repères, dans
+                une démarche d'observation et de pratique — toujours en complément
+                d'un accompagnement de santé classique.
+              </p>
+            </div>
+          </Reveal>
+          <Reveal delay={100}>
+            <div className="rounded-5xl border border-forest-900/8 bg-white p-8 shadow-soft sm:p-10">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={images.sujokDiagram}
+                alt="Carte de réflexologie du pied en Sujok"
+                className="mx-auto max-h-[26rem] w-auto object-contain"
+              />
+              <p className="mt-6 text-center text-xs text-muted">
+                Exemple de zones de correspondance (schéma pédagogique).
+              </p>
             </div>
           </Reveal>
         </div>

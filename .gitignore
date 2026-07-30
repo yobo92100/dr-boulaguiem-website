@@ -12,3 +12,6 @@ dev-server.err
 tsconfig.tsbuildinfo
 .vercel/
 .DS_Store
+
+# heavy image originals (optimized copies live in public/images)
+raw-images/

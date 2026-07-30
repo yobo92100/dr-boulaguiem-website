@@ -1,35 +1,34 @@
 /**
- * Curated stock imagery (Unsplash) used across the site as premium placeholders.
+ * Site imagery — served from /public/images.
  *
- * To swap in the real photos of Dr Boulaguiem and the trainings, replace the
- * URLs below with your own image paths (e.g. "/images/portrait.jpg" placed in
- * the /public folder). Every image on the site flows from this single file.
+ * DRAFT placeholders (AI-generated portraits of Dr Boulaguiem + thematic shots).
+ * To change a photo: drop a new file in public/images/ and update the path below.
+ * Everything on the site flows from this single file.
  */
 
-const unsplash = (id: string, w = 1200) =>
-  `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=80`;
-
 export const images = {
-  // Pharmacy / natural remedies
-  supplements: unsplash("1512069772995-ec65ed45afd6", 1000), // gold & blue capsules macro
-  pillsFlat: unsplash("1631549916768-4119b2e5f926", 1000), // blister packs flat-lay
+  // Dr Boulaguiem
+  heroPortrait: "/images/hero.jpg", // hero — smiling, Sujok session, plants
+  portrait: "/images/apropos.jpg", // head-and-shoulders portrait (À propos)
+  teaching: "/images/lamethode.jpg", // teaching with microphone (landscape)
+  teachingAlt: "/images/seminaire.jpg", // teaching, portrait orientation
+  sujokSession: "/images/sujok-session.jpg", // focused Sujok session (portrait)
+  sessionWide1: "/images/consult2.jpg", // examining wrist (wide)
+  sessionWide2: "/images/consult3.jpg", // Sujok with a participant (wide)
 
-  // Botanical
-  eucalyptus: unsplash("1466781783364-36c955e42a7f", 1100), // eucalyptus in glass vase
-  veggies: unsplash("1610348725531-843dff563e2c", 1100), // fresh produce around board
-  healthyBowl: unsplash("1490645935967-10de6ba17061", 1100), // nourishing bowl on wood
-  soil: unsplash("1416879595882-3373a0480b5b", 1000), // earthy soil & scoop
+  // Homéopathie (thematic)
+  homeo1: "/images/homeo1.jpg", // pellet jar + blossoms (soft pink)
+  homeo2: "/images/homeo2.jpg", // apothecary bottles + wildflowers (warm)
 
-  // Therapy / hands-on (Sujok)
-  hotStone: unsplash("1600334129128-685c5582fd35", 1100), // hands-on stone therapy
-  therapyBW: unsplash("1591343395082-e120087004b4", 1100), // outdoor therapy, black & white
+  // Sujok (thematic)
+  sujokRing: "/images/sujok-ring.jpg", // Sujok spring ring on a finger
+  sujokBall: "/images/sujok-ball.jpg", // spiky Sujok ball on a foot
+  sujokDiagram: "/images/sujok-diagram.png", // reflexology foot map (illustration)
 
-  // Wellness / balance
-  yoga: unsplash("1519494026892-80bbd2d6fd0d", 1300), // yoga silhouette at sunset
-  spaStill: unsplash("1540555700478-4be289fbecef", 1100), // spa still life
-
-  // Teaching
-  seminar: unsplash("1524178232363-1fb2b075b655", 1300) // training seminar room
+  // Participant avatars (hero trust row)
+  participant1: "/images/participant1.jpg",
+  participant2: "/images/participant2.jpg",
+  participant3: "/images/participant3.jpg"
 };
 
 export type ImageKey = keyof typeof images;

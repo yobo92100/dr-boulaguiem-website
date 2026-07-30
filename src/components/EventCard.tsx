@@ -9,10 +9,10 @@ type EventCardProps = {
 
 function imageForEvent(event: EventItem) {
   const title = event.title.toLowerCase();
-  if (title.includes("sujok")) return images.hotStone;
+  if (title.includes("sujok")) return images.sujokRing;
   if (title.includes("accompagnement") || title.includes("responsable"))
-    return images.veggies;
-  return images.healthyBowl;
+    return images.homeo2;
+  return images.homeo1;
 }
 
 export function EventCard({ event }: EventCardProps) {

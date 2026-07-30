@@ -40,17 +40,14 @@ export default function AboutPage() {
         <div className="container-x relative grid gap-12 py-16 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:py-24">
           <Reveal>
             <div className="relative mx-auto w-full max-w-sm">
-              <div className="relative flex aspect-[4/5] items-center justify-center overflow-hidden rounded-[2.5rem] bg-forest-radial shadow-lift">
-                <div className="glow-warm absolute inset-0 opacity-40" />
-                <div className="relative flex flex-col items-center text-center">
-                  <span className="flex h-32 w-32 items-center justify-center rounded-full bg-cream/10 font-display text-5xl font-semibold text-cream ring-1 ring-cream/20">
-                    NB
-                  </span>
-                  <p className="mt-6 font-display text-xl font-medium text-cream">
-                    Dr N. Boulaguiem
-                  </p>
-                  <p className="mt-1 text-xs text-cream/60">Photo à venir</p>
-                </div>
+              <div className="img-zoom relative aspect-[4/5] overflow-hidden rounded-[2.5rem] shadow-lift">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={images.portrait}
+                  alt="Dr Noureddine Boulaguiem"
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-forest-900/25 to-transparent" />
               </div>
               <div className="absolute -bottom-5 left-1/2 flex -translate-x-1/2 items-center gap-2 rounded-full border border-forest-900/8 bg-cream/95 px-4 py-2.5 shadow-lift backdrop-blur">
                 <LeafIcon className="h-4 w-4 text-forest-600" />
@@ -143,7 +140,7 @@ export default function AboutPage() {
             <div className="relative overflow-hidden rounded-5xl shadow-lift">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={images.seminar}
+                src={images.teaching}
                 alt="Une formation animée par Dr Boulaguiem"
                 className="h-full w-full object-cover"
               />
