@@ -8,8 +8,8 @@ const learningPoints = [
   "Les principes fondamentaux de l'homéopathie",
   "Un vocabulaire clair et structuré",
   "Des cas pratiques et des exemples concrets",
-  "Le cadre d'usage et les limites à respecter",
-  "La complémentarité avec le suivi médical classique"
+  "Les remèdes essentiels et leurs indications",
+  "Comment intégrer l'homéopathie dans votre pratique quotidienne"
 ];
 
 export default function HomeopathiePage() {

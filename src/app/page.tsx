@@ -130,7 +130,7 @@ export default function Home() {
               Docteur en pharmacie · Formateur certifié
             </p>
             <h1 className="mt-6 max-w-2xl font-display text-[2.75rem] font-semibold leading-[1.02] tracking-tightest text-ink sm:text-6xl lg:text-[4.25rem]">
-              Des formations médicales en{" "}
+              Des formations complètes en{" "}
               <span className="italic text-forest-700">homéopathie</span> &{" "}
               <span className="italic text-forest-700">Sujok</span>.
             </h1>
@@ -378,12 +378,11 @@ export default function Home() {
                   <p className="mt-6 text-base leading-8 text-muted">
                     Pharmacien de formation, il accompagne depuis plus de 15 ans
                     des professionnels de santé et des apprenants à travers le
-                    Maroc. Ses formations ne font pas de promesses médicales —
-                    elles donnent des repères solides, des outils pratiques et une
-                    posture professionnelle.
+                    Maroc. Ses formations donnent des repères solides, des outils
+                    pratiques et une posture professionnelle.
                   </p>
                   <div className="mt-7 flex flex-wrap gap-2.5">
-                    {["Pharmacie clinique", "Homéopathie", "Sujok", "Pédagogie médicale"].map(
+                    {["Pharmacie clinique", "Homéopathie", "Sujok", "Formation continue"].map(
                       (tag) => (
                         <span
                           key={tag}
