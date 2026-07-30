@@ -55,14 +55,12 @@ export default function SujokPage() {
               </h2>
               <p className="mt-6 text-base leading-8 text-muted">
                 Les sessions Sujok permettent de découvrir les principes, les
-                repères pratiques et les conditions d'un usage prudent. La
-                formation transmet une méthode d'observation et de compréhension,
-                sans promesse de résultat.
+                repères pratiques et une méthode d'observation et de
+                compréhension, pour un usage concret au quotidien.
               </p>
               <p className="mt-4 text-base leading-8 text-muted">
-                Cette approche ne remplace pas l'avis d'un médecin, un diagnostic
-                ou un traitement. Elle est abordée dans un cadre pédagogique, en
-                complément d'un accompagnement de santé responsable.
+                Elle est abordée dans un cadre pédagogique, en complément d'un
+                accompagnement de santé classique.
               </p>
               <Button href="/formations" className="mt-8">
                 Voir les formations

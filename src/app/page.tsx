@@ -27,7 +27,7 @@ const stats = [
   { value: "Docteur", label: "en pharmacie" },
   { value: "+15 ans", label: "d'expérience terrain" },
   { value: "+500", label: "élèves formés au Maroc" },
-  { value: "3 villes", label: "Casablanca · Rabat · Marrakech" }
+  { value: "Partout", label: "à travers le Maroc" }
 ];
 
 const disciplines = [
@@ -55,8 +55,8 @@ const pillars = [
   },
   {
     icon: CertificateIcon,
-    title: "Cadre responsable",
-    text: "Une approche complémentaire, sans promesse médicale, qui respecte les limites et le suivi de santé classique."
+    title: "Complémentarité",
+    text: "Une approche complémentaire qui respecte les limites et le suivi de santé classique."
   },
   {
     icon: HandIcon,
@@ -139,8 +139,8 @@ export default function Home() {
             </p>
             <p className="mt-6 max-w-xl text-base leading-8 text-muted sm:text-lg">
               Animées par un pharmacien fort de 15 ans de terrain. Pour les
-              professionnels de santé comme pour les apprenants sérieux — à
-              Casablanca, Rabat et Marrakech.
+              professionnels de santé comme pour les apprenants sérieux —
+              partout à travers le Maroc.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <WhatsAppButton message={homeMessage}>Réserver une place</WhatsAppButton>
@@ -228,7 +228,7 @@ export default function Home() {
                 align="left"
                 eyebrow="Prochaines sessions"
                 title="Inscrivez-vous — places limitées"
-                text="Des formations organisées dans plusieurs villes du Maroc, en petits groupes pour un vrai suivi."
+                text="Des formations organisées à travers tout le Maroc, en petits groupes pour un vrai suivi."
               />
               <Link
                 href="/formations"
@@ -264,7 +264,7 @@ export default function Home() {
             <SectionTitle
               eyebrow="Les disciplines"
               title="Deux approches, une même exigence"
-              text="Enseignées avec méthode et prudence, comme des compléments à étudier — jamais comme des substituts au suivi médical."
+              text="Enseignées avec méthode et rigueur, comme des approches complémentaires qui s'intègrent naturellement à un parcours de santé."
             />
           </Reveal>
 

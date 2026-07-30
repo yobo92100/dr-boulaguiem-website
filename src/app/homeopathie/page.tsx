@@ -27,9 +27,8 @@ export default function HomeopathiePage() {
               Comprendre l'homéopathie dans un cadre pédagogique
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-              Une approche complémentaire à étudier avec méthode, prudence et sens
-              des responsabilités — pour les professionnels comme pour les
-              curieux.
+              Une approche complémentaire à étudier avec méthode et rigueur —
+              pour les professionnels de santé comme pour les curieux.
             </p>
           </Reveal>
         </div>
@@ -49,9 +48,8 @@ export default function HomeopathiePage() {
                 l'accompagnement et les limites à respecter.
               </p>
               <p className="mt-4 text-base leading-8 text-muted">
-                Les formations ne remplacent pas une consultation médicale, un
-                diagnostic ou un traitement prescrit. Elles s'inscrivent dans une
-                démarche d'éducation et de complémentarité.
+                Elles s'inscrivent dans une démarche d'éducation et de
+                complémentarité, aux côtés du suivi de santé classique.
               </p>
               <Button href="/formations" className="mt-8">
                 Voir les formations

@@ -5,7 +5,7 @@ import { CalendarIcon, MapPinIcon, CertificateIcon } from "@/components/Icons";
 import { events } from "@/data/events";
 
 const infoItems = [
-  { icon: MapPinIcon, text: "Casablanca, Rabat, Marrakech et autres villes" },
+  { icon: MapPinIcon, text: "Partout à travers le Maroc" },
   { icon: CalendarIcon, text: "Sessions régulières, en petits groupes" },
   { icon: CertificateIcon, text: "Attestation de participation remise" }
 ];
@@ -25,8 +25,8 @@ export default function FormationsPage() {
               Prochaines formations au Maroc
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-              Des formations sont régulièrement organisées dans plusieurs villes
-              du Maroc. Les places étant limitées, il est recommandé de s'inscrire
+              Des formations sont régulièrement organisées à travers tout le
+              Maroc. Les places étant limitées, il est recommandé de s'inscrire
               à l'avance pour garantir sa participation.
             </p>
           </Reveal>

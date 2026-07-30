@@ -60,13 +60,13 @@ export default function ContactPage() {
             </div>
             <div className="p-8">
               <p className="leading-7 text-muted">
-                Formations en homéopathie & Sujok au Maroc : Casablanca, Rabat,
-                Marrakech et autres villes selon le calendrier.
+                Formations en homéopathie & Sujok organisées à travers tout le
+                Maroc, selon le calendrier des sessions.
               </p>
               <div className="mt-6 space-y-3 text-sm text-forest-800">
                 <p className="flex items-center gap-2.5">
                   <MapPinIcon className="h-4 w-4 text-forest-600" />
-                  Casablanca · Rabat · Marrakech
+                  Partout à travers le Maroc
                 </p>
                 <p className="flex items-center gap-2.5">
                   <ClockIcon className="h-4 w-4 text-forest-600" />

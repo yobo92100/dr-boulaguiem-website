@@ -46,7 +46,7 @@ export function Footer() {
             </p>
             <p className="mt-5 inline-flex items-center gap-2 text-sm text-cream/70">
               <MapPinIcon className="h-4 w-4 text-gold-light" />
-              Casablanca · Rabat · Marrakech
+              Partout à travers le Maroc
             </p>
           </div>
 
@@ -97,8 +97,8 @@ export function Footer() {
             réservés.
           </p>
           <p className="max-w-md">
-            Les formations ont une vocation pédagogique et ne remplacent pas un
-            avis médical.
+            Formations à vocation pédagogique, en complément d'un suivi de santé
+            classique.
           </p>
         </div>
       </div>

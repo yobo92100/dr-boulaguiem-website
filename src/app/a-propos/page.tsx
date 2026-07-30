@@ -17,8 +17,8 @@ const values = [
   },
   {
     icon: CertificateIcon,
-    title: "Responsabilité",
-    text: "Aucune promesse médicale : un cadre complémentaire, jamais un substitut au soin."
+    title: "Complémentarité",
+    text: "Une approche complémentaire qui respecte les limites et le suivi de santé classique."
   },
   {
     icon: HandIcon,
@@ -114,7 +114,7 @@ export default function AboutPage() {
                 Sa démarche
               </p>
               <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-                Des principes avant des promesses
+                Ce qui guide ses formations
               </h2>
             </div>
           </Reveal>
