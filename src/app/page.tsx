@@ -41,7 +41,7 @@ const disciplines = [
   {
     name: "Sujok",
     href: "/sujok",
-    image: images.sujokSession,
+    image: images.sujokBall,
     icon: HandIcon,
     text: "Une initiation pratique aux techniques de base et à leur usage prudent au quotidien. Accessible sans prérequis médical."
   }
@@ -113,7 +113,7 @@ const galleryImages = [
   { src: images.teachingAlt, label: "En formation", span: "lg:col-span-2 lg:row-span-2" },
   { src: images.sessionWide2, label: "Séance Sujok", span: "" },
   { src: images.homeo1, label: "Homéopathie", span: "" },
-  { src: images.sujokBall, label: "Pratique", span: "" },
+  { src: images.sujokSession, label: "Pratique", span: "" },
   { src: images.sessionWide1, label: "Accompagnement", span: "" }
 ];
 

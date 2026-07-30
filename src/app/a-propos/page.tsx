@@ -1,6 +1,6 @@
 import { Reveal } from "@/components/Reveal";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-import { LeafIcon, HandIcon, CertificateIcon, SparkIcon } from "@/components/Icons";
+import { LeafIcon, HandIcon, CertificateIcon, SparkIcon, QuoteIcon } from "@/components/Icons";
 import { images } from "@/config/images";
 
 const stats = [
@@ -133,8 +133,31 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* CTA with image */}
+      {/* Personal quote */}
       <section className="py-20 sm:py-24">
+        <div className="container-x">
+          <Reveal>
+            <figure className="relative mx-auto max-w-3xl overflow-hidden rounded-5xl bg-forest-radial px-6 py-14 text-center shadow-lift sm:px-14 sm:py-20">
+              <div className="glow-warm pointer-events-none absolute inset-0 opacity-50" />
+              <div className="relative">
+                <QuoteIcon className="mx-auto h-10 w-10 text-gold-light" />
+                <blockquote className="mt-6 font-display text-2xl font-medium italic leading-[1.5] text-cream sm:text-[1.75rem]">
+                  Je crois personnellement que Dieu a placé tout ce qui est
+                  nécessaire dans le corps pour qu'il guérisse. Tout ce que nous
+                  avons à faire est de toucher les chemins énergétiques en nous et
+                  de stimuler le processus de guérison.
+                </blockquote>
+                <figcaption className="mt-8 text-sm font-medium tracking-wide text-gold-light">
+                  Dr Noureddine Boulaguiem
+                </figcaption>
+              </div>
+            </figure>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* CTA with image */}
+      <section className="pb-20 sm:pb-24">
         <div className="container-x">
           <Reveal>
             <div className="relative overflow-hidden rounded-5xl shadow-lift">
