@@ -140,6 +140,27 @@ export function StarIcon({ className = "h-4 w-4" }: IconProps) {
   );
 }
 
+export function MonitorIcon({ className = "h-5 w-5" }: IconProps) {
+  return base(
+    <>
+      <rect x="3" y="4" width="18" height="12.5" rx="2" />
+      <path d="M8 20.5h8M12 16.5v4" />
+    </>,
+    className
+  );
+}
+
+export function UsersIcon({ className = "h-5 w-5" }: IconProps) {
+  return base(
+    <>
+      <path d="M16 20v-1.5a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4V20" />
+      <circle cx="9" cy="7" r="3.2" />
+      <path d="M22 20v-1.5a4 4 0 0 0-3-3.87M16 3.6a4 4 0 0 1 0 7.75" />
+    </>,
+    className
+  );
+}
+
 export function MenuIcon({ className = "h-6 w-6" }: IconProps) {
   return base(<path d="M4 7h16M4 12h16M4 17h16" />, className);
 }

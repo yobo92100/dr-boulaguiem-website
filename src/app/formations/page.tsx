@@ -1,12 +1,12 @@
-import { EventCard } from "@/components/EventCard";
+import { FormatCard } from "@/components/FormatCard";
 import { Reveal } from "@/components/Reveal";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-import { CalendarIcon, MapPinIcon, CertificateIcon } from "@/components/Icons";
-import { events } from "@/data/events";
+import { CalendarIcon, MapPinIcon, MonitorIcon, CertificateIcon } from "@/components/Icons";
+import { formats } from "@/data/formats";
 
 const infoItems = [
-  { icon: MapPinIcon, text: "Partout à travers le Maroc" },
-  { icon: CalendarIcon, text: "Sessions régulières, en petits groupes" },
+  { icon: MapPinIcon, text: "Présentiel : Rabat & Casablanca, le week-end" },
+  { icon: MonitorIcon, text: "En ligne : en semaine, en soirée" },
   { icon: CertificateIcon, text: "Attestation de participation remise" }
 ];
 
@@ -22,12 +22,12 @@ export default function FormationsPage() {
               Formations
             </p>
             <h1 className="mt-5 max-w-3xl font-display text-4xl font-semibold leading-[1.05] tracking-tight text-ink sm:text-5xl lg:text-6xl">
-              Prochaines formations au Maroc
+              Se former en Sujok & Homéopathie
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-              Des formations sont régulièrement organisées à travers tout le
-              Maroc. Les places étant limitées, il est recommandé de s'inscrire
-              à l'avance pour garantir sa participation.
+              Deux formats pour apprendre à votre rythme : en présentiel le
+              week-end à Rabat et Casablanca, ou en ligne en soirée depuis
+              n'importe où au Maroc.
             </p>
           </Reveal>
           <Reveal delay={80}>
@@ -48,10 +48,17 @@ export default function FormationsPage() {
 
       <section className="py-16 sm:py-20">
         <div className="container-x">
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {events.map((event, i) => (
-              <Reveal key={`${event.title}-${event.city}`} delay={(i % 3) * 100}>
-                <EventCard event={event} />
+          <Reveal>
+            <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-clay/20 bg-clay-50 px-4 py-2 text-[13px] font-medium text-clay-dark">
+              <CalendarIcon className="h-4 w-4" />
+              Prochaines dates bientôt annoncées — inscrivez-vous pour être informé(e) en priorité.
+            </div>
+          </Reveal>
+
+          <div className="grid gap-6 md:grid-cols-2">
+            {formats.map((format, i) => (
+              <Reveal key={format.key} delay={i * 100}>
+                <FormatCard format={format} />
               </Reveal>
             ))}
           </div>
@@ -59,14 +66,14 @@ export default function FormationsPage() {
           <Reveal>
             <div className="mt-16 flex flex-col items-center gap-5 rounded-5xl border border-forest-900/8 bg-sand/60 px-6 py-12 text-center">
               <h2 className="max-w-xl font-display text-2xl font-semibold text-ink sm:text-3xl">
-                Vous ne trouvez pas la date qui vous convient ?
+                Envie de participer à une prochaine session ?
               </h2>
               <p className="max-w-lg text-sm leading-7 text-muted">
-                Écrivez-nous sur WhatsApp pour connaître les prochaines sessions
-                ou organiser une formation dans votre ville.
+                Écrivez-nous sur WhatsApp pour être prévenu(e) dès l'ouverture des
+                inscriptions, en présentiel comme en ligne.
               </p>
-              <WhatsAppButton message="Bonjour Dr Boulaguiem, je souhaite connaître les prochaines dates de formation.">
-                Demander les prochaines dates
+              <WhatsAppButton message="Bonjour Dr Boulaguiem, je souhaite être informé(e) des prochaines dates de formation (présentiel ou en ligne).">
+                Être informé des prochaines dates
               </WhatsAppButton>
             </div>
           </Reveal>

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/Button";
-import { EventCard } from "@/components/EventCard";
+import { FormatCard } from "@/components/FormatCard";
 import { Reveal } from "@/components/Reveal";
 import { SectionTitle } from "@/components/SectionTitle";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
@@ -18,7 +18,7 @@ import {
 } from "@/components/Icons";
 import { images } from "@/config/images";
 import { siteConfig } from "@/config/site";
-import { events } from "@/data/events";
+import { formats } from "@/data/formats";
 
 const homeMessage =
   "Bonjour Dr Boulaguiem, je souhaite réserver une place pour une formation en homéopathie ou Sujok au Maroc.";
@@ -219,22 +219,22 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ---------- UPCOMING FORMATIONS ---------- */}
+      {/* ---------- FORMATIONS (FORMATS) ---------- */}
       <section id="formations" className="scroll-mt-24 py-20 sm:py-28">
         <div className="container-x">
           <Reveal>
             <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
               <SectionTitle
                 align="left"
-                eyebrow="Prochaines sessions"
-                title="Inscrivez-vous — places limitées"
-                text="Des formations organisées à travers tout le Maroc, en petits groupes pour un vrai suivi."
+                eyebrow="Les formations"
+                title="En présentiel ou en ligne"
+                text="Des sessions de Sujok et d'Homéopathie adaptées à votre emploi du temps — le week-end sur place, ou en soirée à distance."
               />
               <Link
                 href="/formations"
                 className="group inline-flex shrink-0 items-center gap-2 text-sm font-medium text-forest-700"
               >
-                Toutes les dates
+                En savoir plus
                 <ArrowRightIcon className="h-4 w-4 transition group-hover:translate-x-1" />
               </Link>
             </div>
@@ -243,14 +243,14 @@ export default function Home() {
           <Reveal delay={80}>
             <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-clay/20 bg-clay-50 px-4 py-2 text-[13px] font-medium text-clay-dark">
               <CalendarIcon className="h-4 w-4" />
-              Prochaine session : 18 mai à Casablanca — il reste 5 places.
+              Prochaines dates bientôt annoncées — inscrivez-vous pour être informé(e) en priorité.
             </div>
           </Reveal>
 
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {events.slice(0, 3).map((event, i) => (
-              <Reveal key={`${event.title}-${event.city}`} delay={i * 100}>
-                <EventCard event={event} />
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
+            {formats.map((format, i) => (
+              <Reveal key={format.key} delay={i * 100}>
+                <FormatCard format={format} />
               </Reveal>
             ))}
           </div>
@@ -516,7 +516,7 @@ export default function Home() {
             <div className="relative">
               <p className="eyebrow !text-gold-light">
                 <span className="rule-gold" aria-hidden="true" />
-                Places limitées
+                Présentiel & en ligne
               </p>
               <h2 className="mx-auto mt-5 max-w-2xl font-display text-3xl font-semibold leading-tight text-cream sm:text-5xl">
                 Prêt à réserver votre place ?
