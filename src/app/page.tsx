@@ -219,52 +219,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ---------- FORMATIONS (FORMATS) ---------- */}
-      <section id="formations" className="scroll-mt-24 py-20 sm:py-28">
-        <div className="container-x">
-          <Reveal>
-            <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-              <SectionTitle
-                align="left"
-                eyebrow="Les formations"
-                title="En présentiel ou en ligne"
-                text="Des sessions de Sujok et d'Homéopathie adaptées à votre emploi du temps — le week-end sur place, ou en soirée à distance."
-              />
-              <Link
-                href="/formations"
-                className="group inline-flex shrink-0 items-center gap-2 text-sm font-medium text-forest-700"
-              >
-                En savoir plus
-                <ArrowRightIcon className="h-4 w-4 transition group-hover:translate-x-1" />
-              </Link>
-            </div>
-          </Reveal>
-
-          <Reveal delay={80}>
-            <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-clay/20 bg-clay-50 px-4 py-2 text-[13px] font-medium text-clay-dark">
-              <CalendarIcon className="h-4 w-4" />
-              Prochaines dates bientôt annoncées — inscrivez-vous pour être informé(e) en priorité.
-            </div>
-          </Reveal>
-
-          <div className="mt-10 grid gap-6 md:grid-cols-2">
-            {formats.map((format, i) => (
-              <Reveal key={format.key} delay={i * 100}>
-                <FormatCard format={format} />
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ---------- DISCIPLINES ---------- */}
-      <section className="relative overflow-hidden bg-sand/60 py-20 sm:py-28">
+      <section className="relative overflow-hidden py-20 sm:py-28">
         <div className="container-x">
           <Reveal>
             <SectionTitle
               eyebrow="Les disciplines"
-              title="Deux approches, une même exigence"
-              text="Enseignées avec méthode et rigueur, comme des approches complémentaires qui s'intègrent naturellement à un parcours de santé."
+              title="Deux formations, une même exigence"
+              text="Homéopathie et Sujok, enseignées séparément avec méthode et rigueur — deux cursus distincts que vous pouvez suivre selon vos envies."
             />
           </Reveal>
 
@@ -298,6 +260,44 @@ export default function Home() {
                     </span>
                   </div>
                 </Link>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ---------- FORMATIONS (FORMATS) ---------- */}
+      <section id="formations" className="scroll-mt-24 bg-sand/60 py-20 sm:py-28">
+        <div className="container-x">
+          <Reveal>
+            <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+              <SectionTitle
+                align="left"
+                eyebrow="Les formats"
+                title="En présentiel ou en ligne"
+                text="Que vous choisissiez l'Homéopathie ou le Sujok — deux formations distinctes — chacune est proposée en présentiel ou en ligne, selon votre emploi du temps."
+              />
+              <Link
+                href="/formations"
+                className="group inline-flex shrink-0 items-center gap-2 text-sm font-medium text-forest-700"
+              >
+                En savoir plus
+                <ArrowRightIcon className="h-4 w-4 transition group-hover:translate-x-1" />
+              </Link>
+            </div>
+          </Reveal>
+
+          <Reveal delay={80}>
+            <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-clay/20 bg-clay-50 px-4 py-2 text-[13px] font-medium text-clay-dark">
+              <CalendarIcon className="h-4 w-4" />
+              Prochaines dates bientôt annoncées — inscrivez-vous pour être informé(e) en priorité.
+            </div>
+          </Reveal>
+
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
+            {formats.map((format, i) => (
+              <Reveal key={format.key} delay={i * 100}>
+                <FormatCard format={format} />
               </Reveal>
             ))}
           </div>

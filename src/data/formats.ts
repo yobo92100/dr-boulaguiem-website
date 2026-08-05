@@ -1,11 +1,8 @@
-import { images } from "@/config/images";
-
 export type FormatItem = {
   key: "presentiel" | "enligne";
   name: string;
   icon: "presentiel" | "enligne";
   tagline: string; // lieu / rythme
-  image: string;
   points: string[];
   whatsappMessage: string;
 };
@@ -16,11 +13,10 @@ export const formats: FormatItem[] = [
     name: "En présentiel",
     icon: "presentiel",
     tagline: "Rabat & Casablanca · le week-end",
-    image: images.teaching,
     points: [
-      "Sessions de Sujok et d'Homéopathie",
-      "En petits groupes, pour un vrai suivi",
-      "Pratique et échanges en direct"
+      "Pratique guidée et manipulations en direct",
+      "Échanges en face à face avec le formateur",
+      "Groupe restreint, pour un suivi personnalisé"
     ],
     whatsappMessage:
       "Bonjour Dr Boulaguiem, je souhaite être informé(e) des prochaines formations en présentiel (Rabat / Casablanca, le week-end)."
@@ -29,12 +25,11 @@ export const formats: FormatItem[] = [
     key: "enligne",
     name: "En ligne",
     icon: "enligne",
-    tagline: "En semaine, en soirée · partout au Maroc",
-    image: images.sujokSession,
+    tagline: "En soirée, en semaine · depuis chez vous",
     points: [
-      "Sessions de Sujok et d'Homéopathie",
-      "Depuis chez vous, où que vous soyez",
-      "Un suivi interactif à distance"
+      "Sessions interactives en visioconférence",
+      "Aucun déplacement, où que vous soyez",
+      "Questions et échanges en direct avec le formateur"
     ],
     whatsappMessage:
       "Bonjour Dr Boulaguiem, je souhaite être informé(e) des prochaines formations en ligne (en soirée, en semaine)."

@@ -10,35 +10,30 @@ export function FormatCard({ format }: FormatCardProps) {
   const Icon = format.icon === "presentiel" ? MapPinIcon : MonitorIcon;
 
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-4xl border border-forest-900/8 bg-white/80 shadow-soft backdrop-blur transition-all duration-500 hover:-translate-y-1 hover:shadow-lift">
-      <div className="img-zoom relative aspect-[16/9] overflow-hidden">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={format.image}
-          alt=""
-          loading="lazy"
-          className="h-full w-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-forest-900/55 via-forest-900/10 to-transparent" />
-        <span className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-cream/90 px-3 py-1 text-[11px] font-semibold text-forest-800 shadow-soft backdrop-blur">
-          <Icon className="h-3.5 w-3.5 text-forest-600" />
-          {format.icon === "presentiel" ? "Présentiel" : "En ligne"}
-        </span>
+    <article className="group flex h-full flex-col overflow-hidden rounded-4xl border border-forest-900/8 bg-white shadow-soft transition-all duration-500 hover:-translate-y-1 hover:shadow-lift">
+      <div className="relative overflow-hidden bg-forest-radial px-7 py-8">
+        <div className="glow-warm pointer-events-none absolute inset-0 opacity-50" />
+        <div className="relative">
+          <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-cream/12 text-cream ring-1 ring-cream/20">
+            <Icon className="h-6 w-6" />
+          </span>
+          <h3 className="mt-5 font-display text-2xl font-semibold text-cream">
+            {format.name}
+          </h3>
+          <p className="mt-1.5 text-sm font-medium text-gold-light">
+            {format.tagline}
+          </p>
+        </div>
       </div>
 
       <div className="flex flex-1 flex-col p-7">
-        <h3 className="font-display text-2xl font-semibold tracking-tight text-ink">
-          {format.name}
-        </h3>
-        <p className="mt-2 text-sm font-medium text-forest-700">{format.tagline}</p>
-
-        <ul className="mt-5 flex-1 space-y-3">
+        <ul className="flex-1 space-y-3.5">
           {format.points.map((point) => (
             <li key={point} className="flex items-start gap-3">
               <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-forest-700/10 text-forest-700">
                 <CheckIcon className="h-3 w-3" />
               </span>
-              <span className="text-sm leading-6 text-muted">{point}</span>
+              <span className="text-sm leading-6 text-ink/80">{point}</span>
             </li>
           ))}
         </ul>

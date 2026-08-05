@@ -25,9 +25,9 @@ export default function FormationsPage() {
               Se former en Sujok & Homéopathie
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-              Deux formats pour apprendre à votre rythme : en présentiel le
-              week-end à Rabat et Casablanca, ou en ligne en soirée depuis
-              n'importe où au Maroc.
+              Deux formations distinctes — Homéopathie et Sujok — chacune
+              proposée en deux formats : en présentiel le week-end à Rabat et
+              Casablanca, ou en ligne en soirée, partout au Maroc.
             </p>
           </Reveal>
           <Reveal delay={80}>
