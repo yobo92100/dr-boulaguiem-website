@@ -100,7 +100,7 @@ const faqItems = [
   {
     question: "Reçoit-on une attestation à la fin ?",
     answer:
-      "Oui, une attestation de participation est remise à la fin de chaque journée de formation."
+      "Oui, une attestation de participation est remise à la fin de chaque formation."
   },
   {
     question: "Comment réserver une place ?",
@@ -226,7 +226,7 @@ export default function Home() {
             <SectionTitle
               eyebrow="Les disciplines"
               title="Deux formations, une même exigence"
-              text="Homéopathie et Sujok, enseignées séparément avec méthode et rigueur — deux cursus distincts que vous pouvez suivre selon vos envies."
+              text="Enseignées avec méthode et rigueur, deux formations que vous pouvez suivre selon vos envies."
             />
           </Reveal>
 
@@ -275,7 +275,7 @@ export default function Home() {
                 align="left"
                 eyebrow="Les formats"
                 title="En présentiel ou en ligne"
-                text="Que vous choisissiez l'Homéopathie ou le Sujok — deux formations distinctes — chacune est proposée en présentiel ou en ligne, selon votre emploi du temps."
+                text="Chaque formation est proposée en présentiel ou en ligne, selon votre emploi du temps."
               />
               <Link
                 href="/formations"
