@@ -7,7 +7,11 @@ export type SujokLevel = {
   modules: string[];
 };
 
-export const sujokProgrammePdf = "/programme-formation-sujok.pdf";
+export const sujokProgrammePdf = "/programme-formation-sujok-dr-boulaguiem.pdf";
+
+/** Filename shown to the visitor when the PDF is saved. */
+export const sujokProgrammePdfName =
+  "Programme-Formation-Sujok-Dr-Boulaguiem.pdf";
 
 export const sujokLevels: SujokLevel[] = [
   {

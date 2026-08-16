@@ -12,7 +12,11 @@ import {
   SeedIcon
 } from "@/components/Icons";
 import { images } from "@/config/images";
-import { sujokLevels, sujokProgrammePdf } from "@/data/sujok-programme";
+import {
+  sujokLevels,
+  sujokProgrammePdf,
+  sujokProgrammePdfName
+} from "@/data/sujok-programme";
 
 const techniques = [
   {
@@ -294,8 +298,7 @@ export default function SujokPage() {
               </div>
               <a
                 href={sujokProgrammePdf}
-                target="_blank"
-                rel="noreferrer"
+                download={sujokProgrammePdfName}
                 className="mt-5 inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-forest-800 px-5 py-2.5 text-sm font-medium text-cream transition hover:-translate-y-0.5 sm:mt-0 sm:shrink-0"
               >
                 <DownloadIcon className="h-4 w-4" />
