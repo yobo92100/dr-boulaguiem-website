@@ -2,6 +2,7 @@ import Link from "next/link";
 import { WhatsAppIcon, MapPinIcon } from "@/components/Icons";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 import { siteConfig } from "@/config/site";
+import { socialLinks } from "@/config/social";
 
 const footerMessage =
   "Bonjour Dr Boulaguiem, je souhaite connaître les prochaines dates de formation.";
@@ -48,6 +49,21 @@ export function Footer() {
               <MapPinIcon className="h-4 w-4 text-gold-light" />
               Partout à travers le Maroc
             </p>
+            <ul className="mt-6 flex items-center gap-3">
+              {socialLinks.map((social) => (
+                <li key={social.label}>
+                  <a
+                    href={social.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={social.label}
+                    className="flex h-10 w-10 items-center justify-center rounded-full bg-cream/10 text-cream/85 ring-1 ring-cream/20 transition hover:-translate-y-0.5 hover:bg-cream hover:text-forest-800"
+                  >
+                    <social.icon className="h-[18px] w-[18px]" />
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
 
           {columns.map((col) => (

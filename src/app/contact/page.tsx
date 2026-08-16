@@ -2,6 +2,7 @@ import { Reveal } from "@/components/Reveal";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { WhatsAppIcon, MapPinIcon, ClockIcon, CheckIcon } from "@/components/Icons";
 import { siteConfig } from "@/config/site";
+import { socialLinks } from "@/config/social";
 
 const contactMessage =
   "Bonjour Dr Boulaguiem, je souhaite connaître les prochaines dates de formation et réserver une place.";
@@ -76,6 +77,25 @@ export default function ContactPage() {
               <WhatsAppButton message={contactMessage} className="mt-8 w-full">
                 S'inscrire via WhatsApp
               </WhatsAppButton>
+
+              <div className="mt-8 border-t border-forest-900/8 pt-6">
+                <p className="text-sm text-muted">Suivre le Dr Boulaguiem</p>
+                <ul className="mt-4 flex items-center gap-3">
+                  {socialLinks.map((social) => (
+                    <li key={social.label}>
+                      <a
+                        href={social.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={social.label}
+                        className="flex h-11 w-11 items-center justify-center rounded-full border border-forest-900/10 bg-white text-forest-700 transition hover:-translate-y-0.5 hover:bg-forest-700 hover:text-cream"
+                      >
+                        <social.icon className="h-[18px] w-[18px]" />
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </Reveal>
