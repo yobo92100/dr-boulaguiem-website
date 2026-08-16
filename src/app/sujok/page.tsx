@@ -6,7 +6,7 @@ import {
   ArrowRightIcon,
   CheckIcon,
   ChevronDownIcon,
-  ExternalLinkIcon,
+  DownloadIcon,
   HandIcon,
   NeedleIcon,
   SeedIcon
@@ -289,18 +289,15 @@ export default function SujokPage() {
                   Le programme détaillé
                 </p>
                 <p className="mt-1 text-sm leading-7 text-muted">
-                  Le contenu de chaque module, dans le détail. À consulter ou à
-                  enregistrer.
+                  Le contenu de chaque module, dans le détail.
                 </p>
               </div>
               <a
                 href={sujokProgrammePdf}
-                target="_blank"
-                rel="noreferrer"
                 className="mt-5 inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-forest-800 px-5 py-2.5 text-sm font-medium text-cream transition hover:-translate-y-0.5 sm:mt-0 sm:shrink-0"
               >
-                <ExternalLinkIcon className="h-4 w-4" />
-                Consulter le programme
+                <DownloadIcon className="h-4 w-4" />
+                Télécharger le PDF
               </a>
             </div>
           </Reveal>
