@@ -127,12 +127,12 @@ export function SeedIcon({ className = "h-5 w-5" }: IconProps) {
   );
 }
 
-export function DownloadIcon({ className = "h-4 w-4" }: IconProps) {
+export function ExternalLinkIcon({ className = "h-4 w-4" }: IconProps) {
   return base(
     <>
-      <path d="M12 3v12" />
-      <path d="m7.5 10.5 4.5 4.5 4.5-4.5" />
-      <path d="M4 20h16" />
+      <path d="M14 4h6v6" />
+      <path d="M20 4 11 13" />
+      <path d="M18 14.5V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4.5" />
     </>,
     className
   );

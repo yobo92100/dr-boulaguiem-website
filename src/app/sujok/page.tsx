@@ -6,17 +6,13 @@ import {
   ArrowRightIcon,
   CheckIcon,
   ChevronDownIcon,
-  DownloadIcon,
+  ExternalLinkIcon,
   HandIcon,
   NeedleIcon,
   SeedIcon
 } from "@/components/Icons";
 import { images } from "@/config/images";
-import {
-  sujokLevels,
-  sujokProgrammePdf,
-  sujokProgrammePdfName
-} from "@/data/sujok-programme";
+import { sujokLevels, sujokProgrammePdf } from "@/data/sujok-programme";
 
 const techniques = [
   {
@@ -293,16 +289,18 @@ export default function SujokPage() {
                   Le programme détaillé
                 </p>
                 <p className="mt-1 text-sm leading-7 text-muted">
-                  Le contenu de chaque module, dans le détail.
+                  Le contenu de chaque module, dans le détail. À consulter ou à
+                  enregistrer.
                 </p>
               </div>
               <a
                 href={sujokProgrammePdf}
-                download={sujokProgrammePdfName}
+                target="_blank"
+                rel="noreferrer"
                 className="mt-5 inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-forest-800 px-5 py-2.5 text-sm font-medium text-cream transition hover:-translate-y-0.5 sm:mt-0 sm:shrink-0"
               >
-                <DownloadIcon className="h-4 w-4" />
-                Télécharger le PDF
+                <ExternalLinkIcon className="h-4 w-4" />
+                Consulter le programme
               </a>
             </div>
           </Reveal>

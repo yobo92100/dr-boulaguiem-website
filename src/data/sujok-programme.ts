@@ -9,10 +9,6 @@ export type SujokLevel = {
 
 export const sujokProgrammePdf = "/programme-formation-sujok-dr-boulaguiem.pdf";
 
-/** Filename shown to the visitor when the PDF is saved. */
-export const sujokProgrammePdfName =
-  "Programme-Formation-Sujok-Dr-Boulaguiem.pdf";
-
 export const sujokLevels: SujokLevel[] = [
   {
     key: "niveau-1",
