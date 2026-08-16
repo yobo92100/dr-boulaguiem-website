@@ -5,11 +5,14 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 import {
   ArrowRightIcon,
   CheckIcon,
+  ChevronDownIcon,
+  DownloadIcon,
   HandIcon,
   NeedleIcon,
   SeedIcon
 } from "@/components/Icons";
 import { images } from "@/config/images";
+import { sujokLevels, sujokProgrammePdf } from "@/data/sujok-programme";
 
 const techniques = [
   {
@@ -221,6 +224,85 @@ export default function SujokPage() {
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Full programme, three levels */}
+      <section id="programme" className="py-20 sm:py-24">
+        <div className="container-x">
+          <Reveal>
+            <SectionTitle
+              eyebrow="Le programme"
+              title="Un parcours en trois niveaux"
+              text="La formation se déroule en trois niveaux successifs, chacun composé de six modules. On avance pas à pas, des bases jusqu'à l'approche la plus complète."
+            />
+          </Reveal>
+
+          <div className="mx-auto mt-14 max-w-3xl space-y-4">
+            {sujokLevels.map((level, i) => (
+              <Reveal key={level.key} delay={i * 80}>
+                <details
+                  className="group overflow-hidden rounded-4xl border border-forest-900/8 bg-white shadow-soft"
+                  open={i === 0}
+                >
+                  <summary className="flex cursor-pointer list-none items-center gap-5 p-6 marker:hidden sm:p-8">
+                    <span className="min-w-0 flex-1">
+                      <span className="block text-xs font-semibold uppercase tracking-[0.18em] text-forest-600">
+                        {level.label}
+                      </span>
+                      <span className="mt-1.5 block font-display text-xl font-semibold text-ink sm:text-2xl">
+                        {level.name}
+                      </span>
+                      <span className="mt-1.5 block text-sm text-muted">
+                        {level.tagline}
+                      </span>
+                    </span>
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-forest-900/15 text-forest-700 transition group-open:rotate-180">
+                      <ChevronDownIcon className="h-4 w-4" />
+                    </span>
+                  </summary>
+
+                  <div className="border-t border-forest-900/8 px-6 pb-8 pt-6 sm:px-8">
+                    <p className="text-sm leading-7 text-muted">{level.intro}</p>
+                    <ol className="mt-6 space-y-3">
+                      {level.modules.map((module, m) => (
+                        <li key={module} className="flex items-start gap-4">
+                          <span className="mt-px w-6 shrink-0 font-display text-sm font-semibold tabular-nums text-forest-600">
+                            {String(m + 1).padStart(2, "0")}
+                          </span>
+                          <span className="text-base leading-7 text-ink/90">
+                            {module}
+                          </span>
+                        </li>
+                      ))}
+                    </ol>
+                  </div>
+                </details>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal delay={240}>
+            <div className="mx-auto mt-10 max-w-3xl rounded-4xl border border-forest-900/8 bg-sand/60 p-6 sm:flex sm:items-center sm:justify-between sm:gap-6 sm:p-8">
+              <div>
+                <p className="font-display text-lg font-medium text-ink">
+                  Le programme détaillé
+                </p>
+                <p className="mt-1 text-sm leading-7 text-muted">
+                  Le contenu de chaque module, dans le détail.
+                </p>
+              </div>
+              <a
+                href={sujokProgrammePdf}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-5 inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-forest-800 px-5 py-2.5 text-sm font-medium text-cream transition hover:-translate-y-0.5 sm:mt-0 sm:shrink-0"
+              >
+                <DownloadIcon className="h-4 w-4" />
+                Télécharger le PDF
+              </a>
+            </div>
+          </Reveal>
         </div>
       </section>
     </>

@@ -127,6 +127,21 @@ export function SeedIcon({ className = "h-5 w-5" }: IconProps) {
   );
 }
 
+export function DownloadIcon({ className = "h-4 w-4" }: IconProps) {
+  return base(
+    <>
+      <path d="M12 3v12" />
+      <path d="m7.5 10.5 4.5 4.5 4.5-4.5" />
+      <path d="M4 20h16" />
+    </>,
+    className
+  );
+}
+
+export function ChevronDownIcon({ className = "h-5 w-5" }: IconProps) {
+  return base(<path d="m6 9 6 6 6-6" />, className);
+}
+
 export function CertificateIcon({ className = "h-5 w-5" }: IconProps) {
   return base(
     <>
