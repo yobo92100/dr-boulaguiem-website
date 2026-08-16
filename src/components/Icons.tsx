@@ -80,6 +80,29 @@ export function HandIcon({ className = "h-5 w-5" }: IconProps) {
   );
 }
 
+export function NeedleIcon({ className = "h-5 w-5" }: IconProps) {
+  return base(
+    <>
+      <path d="m3 21 6-6" />
+      <path d="M9 15 20 4" />
+      <path d="M16.5 4.5 19.5 7.5" />
+      <path d="M18.2 2.8a2.5 2.5 0 0 1 3 3l-1.5 1.7-3.2-3.2 1.7-1.5Z" />
+    </>,
+    className
+  );
+}
+
+export function SeedIcon({ className = "h-5 w-5" }: IconProps) {
+  return base(
+    <>
+      <ellipse cx="8" cy="8.5" rx="2.6" ry="3.6" transform="rotate(-38 8 8.5)" />
+      <ellipse cx="16" cy="10" rx="2.6" ry="3.6" transform="rotate(38 16 10)" />
+      <ellipse cx="12" cy="16.5" rx="2.6" ry="3.6" transform="rotate(-8 12 16.5)" />
+    </>,
+    className
+  );
+}
+
 export function CertificateIcon({ className = "h-5 w-5" }: IconProps) {
   return base(
     <>

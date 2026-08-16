@@ -13,6 +13,7 @@ export const images = {
   teaching: "/images/lamethode.jpg", // teaching with microphone (landscape)
   teachingAlt: "/images/seminaire.jpg", // teaching, portrait orientation
   sujokSession: "/images/sujok-session.jpg", // focused Sujok session (portrait)
+  sujokSession2: "/images/sujok-session2.jpg", // stimulating a point on the hand (portrait)
   sessionWide1: "/images/consult2.jpg", // examining wrist (wide)
   sessionWide2: "/images/consult3.jpg", // Sujok with a participant (wide)
 

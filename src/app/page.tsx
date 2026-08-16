@@ -34,7 +34,7 @@ const disciplines = [
   {
     name: "Homéopathie",
     href: "/homeopathie",
-    image: images.homeo2,
+    image: images.homeo1,
     icon: LeafIcon,
     text: "Une découverte progressive des principes fondamentaux à travers des cas concrets, un vocabulaire clair et un cadre d'usage responsable."
   },
@@ -43,7 +43,7 @@ const disciplines = [
     href: "/sujok",
     image: images.sujokBall,
     icon: HandIcon,
-    text: "Une initiation pratique aux techniques de base et à leur usage prudent au quotidien. Accessible sans prérequis médical."
+    text: "Apprenez à soulager la douleur et les tensions du quotidien par la stimulation de points précis des mains et des pieds. Accessible sans prérequis médical."
   }
 ];
 

@@ -98,8 +98,9 @@ export default function HomeopathiePage() {
           <Reveal delay={100}>
             <div className="rounded-5xl border border-forest-900/8 bg-white/80 p-8 shadow-soft sm:p-10">
               <p className="font-display text-xl italic leading-8 text-ink/90">
-                « L'homéopathie s'apprend avec rigueur. Mon rôle est de donner un
-                cadre clair, pas des certitudes. »
+                « Ce que je transmets, ce n'est pas une liste de remèdes, c'est
+                une manière de raisonner. Une fois les principes acquis, chaque
+                remède trouve naturellement sa place. »
               </p>
               <p className="mt-6 text-sm font-medium text-forest-700">
                 Dr Noureddine Boulaguiem
