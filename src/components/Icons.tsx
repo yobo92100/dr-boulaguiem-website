@@ -92,36 +92,69 @@ export function SparkIcon({ className = "h-5 w-5" }: IconProps) {
   );
 }
 
+/**
+ * Open palm, fingers up, thumb swinging out to the left — one continuous
+ * outline, so it scales cleanly and follows the surrounding text colour.
+ */
 export function HandIcon({ className = "h-5 w-5" }: IconProps) {
   return base(
     <>
-      <path d="M18 11V6a2 2 0 0 0-2-2 2 2 0 0 0-2 2" />
-      <path d="M14 10V4a2 2 0 0 0-2-2 2 2 0 0 0-2 2v2" />
-      <path d="M10 10.5V6a2 2 0 0 0-2-2 2 2 0 0 0-2 2v8" />
-      <path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15" />
+      {/* the three inner fingers */}
+      <path d="M11.1 10.6V2.9a1.6 1.6 0 0 1 3.2 0v7.7" />
+      <path d="M14.3 10.6V4a1.6 1.6 0 0 1 3.2 0v6.6" />
+      {/* index down the left side, thumb, palm, and up the right side */}
+      <path d="M7.9 13.6V4.4a1.6 1.6 0 0 1 3.2 0v6.2" />
+      <path d="M7.9 13.6 6.2 11.3a1.7 1.7 0 0 0-2.8 1.9l3.3 5.7A7.3 7.3 0 0 0 13 22.5h1.3a6.3 6.3 0 0 0 6.3-6.3V6.1a1.6 1.6 0 0 0-3.2 0v4.5" />
     </>,
     className
   );
 }
 
+/**
+ * Three acupuncture needles set into the skin, each with its looped handle —
+ * splayed slightly apart, the way they actually sit.
+ */
 export function NeedleIcon({ className = "h-5 w-5" }: IconProps) {
   return base(
     <>
-      <path d="m3 21 6-6" />
-      <path d="M9 15 20 4" />
-      <path d="M16.5 4.5 19.5 7.5" />
-      <path d="M18.2 2.8a2.5 2.5 0 0 1 3 3l-1.5 1.7-3.2-3.2 1.7-1.5Z" />
+      {/* left needle, leaning out */}
+      <circle cx="5.6" cy="4.2" r="1.5" />
+      <path d="m5.9 5.7 1.5 11.5" />
+      {/* centre needle, upright */}
+      <circle cx="12" cy="3.6" r="1.5" />
+      <path d="M12 5.1v12.2" />
+      {/* right needle, leaning out */}
+      <circle cx="18.4" cy="4.2" r="1.5" />
+      <path d="m18.1 5.7-1.5 11.5" />
+      {/* the skin they enter */}
+      <path d="M3.2 19.8c2.9-1.5 5.8-2.2 8.8-2.2s5.9.7 8.8 2.2" />
     </>,
     className
   );
 }
 
+/**
+ * Three seeds arranged in a triangle, each pointed at both ends with its own
+ * inner vein — the shape used for the gentlest Sujok technique.
+ */
 export function SeedIcon({ className = "h-5 w-5" }: IconProps) {
   return base(
     <>
-      <ellipse cx="8" cy="8.5" rx="2.6" ry="3.6" transform="rotate(-38 8 8.5)" />
-      <ellipse cx="16" cy="10" rx="2.6" ry="3.6" transform="rotate(38 16 10)" />
-      <ellipse cx="12" cy="16.5" rx="2.6" ry="3.6" transform="rotate(-8 12 16.5)" />
+      {/* top-left seed, tilted up to the right */}
+      <g transform="rotate(-42 8.4 7.4)">
+        <path d="M8.4 1.9c2.7 2.1 2.7 8.9 0 11-2.7-2.1-2.7-8.9 0-11Z" />
+        <path d="M8.4 4.2c-.9 1.9-.9 4.9 0 6.8" />
+      </g>
+      {/* right seed, tilted down to the right */}
+      <g transform="rotate(38 16.4 14.2)">
+        <path d="M16.4 8.7c2.7 2.1 2.7 8.9 0 11-2.7-2.1-2.7-8.9 0-11Z" />
+        <path d="M16.4 11c-.9 1.9-.9 4.9 0 6.8" />
+      </g>
+      {/* bottom-left seed */}
+      <g transform="rotate(-12 7.6 16.6)">
+        <path d="M7.6 11.1c2.7 2.1 2.7 8.9 0 11-2.7-2.1-2.7-8.9 0-11Z" />
+        <path d="M7.6 13.4c-.9 1.9-.9 4.9 0 6.8" />
+      </g>
     </>,
     className
   );
@@ -140,6 +173,15 @@ export function DownloadIcon({ className = "h-4 w-4" }: IconProps) {
 
 export function ChevronDownIcon({ className = "h-5 w-5" }: IconProps) {
   return base(<path d="m6 9 6 6 6-6" />, className);
+}
+
+/** Solid triangle — reads better than a stroked one at small sizes. */
+export function PlayIcon({ className = "h-5 w-5" }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden>
+      <path d="M8 5.14v13.72a1 1 0 0 0 1.52.85l11.14-6.86a1 1 0 0 0 0-1.7L9.52 4.29A1 1 0 0 0 8 5.14Z" />
+    </svg>
+  );
 }
 
 export function CertificateIcon({ className = "h-5 w-5" }: IconProps) {

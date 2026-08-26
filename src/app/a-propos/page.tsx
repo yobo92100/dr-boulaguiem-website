@@ -164,7 +164,7 @@ export default function AboutPage() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={images.teaching}
-                alt="Une formation animée par Dr Boulaguiem"
+                alt="Le Dr Boulaguiem lors d'une formation"
                 className="h-full w-full object-cover"
               />
               <div className="absolute inset-0 bg-forest-900/70" />
