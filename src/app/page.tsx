@@ -114,9 +114,9 @@ const faqItems = [
       "Oui. Une attestation de participation est remise à la fin de la formation."
   },
   {
-    question: "Comment réserver ?",
+    question: "Comment connaître les dates et réserver ?",
     answer:
-      "Contactez-nous directement via WhatsApp pour connaître les prochaines dates et vérifier les disponibilités."
+      "Contactez-nous directement via WhatsApp pour recevoir les prochaines dates, lieux et disponibilités."
   }
 ];
 
