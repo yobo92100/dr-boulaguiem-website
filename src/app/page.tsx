@@ -11,7 +11,7 @@ import {
   CertificateIcon,
   HandIcon,
   LeafIcon,
-  MapPinIcon,
+  PhoneIcon,
   QuoteIcon,
   SparkIcon,
   StarIcon,
@@ -74,24 +74,49 @@ const pillars = [
 
 const faqItems = [
   {
-    question: "Faut-il un diplôme médical pour participer ?",
+    question: "Faut-il être professionnel de santé pour participer ?",
     answer:
-      "Non. Les formations s'adressent aussi bien aux professionnels de santé qu'au grand public. Le niveau est adapté à chaque groupe."
+      "Non. La formation est ouverte aux professionnels de santé comme au grand public."
+  },
+  {
+    question: "Peut-on participer sans connaître le Sujok ?",
+    answer:
+      "Oui. Aucun prérequis n'est nécessaire. L'apprentissage commence par les bases."
+  },
+  {
+    question: "Que vais-je apprendre durant la formation du Sujok ?",
+    answer:
+      "À repérer les zones de correspondance du corps sur les mains et les pieds et à utiliser les principales techniques de stimulation Sujok."
+  },
+  {
+    question: "La formation comprend-elle de la pratique ?",
+    answer:
+      "Oui. Les explications théoriques sont accompagnées de démonstrations et d'exercices pratiques."
+  },
+  {
+    question: "Peut-on pratiquer après la formation ?",
+    answer:
+      "Oui. Les techniques de base enseignées sont conçues pour être facilement comprises et mises en pratique."
+  },
+  {
+    question: "Le matériel Sujok est-il présenté pendant la formation ?",
+    answer:
+      "Oui. Vous découvrirez notamment les stylets, graines, aimants, moxa et différents outils utilisés en Sujok."
   },
   {
     question: "Combien coûte une formation ?",
     answer:
-      "Les tarifs varient selon la durée et la ville. Contactez-nous via WhatsApp pour recevoir les informations précises."
+      "En présentiel, 600 Dh par module (10 modules au total), ou 5 000 Dh pour les 10 modules avec facilités de paiement. En ligne, 400 Dh par mois, payable par trimestre. Le détail complet est sur la page Formations."
   },
   {
-    question: "Reçoit-on une attestation à la fin ?",
+    question: "Reçoit-on une attestation ?",
     answer:
-      "Oui, une attestation de participation est remise à la fin de chaque formation."
+      "Oui. Une attestation de participation est remise à la fin de la formation."
   },
   {
-    question: "Comment réserver une place ?",
+    question: "Comment réserver ?",
     answer:
-      "La réservation se fait directement via WhatsApp. Vous pouvez demander les prochaines dates et vérifier les places disponibles."
+      "Contactez-nous directement via WhatsApp pour connaître les prochaines dates et vérifier les disponibilités."
   }
 ];
 
@@ -117,7 +142,7 @@ export default function Home() {
             </p>
             <p className="mt-6 max-w-xl text-base leading-8 text-muted sm:text-lg">
               Animées par un pharmacien fort de 15 ans de terrain. Pour les
-              professionnels de santé comme pour les apprenants sérieux —
+              professionnels de santé comme pour les apprenants sérieux,
               partout à travers le Maroc.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
@@ -238,44 +263,6 @@ export default function Home() {
                     </span>
                   </div>
                 </Link>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ---------- FORMATIONS (FORMATS) ---------- */}
-      <section id="formations" className="scroll-mt-24 bg-sand/60 py-20 sm:py-28">
-        <div className="container-x">
-          <Reveal>
-            <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-              <SectionTitle
-                align="left"
-                eyebrow="Les formats"
-                title="En présentiel ou en ligne"
-                text="Chaque formation est proposée en présentiel ou en ligne, selon votre emploi du temps."
-              />
-              <Link
-                href="/formations"
-                className="group inline-flex shrink-0 items-center gap-2 text-sm font-medium text-forest-700"
-              >
-                En savoir plus
-                <ArrowRightIcon className="h-4 w-4 transition group-hover:translate-x-1" />
-              </Link>
-            </div>
-          </Reveal>
-
-          <Reveal delay={80}>
-            <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-clay/20 bg-clay-50 px-4 py-2 text-[13px] font-medium text-clay-dark">
-              <CalendarIcon className="h-4 w-4" />
-              Prochaines dates bientôt annoncées — inscrivez-vous pour être informé(e) en priorité.
-            </div>
-          </Reveal>
-
-          <div className="mt-10 grid gap-6 md:grid-cols-2">
-            {formats.map((format, i) => (
-              <Reveal key={format.key} delay={i * 100}>
-                <FormatCard format={format} />
               </Reveal>
             ))}
           </div>
@@ -492,27 +479,56 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ---------- FAQ ---------- */}
-      <section className="py-20 sm:py-28">
-        <div className="container-x grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+      {/* ---------- FORMATIONS (FORMATS) ---------- */}
+      <section id="formations" className="scroll-mt-24 bg-sand/60 py-20 sm:py-28">
+        <div className="container-x">
           <Reveal>
-            <div className="lg:sticky lg:top-28">
+            <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
               <SectionTitle
                 align="left"
-                eyebrow="Questions fréquentes"
-                title="Tout ce qu'il faut savoir avant de vous inscrire"
-                text="Une autre question ? Écrivez directement sur WhatsApp, la réponse est rapide."
+                eyebrow="Les formats"
+                title="En présentiel ou en ligne"
+                text="Chaque formation est proposée en présentiel ou en ligne, selon votre emploi du temps."
               />
-              <WhatsAppButton
-                message="Bonjour Dr Boulaguiem, j'ai une question à propos des formations."
-                className="mt-8"
+              <Link
+                href="/formations"
+                className="group inline-flex shrink-0 items-center gap-2 text-sm font-medium text-forest-700"
               >
-                Poser une question
-              </WhatsAppButton>
+                En savoir plus
+                <ArrowRightIcon className="h-4 w-4 transition group-hover:translate-x-1" />
+              </Link>
             </div>
           </Reveal>
+
           <Reveal delay={80}>
-            <div className="divide-y divide-forest-900/8 rounded-4xl border border-forest-900/8 bg-white/70 px-6 shadow-soft sm:px-8">
+            <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-clay/20 bg-clay-50 px-4 py-2 text-[13px] font-medium text-clay-dark">
+              <CalendarIcon className="h-4 w-4" />
+              Prochaines dates bientôt annoncées — inscrivez-vous pour être informé(e) en priorité.
+            </div>
+          </Reveal>
+
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
+            {formats.map((format, i) => (
+              <Reveal key={format.key} delay={i * 100}>
+                <FormatCard format={format} />
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ---------- FAQ ---------- */}
+      <section className="py-20 sm:py-28">
+        <div className="container-x mx-auto max-w-3xl">
+          <Reveal>
+            <SectionTitle
+              align="center"
+              eyebrow="Questions fréquentes"
+              title="Tout ce qu'il faut savoir avant de vous inscrire"
+            />
+          </Reveal>
+          <Reveal delay={80}>
+            <div className="mt-12 divide-y divide-forest-900/8 rounded-4xl border border-forest-900/8 bg-white/70 px-6 shadow-soft sm:px-8">
               {faqItems.map((item) => (
                 <details key={item.question} className="group py-5">
                   <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-lg font-medium text-ink marker:hidden">
@@ -524,6 +540,17 @@ export default function Home() {
                   <p className="mt-3 text-sm leading-7 text-muted">{item.answer}</p>
                 </details>
               ))}
+            </div>
+          </Reveal>
+          <Reveal delay={120}>
+            <div className="mt-10 flex flex-col items-center gap-4 text-center">
+              <p className="text-base text-muted">
+                Une autre question ? Écrivez directement sur WhatsApp, la
+                réponse est rapide.
+              </p>
+              <WhatsAppButton message="Bonjour Dr Boulaguiem, j'ai une question à propos des formations.">
+                Poser une question
+              </WhatsAppButton>
             </div>
           </Reveal>
         </div>
@@ -557,7 +584,7 @@ export default function Home() {
                   S'inscrire via WhatsApp
                 </a>
                 <span className="inline-flex items-center gap-2 text-sm text-cream/70">
-                  <MapPinIcon className="h-4 w-4 text-gold-light" />
+                  <PhoneIcon className="h-4 w-4 text-gold-light" />
                   {siteConfig.whatsappDisplay}
                 </span>
               </div>

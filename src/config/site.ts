@@ -3,7 +3,7 @@ export const siteConfig = {
   secondaryName: "Sujok Maroc / Sujok Homeo",
   whatsappDisplay: "+212 6 61 44 14 63",
   whatsappNumber: "212661441463",
-  email: "",
+  email: "boulag92@gmail.com",
   location: "Maroc",
   social: {
     facebook: "https://www.facebook.com/drnoureddineboulaguiem/",

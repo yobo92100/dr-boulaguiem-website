@@ -34,10 +34,21 @@ export function FormatCard({ format }: FormatCardProps) {
 
       <div className="flex flex-1 flex-col p-7">
         <div className="border-b border-forest-900/8 pb-5">
-          <span className="font-display text-2xl font-semibold text-ink">
-            {format.price}
-          </span>
-          <p className="mt-1 text-[13px] text-muted">{format.priceDetail}</p>
+          <p className="flex flex-wrap items-baseline gap-x-2.5 gap-y-1">
+            {format.prices.map((price, i) => (
+              <span key={price} className="flex items-baseline gap-2.5">
+                {i > 0 && (
+                  <span className="text-sm font-medium text-forest-500">
+                    ou
+                  </span>
+                )}
+                <span className="font-display text-2xl font-semibold text-ink">
+                  {price}
+                </span>
+              </span>
+            ))}
+          </p>
+          <p className="mt-1.5 text-[13px] text-muted">{format.priceDetail}</p>
           <p className="mt-2.5 inline-flex items-center gap-1.5 text-[13px] text-muted">
             <CalendarIcon className="h-4 w-4 text-forest-600" />
             {format.duration}

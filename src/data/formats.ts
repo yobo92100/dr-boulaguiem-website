@@ -3,8 +3,8 @@ export type FormatItem = {
   name: string;
   icon: "presentiel" | "enligne";
   tagline: string; // lieu / rythme
-  price: string; // prix affiché en avant, grand format
-  priceDetail: string; // précision sous le prix
+  prices: string[]; // une ou plusieurs formules, affichées côte à côte
+  priceDetail: string; // les modalités de paiement des formules ci-dessus
   duration: string; // rythme et volume horaire
   points: string[];
   whatsappMessage: string;
@@ -16,9 +16,9 @@ export const formats: FormatItem[] = [
     name: "En présentiel",
     icon: "presentiel",
     tagline: "Rabat & Casablanca · le week-end",
-    price: "600 Dh / module",
-    priceDetail: "payable par module, à raison d'un par mois",
-    duration: "10 modules · une journée de 8h chacun",
+    prices: ["600 Dh / module", "5 000 Dh / 10 modules"],
+    priceDetail: "Payable par module, ou les 10 modules avec facilités",
+    duration: "10 modules · 1 module par mois · une journée de 8h chacun",
     points: [
       "Pratique guidée et manipulations en direct",
       "Échanges en face à face avec le formateur",
@@ -32,8 +32,8 @@ export const formats: FormatItem[] = [
     name: "En ligne",
     icon: "enligne",
     tagline: "En soirée, en semaine · depuis chez vous",
-    price: "400 Dh / mois",
-    priceDetail: "payable par trimestre, soit 1 200 Dh (24h)",
+    prices: ["400 Dh / mois"],
+    priceDetail: "Payable par trimestre, soit 1 200 Dh (24h)",
     duration: "2h par semaine, en soirée",
     points: [
       "Sessions interactives en visioconférence",

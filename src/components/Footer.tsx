@@ -13,6 +13,7 @@ const columns = [
     links: [
       { href: "/formations", label: "Formations" },
       { href: "/a-propos", label: "À propos" },
+      { href: "/#temoignages", label: "Témoignages" },
       { href: "/contact", label: "Contact" }
     ]
   },

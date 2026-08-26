@@ -204,6 +204,23 @@ export function MapPinIcon({ className = "h-4 w-4" }: IconProps) {
   );
 }
 
+export function PhoneIcon({ className = "h-4 w-4" }: IconProps) {
+  return base(
+    <path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1.05-.24c1.15.38 2.4.59 3.65.59a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.4 21 3 13.6 3 4.5a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.5.59 3.65a1 1 0 0 1-.25 1.05L6.6 10.8Z" />,
+    className
+  );
+}
+
+export function MailIcon({ className = "h-4 w-4" }: IconProps) {
+  return base(
+    <>
+      <rect x="3" y="5" width="18" height="14" rx="2.5" />
+      <path d="m4 6.5 8 6.5 8-6.5" />
+    </>,
+    className
+  );
+}
+
 export function CalendarIcon({ className = "h-4 w-4" }: IconProps) {
   return base(
     <>
