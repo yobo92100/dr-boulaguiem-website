@@ -10,6 +10,7 @@ const navItems = [
   { href: "/homeopathie", label: "Homéopathie" },
   { href: "/sujok", label: "Sujok" },
   { href: "/a-propos", label: "À propos" },
+  { href: "/#temoignages", label: "Témoignages" },
   { href: "/contact", label: "Contact" }
 ];
 

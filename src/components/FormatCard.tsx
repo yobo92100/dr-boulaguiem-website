@@ -1,5 +1,11 @@
 import type { FormatItem } from "@/data/formats";
-import { WhatsAppIcon, CheckIcon, MapPinIcon, MonitorIcon } from "@/components/Icons";
+import {
+  WhatsAppIcon,
+  CheckIcon,
+  MapPinIcon,
+  MonitorIcon,
+  CalendarIcon
+} from "@/components/Icons";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 type FormatCardProps = {
@@ -27,7 +33,18 @@ export function FormatCard({ format }: FormatCardProps) {
       </div>
 
       <div className="flex flex-1 flex-col p-7">
-        <ul className="flex-1 space-y-3.5">
+        <div className="border-b border-forest-900/8 pb-5">
+          <span className="font-display text-2xl font-semibold text-ink">
+            {format.price}
+          </span>
+          <p className="mt-1 text-[13px] text-muted">{format.priceDetail}</p>
+          <p className="mt-2.5 inline-flex items-center gap-1.5 text-[13px] text-muted">
+            <CalendarIcon className="h-4 w-4 text-forest-600" />
+            {format.duration}
+          </p>
+        </div>
+
+        <ul className="flex-1 space-y-3.5 pt-5">
           {format.points.map((point) => (
             <li key={point} className="flex items-start gap-3">
               <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-forest-700/10 text-forest-700">

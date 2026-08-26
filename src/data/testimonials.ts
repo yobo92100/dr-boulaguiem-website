@@ -109,7 +109,7 @@ export const shortTestimonials: ShortTestimonial[] = [
   {
     key: "camelia",
     quote:
-      "Le jour de mon premier cours, un point m'a suffi à faire passer un mal de tête qui m'aurait fait rentrer chez moi. J'ai compris ce jour-là que ce n'était pas seulement une chose à apprendre, mais un outil à utiliser.",
+      "Le jour de mon premier cours, j'avais un mal de tête à devoir rentrer chez moi. Un point, quelques secondes, et la douleur avait disparu. J'ai compris ce jour-là que je ne recevais pas seulement un cours, mais un outil pour la vie.",
     author: "Camélia",
     role: "Étudiante en naturopathie · DESS en agroalimentaire"
   },
@@ -125,6 +125,6 @@ export const shortTestimonials: ShortTestimonial[] = [
     quote:
       "Au-delà de son professionnalisme, le Dr Boulaguiem est un homme très humain, très généreux, toujours dans le partage.",
     author: "Rabia El Cohen",
-    role: "Professeure de physique à l'université"
+    role: "Professeure universitaire de physique"
   }
 ];

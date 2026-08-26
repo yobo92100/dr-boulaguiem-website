@@ -1,13 +1,42 @@
+import Link from "next/link";
 import { FormatCard } from "@/components/FormatCard";
 import { Reveal } from "@/components/Reveal";
+import { SectionTitle } from "@/components/SectionTitle";
+import { VideoTestimonial } from "@/components/VideoTestimonial";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-import { CalendarIcon, MapPinIcon, MonitorIcon, CertificateIcon } from "@/components/Icons";
+import {
+  ArrowRightIcon,
+  CalendarIcon,
+  HandIcon,
+  LeafIcon,
+  MapPinIcon,
+  MonitorIcon,
+  CertificateIcon,
+  QuoteIcon,
+  StarIcon
+} from "@/components/Icons";
 import { formats } from "@/data/formats";
+import { courseClips, shortTestimonials } from "@/data/testimonials";
 
 const infoItems = [
   { icon: MapPinIcon, text: "Présentiel : Rabat & Casablanca, le week-end" },
   { icon: MonitorIcon, text: "En ligne : en semaine, en soirée" },
   { icon: CertificateIcon, text: "Attestation de participation remise" }
+];
+
+const disciplines = [
+  {
+    href: "/homeopathie",
+    icon: LeafIcon,
+    name: "Homéopathie",
+    text: "Les principes, les familles de remèdes et leur usage raisonné au quotidien."
+  },
+  {
+    href: "/sujok",
+    icon: HandIcon,
+    name: "Sujok",
+    text: "La cartographie main/pied et un programme complet en trois niveaux."
+  }
 ];
 
 export default function FormationsPage() {
@@ -49,7 +78,7 @@ export default function FormationsPage() {
       <section className="py-16 sm:py-20">
         <div className="container-x">
           <Reveal>
-            <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-clay/20 bg-clay-50 px-4 py-2 text-[13px] font-medium text-clay-dark">
+            <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-forest-900/10 bg-sand/60 px-4 py-2 text-[13px] font-medium text-forest-800">
               <CalendarIcon className="h-4 w-4" />
               Prochaines dates bientôt annoncées — inscrivez-vous pour être informé(e) en priorité.
             </div>
@@ -62,6 +91,86 @@ export default function FormationsPage() {
               </Reveal>
             ))}
           </div>
+
+          <Reveal>
+            <div className="mt-16 grid gap-6 md:grid-cols-2">
+              {disciplines.map((d) => (
+                <Link
+                  key={d.href}
+                  href={d.href}
+                  className="group flex items-center justify-between gap-4 rounded-4xl border border-forest-900/8 bg-white p-7 shadow-soft transition hover:-translate-y-0.5 hover:shadow-lift"
+                >
+                  <span className="flex items-center gap-4">
+                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-forest-700/10 text-forest-700">
+                      <d.icon className="h-6 w-6" />
+                    </span>
+                    <span>
+                      <span className="block font-display text-lg font-semibold text-ink">
+                        Voir le programme {d.name}
+                      </span>
+                      <span className="mt-1 block text-sm leading-6 text-muted">
+                        {d.text}
+                      </span>
+                    </span>
+                  </span>
+                  <ArrowRightIcon className="h-5 w-5 shrink-0 text-forest-400 transition group-hover:translate-x-1 group-hover:text-forest-700" />
+                </Link>
+              ))}
+            </div>
+          </Reveal>
+
+          <div className="mt-16">
+            <Reveal>
+              <SectionTitle
+                align="left"
+                eyebrow="À quoi s'attendre"
+                title="Un aperçu d'une session"
+                text="Trois extraits filmés pendant une formation, pour voir concrètement comment ça se passe."
+              />
+            </Reveal>
+            <div className="mt-10 grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-3">
+              {courseClips.map((c, i) => (
+                <Reveal key={c.key} delay={i * 100}>
+                  <VideoTestimonial item={c} />
+                </Reveal>
+              ))}
+            </div>
+          </div>
+
+          <Reveal>
+            <div className="mt-16">
+              <div className="grid gap-6 md:grid-cols-2">
+                {shortTestimonials.slice(0, 2).map((t, i) => (
+                  <Reveal key={t.key} delay={i * 100}>
+                    <figure className="flex h-full flex-col rounded-4xl border border-forest-900/8 bg-white/80 p-7 shadow-soft">
+                      <QuoteIcon className="h-7 w-7 text-forest-200" />
+                      <div className="mt-3 flex gap-0.5 text-gold">
+                        {Array.from({ length: 5 }).map((_, s) => (
+                          <StarIcon key={s} className="h-4 w-4" />
+                        ))}
+                      </div>
+                      <blockquote className="mt-4 flex-1 font-display text-lg italic leading-8 text-ink/90">
+                        “{t.quote}”
+                      </blockquote>
+                      <figcaption className="mt-6 border-t border-forest-900/8 pt-4">
+                        <p className="font-semibold text-ink">{t.author}</p>
+                        <p className="text-[13px] text-muted">{t.role}</p>
+                      </figcaption>
+                    </figure>
+                  </Reveal>
+                ))}
+              </div>
+              <div className="mt-6 text-center">
+                <Link
+                  href="/#temoignages"
+                  className="group inline-flex items-center gap-1.5 text-sm font-medium text-forest-700 transition hover:text-forest-800"
+                >
+                  Voir tous les témoignages
+                  <ArrowRightIcon className="h-4 w-4 transition group-hover:translate-x-1" />
+                </Link>
+              </div>
+            </div>
+          </Reveal>
 
           <Reveal>
             <div className="mt-16 flex flex-col items-center gap-5 rounded-5xl border border-forest-900/8 bg-sand/60 px-6 py-12 text-center">

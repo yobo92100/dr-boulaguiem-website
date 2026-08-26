@@ -360,7 +360,7 @@ export default function Home() {
                     pratiques et une posture professionnelle.
                   </p>
                   <div className="mt-7 flex flex-wrap gap-2.5">
-                    {["Pharmacie clinique", "Homéopathie", "Sujok", "Formation continue"].map(
+                    {["Officine", "Homéopathie", "Sujok", "Formation continue"].map(
                       (tag) => (
                         <span
                           key={tag}
@@ -405,7 +405,7 @@ export default function Home() {
       </section>
 
       {/* ---------- TESTIMONIALS ---------- */}
-      <section className="bg-sand/60 py-20 sm:py-28">
+      <section id="temoignages" className="scroll-mt-24 bg-sand/60 py-20 sm:py-28">
         <div className="container-x">
           <Reveal>
             <SectionTitle
