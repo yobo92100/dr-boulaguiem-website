@@ -15,3 +15,10 @@ tsconfig.tsbuildinfo
 
 # heavy image originals (optimized copies live in public/images)
 raw-images/
+
+# raw testimonials: source text and uncompressed videos
+raw-reviews/
+
+# raw course footage and live recordings (edited clips live in public/videos)
+raw-videos/
+raw-live/
