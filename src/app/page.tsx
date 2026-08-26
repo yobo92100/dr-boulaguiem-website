@@ -3,6 +3,7 @@ import { Button } from "@/components/Button";
 import { FormatCard } from "@/components/FormatCard";
 import { Reveal } from "@/components/Reveal";
 import { SectionTitle } from "@/components/SectionTitle";
+import { VideoTestimonial } from "@/components/VideoTestimonial";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import {
   ArrowRightIcon,
@@ -19,6 +20,12 @@ import {
 import { images } from "@/config/images";
 import { siteConfig } from "@/config/site";
 import { formats } from "@/data/formats";
+import {
+  courseClips,
+  longTestimonials,
+  shortTestimonials,
+  videoTestimonials
+} from "@/data/testimonials";
 
 const homeMessage =
   "Bonjour Dr Boulaguiem, je souhaite réserver une place pour une formation en homéopathie ou Sujok au Maroc.";
@@ -65,27 +72,6 @@ const pillars = [
   }
 ];
 
-const testimonials = [
-  {
-    quote:
-      "Formation très structurée. J'ai enfin compris le cadre d'utilisation de l'homéopathie dans ma pratique.",
-    author: "Fatima Z.",
-    role: "Pharmacienne · Casablanca"
-  },
-  {
-    quote:
-      "Le Dr explique avec beaucoup de clarté. Pas de discours mystique — des faits et des cas pratiques.",
-    author: "Karim M.",
-    role: "Infirmier · Rabat"
-  },
-  {
-    quote:
-      "J'ai suivi la formation Sujok sans formation médicale. Très accessible, très utile au quotidien.",
-    author: "Nadia A.",
-    role: "Participante · Marrakech"
-  }
-];
-
 const faqItems = [
   {
     question: "Faut-il un diplôme médical pour participer ?",
@@ -107,14 +93,6 @@ const faqItems = [
     answer:
       "La réservation se fait directement via WhatsApp. Vous pouvez demander les prochaines dates et vérifier les places disponibles."
   }
-];
-
-const galleryImages = [
-  { src: images.teachingAlt, label: "En formation", span: "lg:col-span-2 lg:row-span-2" },
-  { src: images.sessionWide2, label: "Séance Sujok", span: "" },
-  { src: images.homeo1, label: "Homéopathie", span: "" },
-  { src: images.sujokSession, label: "Pratique", span: "" },
-  { src: images.sessionWide1, label: "Accompagnement", span: "" }
 ];
 
 export default function Home() {
@@ -312,7 +290,7 @@ export default function Home() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={images.teaching}
-                alt="Une formation en cours"
+                alt="Le Dr Boulaguiem tenant un modèle de main Sujok"
                 className="aspect-[4/3] w-full object-cover"
               />
               <div className="absolute inset-0 ring-1 ring-inset ring-forest-900/10" />
@@ -410,31 +388,19 @@ export default function Home() {
           <Reveal>
             <SectionTitle
               eyebrow="En images"
-              title="Formations, échanges & pratique"
-              text="Un aperçu de l'esprit des sessions : concentration, bienveillance et travail concret."
+              title="Un aperçu des cours"
+              text="Trois extraits filmés pendant une session, pour voir concrètement comment se déroule une formation."
             />
           </Reveal>
-          <Reveal delay={100}>
-            <div className="mt-12 grid auto-rows-[11rem] grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-              {galleryImages.map((g) => (
-                <div
-                  key={g.src}
-                  className={`img-zoom group relative overflow-hidden rounded-3xl shadow-soft ${g.span}`}
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={g.src}
-                    alt={g.label}
-                    className="h-full w-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-forest-900/60 to-transparent opacity-0 transition group-hover:opacity-100" />
-                  <span className="absolute bottom-3 left-4 text-sm font-medium text-cream opacity-0 transition group-hover:opacity-100">
-                    {g.label}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </Reveal>
+
+          {/* Course clips */}
+          <div className="mt-12 grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-3">
+            {courseClips.map((c, i) => (
+              <Reveal key={c.key} delay={i * 100}>
+                <VideoTestimonial item={c} />
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -445,14 +411,69 @@ export default function Home() {
             <SectionTitle
               eyebrow="Témoignages"
               title="Ce que disent les participants"
+              text="Des élèves venus de tous horizons, professionnels de santé comme débutants complets."
             />
           </Reveal>
-          <div className="mt-14 grid gap-6 md:grid-cols-3">
-            {testimonials.map((t, i) => (
-              <Reveal key={t.author} delay={i * 100}>
+
+          {/* Three reels */}
+          <div className="mt-14 grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-3">
+            {videoTestimonials.map((v, i) => (
+              <Reveal key={v.key} delay={i * 100}>
+                <VideoTestimonial item={v} />
+              </Reveal>
+            ))}
+          </div>
+
+          {/* First long story */}
+          <Reveal delay={160}>
+            <figure className="mt-6 rounded-4xl border border-forest-900/8 bg-white p-8 shadow-soft sm:p-12">
+              <QuoteIcon className="h-9 w-9 text-forest-200" />
+              <blockquote className="mt-5 grid gap-4 sm:grid-cols-3">
+                {longTestimonials[0].paragraphs.map((p) => (
+                  <p key={p} className="text-[15px] leading-8 text-ink/85">
+                    {p}
+                  </p>
+                ))}
+              </blockquote>
+              <figcaption className="mt-8 border-t border-forest-900/8 pt-5">
+                <p className="font-display text-lg font-semibold text-ink">
+                  {longTestimonials[0].author}
+                </p>
+                <p className="text-sm text-muted">
+                  {longTestimonials[0].role} · {longTestimonials[0].detail}
+                </p>
+              </figcaption>
+            </figure>
+          </Reveal>
+
+          {/* Second long story, full width */}
+          <Reveal delay={80}>
+            <figure className="mt-6 rounded-4xl border border-forest-900/8 bg-forest-900 p-8 text-cream shadow-lift sm:p-12">
+              <QuoteIcon className="h-9 w-9 text-cream/25" />
+              <blockquote className="mt-5 grid gap-4 sm:grid-cols-3">
+                {longTestimonials[1].paragraphs.map((p) => (
+                  <p key={p} className="text-[15px] leading-8 text-cream/85">
+                    {p}
+                  </p>
+                ))}
+              </blockquote>
+              <figcaption className="mt-8 border-t border-cream/12 pt-5">
+                <p className="font-display text-lg font-semibold text-cream">
+                  {longTestimonials[1].author}
+                </p>
+                <p className="text-sm text-cream/60">
+                  {longTestimonials[1].role}
+                </p>
+              </figcaption>
+            </figure>
+          </Reveal>
+
+          {/* Short quotes */}
+          <div className="mt-6 grid gap-6 md:grid-cols-3">
+            {shortTestimonials.map((t, i) => (
+              <Reveal key={t.key} delay={i * 100}>
                 <figure className="flex h-full flex-col rounded-4xl border border-forest-900/8 bg-white/80 p-7 shadow-soft">
-                  <QuoteIcon className="h-8 w-8 text-forest-200" />
-                  <div className="mt-3 flex gap-0.5 text-gold">
+                  <div className="flex gap-0.5 text-gold">
                     {Array.from({ length: 5 }).map((_, s) => (
                       <StarIcon key={s} className="h-4 w-4" />
                     ))}
