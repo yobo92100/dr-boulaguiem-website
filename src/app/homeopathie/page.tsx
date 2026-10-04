@@ -112,7 +112,7 @@ export default function HomeopathiePage() {
               <img
                 src={images.homeo1}
                 alt="Granules homéopathiques et fleurs"
-                className="aspect-[4/5] w-full object-cover"
+                className="aspect-[4/5] w-full object-cover object-right"
               />
               <div className="absolute inset-0 ring-1 ring-inset ring-forest-900/10" />
             </div>
