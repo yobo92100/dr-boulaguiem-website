@@ -47,6 +47,51 @@ export default function HomeopathiePage() {
         </div>
       </section>
 
+      {/* What homeopathy is — common ground for patients and learners */}
+      <section className="py-16 sm:py-24">
+        <div className="container-x grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+          <Reveal>
+            <div>
+              <p className="eyebrow">
+                <span className="rule-gold" aria-hidden="true" />
+                Le principe
+              </p>
+              <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+                Le semblable par le semblable
+              </h2>
+              <p className="mt-6 text-base leading-8 text-muted">
+                L'homéopathie repose sur le principe de similitude : une
+                substance capable de provoquer certains symptômes chez une
+                personne en bonne santé peut, à dose très diluée, aider à
+                soulager des symptômes semblables.
+              </p>
+              <p className="mt-4 text-base leading-8 text-muted">
+                Elle s'intéresse à la personne dans sa globalité — ses
+                symptômes, mais aussi son terrain, son rythme de vie et sa
+                sensibilité — pour choisir un remède adapté à chacun.
+              </p>
+              <p className="mt-4 text-base leading-8 text-muted">
+                En consultation, le Dr Boulaguiem choisit avec vous les remèdes
+                adaptés. En formation, vous apprenez à raisonner pour les
+                choisir vous-même.
+              </p>
+            </div>
+          </Reveal>
+
+          <Reveal delay={100}>
+            <div className="img-zoom relative overflow-hidden rounded-5xl shadow-lift">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={images.homeo2}
+                alt="Remèdes homéopathiques et plantes"
+                className="aspect-[4/5] w-full object-cover"
+              />
+              <div className="absolute inset-0 ring-1 ring-inset ring-forest-900/10" />
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       <ConsultationBanner
         title="Consulter en homéopathie"
         text="Le Dr Boulaguiem vous reçoit à son cabinet pour un accompagnement en homéopathie, global et personnalisé."
@@ -60,8 +105,20 @@ export default function HomeopathiePage() {
 
       {/* ---------- EN FORMATION ---------- */}
       <section id="formation" className="scroll-mt-24 py-16 sm:py-24">
-        <div className="container-x grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+        <div className="container-x grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
           <Reveal>
+            <div className="img-zoom relative overflow-hidden rounded-5xl shadow-lift">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={images.homeo1}
+                alt="Granules homéopathiques et fleurs"
+                className="aspect-[4/5] w-full object-cover"
+              />
+              <div className="absolute inset-0 ring-1 ring-inset ring-forest-900/10" />
+            </div>
+          </Reveal>
+
+          <Reveal delay={100}>
             <div>
               <p className="eyebrow">
                 <span className="rule-gold" aria-hidden="true" />
@@ -71,10 +128,10 @@ export default function HomeopathiePage() {
                 Apprendre l'homéopathie avec méthode
               </h2>
               <p className="mt-6 text-base leading-8 text-muted">
-                Apporter des bases structurées, un vocabulaire clair et une
-                compréhension du cadre dans lequel l'homéopathie peut être
-                abordée. Les contenus aident à distinguer l'apprentissage,
-                l'accompagnement et les limites à respecter.
+                Les formations apportent des bases structurées, un vocabulaire
+                clair et une compréhension du cadre dans lequel l'homéopathie
+                peut être abordée. Les contenus aident à distinguer
+                l'apprentissage, l'accompagnement et les limites à respecter.
               </p>
               <p className="mt-4 text-base leading-8 text-muted">
                 Elles s'adressent aux professionnels de santé comme aux curieux
@@ -84,18 +141,6 @@ export default function HomeopathiePage() {
                 Voir les formations
                 <ArrowRightIcon className="h-4 w-4 transition group-hover:translate-x-1" />
               </Button>
-            </div>
-          </Reveal>
-
-          <Reveal delay={100}>
-            <div className="img-zoom relative overflow-hidden rounded-5xl shadow-lift">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={images.homeo2}
-                alt="Remèdes homéopathiques et plantes"
-                className="aspect-[4/5] w-full object-cover"
-              />
-              <div className="absolute inset-0 ring-1 ring-inset ring-forest-900/10" />
             </div>
           </Reveal>
         </div>
