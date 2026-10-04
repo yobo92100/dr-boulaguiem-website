@@ -60,8 +60,9 @@ const doors = [
     eyebrow: "Consulter",
     title: "Une consultation au cabinet",
     text: "Douleurs, migraines, stress, sommeil, troubles digestifs… Une approche naturelle, globale et personnalisée.",
-    image: images.sessionWide2,
-    imageAlt: "Le Dr Boulaguiem en consultation",
+    image: images.sujokSession2,
+    imageAlt: "Le Dr Boulaguiem stimulant un point de la main en consultation",
+    imagePosition: "object-[50%_35%]",
     points: [
       `Cabinet à Casablanca`,
       `${siteConfig.consultation.days}, ${siteConfig.consultation.hours}`,
@@ -78,6 +79,7 @@ const doors = [
     text: "Apprenez l'homéopathie et le Sujok avec un pharmacien formateur depuis 2009, que vous soyez professionnel de santé ou débutant.",
     image: images.teachingConference,
     imageAlt: "Le Dr Boulaguiem animant une formation",
+    imagePosition: "object-center",
     points: [
       "En présentiel partout au Maroc, ou en ligne",
       "Programme progressif, attestation remise",
@@ -313,7 +315,7 @@ export default function Home() {
                     <img
                       src={door.image}
                       alt={door.imageAlt}
-                      className="aspect-[16/10] w-full object-cover"
+                      className={`aspect-square w-full object-cover ${door.imagePosition}`}
                     />
                   </div>
                   <div className="flex flex-1 flex-col p-8 sm:p-10">
