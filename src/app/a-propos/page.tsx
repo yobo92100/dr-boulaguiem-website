@@ -160,15 +160,14 @@ export default function AboutPage() {
       <section className="pb-20 sm:pb-24">
         <div className="container-x">
           <Reveal>
-            <div className="relative overflow-hidden rounded-5xl shadow-lift">
+            <div className="overflow-hidden rounded-5xl bg-forest-radial shadow-lift">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={images.teaching}
                 alt="Le Dr Boulaguiem lors d'une formation"
                 className="h-full w-full object-cover"
               />
-              <div className="absolute inset-0 bg-forest-900/70" />
-              <div className="relative px-6 py-16 text-center sm:px-12 sm:py-20">
+              <div className="px-6 py-16 text-center sm:px-12 sm:py-20">
                 <h2 className="mx-auto max-w-2xl font-display text-3xl font-semibold leading-tight text-cream sm:text-4xl">
                   Envie d'apprendre à ses côtés ?
                 </h2>
