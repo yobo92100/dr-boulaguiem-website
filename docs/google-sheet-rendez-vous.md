@@ -55,8 +55,9 @@ Les onglets « Rendez-vous » et « Fermetures » apparaissent dans le tableau.
   supprimer la ligne). Le créneau redevient libre sur le site dès qu'on
   recharge la page.
 - **Fermer un jour** (congés, formation…) : dans l'onglet « Fermetures »,
-  écrire la date en colonne A, par exemple `2026-12-25`. Le jour devient grisé
-  sur le site.
+  double-cliquer sur une case vide de la colonne A et choisir la date dans le
+  calendrier. Le jour devient grisé sur le site dès qu'on recharge la page.
+  Pour le rouvrir, supprimer la ligne.
 - Les noms et téléphones ne sont jamais visibles sur le site : celui-ci ne
   reçoit que la liste des créneaux déjà pris.
 

@@ -3,7 +3,7 @@
  *
  * À coller dans le Google Sheet : Extensions → Apps Script.
  * - Onglet « Rendez-vous » : une ligne par demande (créé automatiquement).
- * - Onglet « Fermetures » : une date par ligne en colonne A pour bloquer un jour.
+ * - Onglet « Fermetures » : une date par ligne en colonne A (double-clic : calendrier) pour bloquer un jour.
  * - Mettre « Annulé » dans la colonne Statut (liste déroulante) libère le créneau.
  */
 
@@ -12,6 +12,7 @@ const NOTIFY_EMAILS = ["boulag92@gmail.com", "yboulagu@icloud.com"];
 const SLOTS = ["14:00", "15:00", "16:00", "17:00"];
 const HEADERS = ["Reçu le", "Date", "Heure", "Nom", "Téléphone", "Motif", "Statut"];
 const STATUSES = ["À confirmer", "Confirmé", "Annulé"];
+const CLOSURES_HEADERS = ["Jour fermé (double-clic : calendrier)", "Raison (facultatif)"];
 const TIME_ZONE = "Africa/Casablanca";
 
 const DAYS = ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"];
@@ -21,13 +22,22 @@ const MONTHS = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet"
 /** À lancer une fois à la main : crée les onglets et demande les autorisations. */
 function setup() {
   const sheet = bookingsSheet_();
-  closuresSheet_();
   // Liste déroulante pour le statut (une autre valeur tapée à la main reste acceptée)
-  const rule = SpreadsheetApp.newDataValidation()
+  const statusRule = SpreadsheetApp.newDataValidation()
     .requireValueInList(STATUSES, true)
     .setAllowInvalid(true)
     .build();
-  sheet.getRange("G2:G").setDataValidation(rule);
+  sheet.getRange("G2:G").setDataValidation(statusRule);
+
+  const closures = closuresSheet_();
+  closures.getRange(1, 1, 1, CLOSURES_HEADERS.length).setValues([CLOSURES_HEADERS]);
+  // N'accepter que des dates : un double-clic sur la case ouvre un calendrier
+  const dateRule = SpreadsheetApp.newDataValidation()
+    .requireDate()
+    .setAllowInvalid(false)
+    .setHelpText("Double-cliquez pour choisir la date dans le calendrier.")
+    .build();
+  closures.getRange("A2:A").setDataValidation(dateRule).setNumberFormat("dd/mm/yyyy");
 }
 
 /** À lancer à la main pour vérifier l'envoi des e-mails (redemande l'autorisation si elle manque). */
@@ -122,7 +132,7 @@ function closuresSheet_() {
   let sheet = ss.getSheetByName("Fermetures");
   if (!sheet) {
     sheet = ss.insertSheet("Fermetures");
-    sheet.appendRow(["Jour fermé (ex. 2026-12-25)", "Raison (facultatif)"]);
+    sheet.appendRow(CLOSURES_HEADERS);
     sheet.setFrozenRows(1);
     sheet.getRange("1:1").setFontWeight("bold");
   }
