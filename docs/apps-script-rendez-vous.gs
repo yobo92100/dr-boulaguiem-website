@@ -4,14 +4,14 @@
  * À coller dans le Google Sheet : Extensions → Apps Script.
  * - Onglet « Rendez-vous » : une ligne par demande (créé automatiquement).
  * - Onglet « Fermetures » : une date par ligne en colonne A pour bloquer un jour.
- * - Mettre « Annulé » dans la colonne Statut libère le créneau.
+ * - Mettre « Annulé » dans la colonne Statut (liste déroulante) libère le créneau.
  */
 
 // Chaque demande est envoyée à toutes ces adresses (en ajouter entre guillemets, séparées par une virgule)
 const NOTIFY_EMAILS = ["boulag92@gmail.com", "yboulagu@icloud.com"];
 const SLOTS = ["14:00", "15:00", "16:00", "17:00"];
 const HEADERS = ["Reçu le", "Date", "Heure", "Nom", "Téléphone", "Motif", "Statut"];
-const CANCELLED = "Annulé";
+const STATUSES = ["À confirmer", "Confirmé", "Annulé"];
 const TIME_ZONE = "Africa/Casablanca";
 
 const DAYS = ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"];
@@ -20,8 +20,14 @@ const MONTHS = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet"
 
 /** À lancer une fois à la main : crée les onglets et demande les autorisations. */
 function setup() {
-  bookingsSheet_();
+  const sheet = bookingsSheet_();
   closuresSheet_();
+  // Liste déroulante pour le statut (une autre valeur tapée à la main reste acceptée)
+  const rule = SpreadsheetApp.newDataValidation()
+    .requireValueInList(STATUSES, true)
+    .setAllowInvalid(true)
+    .build();
+  sheet.getRange("G2:G").setDataValidation(rule);
 }
 
 /** À lancer à la main pour vérifier l'envoi des e-mails (redemande l'autorisation si elle manque). */
@@ -37,7 +43,7 @@ function testEmail() {
 function doGet() {
   const today = Utilities.formatDate(new Date(), TIME_ZONE, "yyyy-MM-dd");
   const booked = readBookings_()
-    .filter(function (b) { return b.status !== CANCELLED && b.date >= today; })
+    .filter(function (b) { return !isCancelled_(b.status) && b.date >= today; })
     .map(function (b) { return { date: b.date, time: b.time }; });
   return json_({ booked: booked, closed: readClosures_() });
 }
@@ -58,14 +64,14 @@ function doPost(e) {
       return json_({ ok: false, error: "invalid" });
     }
     const taken = readBookings_().some(function (b) {
-      return b.date === date && b.time === time && b.status !== CANCELLED;
+      return b.date === date && b.time === time && !isCancelled_(b.status);
     });
     if (taken || readClosures_().indexOf(date) !== -1) {
       return json_({ ok: false, error: "taken" });
     }
 
     bookingsSheet_().appendRow(
-      [new Date(), text_(date), text_(time), text_(name), text_(phone), text_(reason), "À confirmer"]
+      [new Date(), text_(date), text_(time), text_(name), text_(phone), text_(reason), STATUSES[0]]
     );
     notify_(date, time, name, phone, reason);
     return json_({ ok: true });
@@ -131,6 +137,11 @@ function readBookings_() {
   return range.getValues().map(function (row, i) {
     return { date: formatDate_(row[1]), time: formatTime_(shown[i][2]), status: String(row[6]).trim() };
   });
+}
+
+// « Annulé », « annulé », « annule », « ANNULÉ »… libèrent tous le créneau
+function isCancelled_(status) {
+  return /^annul/.test(String(status).trim().toLowerCase());
 }
 
 function readClosures_() {

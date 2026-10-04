@@ -49,9 +49,11 @@ Les onglets « Rendez-vous » et « Fermetures » apparaissent dans le tableau.
 
 - **Nouvelle demande** : une ligne apparaît dans l'onglet « Rendez-vous »
   avec le statut « À confirmer », et un e-mail arrive. Rappeler le patient,
-  puis mettre « Confirmé » dans la colonne Statut (c'est juste un repère).
-- **Annuler un rendez-vous** : mettre **Annulé** dans la colonne Statut. Le
-  créneau redevient libre sur le site.
+  puis choisir « Confirmé » dans la liste de la colonne Statut (c'est juste
+  un repère).
+- **Annuler un rendez-vous** : choisir **Annulé** dans la colonne Statut (ou
+  supprimer la ligne). Le créneau redevient libre sur le site dès qu'on
+  recharge la page.
 - **Fermer un jour** (congés, formation…) : dans l'onglet « Fermetures »,
   écrire la date en colonne A, par exemple `2026-12-25`. Le jour devient grisé
   sur le site.
