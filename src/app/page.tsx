@@ -286,17 +286,13 @@ export default function Home() {
           <Reveal>
             <SectionTitle
               eyebrow="Consulter ou se former"
-              title="Comment le Dr Boulaguiem peut vous accompagner"
-              text={
+              title={
                 <>
-                  Venir en consultation pour être soulagé, ou suivre une
-                  formation pour apprendre : deux façons de découvrir
-                  l'homéopathie et le&nbsp;Sujok&nbsp;et
-                  <span className="mt-3 block font-display text-2xl italic text-forest-700 sm:text-3xl">
-                    améliorer son bien-être.
-                  </span>
+                  Deux façons d'améliorer{" "}
+                  <span className="italic text-forest-700">votre bien-être</span>
                 </>
               }
+              text="Être soulagé en consultation, ou apprendre en formation : le Dr Boulaguiem vous accompagne avec l'homéopathie et le Sujok."
             />
           </Reveal>
 
