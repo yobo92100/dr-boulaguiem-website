@@ -7,7 +7,8 @@
  * - Mettre « Annulé » dans la colonne Statut libère le créneau.
  */
 
-const NOTIFY_EMAIL = "boulag92@gmail.com";
+// Chaque demande est envoyée à toutes ces adresses (en ajouter entre guillemets, séparées par une virgule)
+const NOTIFY_EMAILS = ["boulag92@gmail.com"];
 const SLOTS = ["14:00", "15:00", "16:00", "17:00"];
 const HEADERS = ["Reçu le", "Date", "Heure", "Nom", "Téléphone", "Motif", "Statut"];
 const CANCELLED = "Annulé";
@@ -57,7 +58,7 @@ function doPost(e) {
 
     const label = dayLabel_(date) + " à " + Number(time.split(":")[0]) + " h";
     MailApp.sendEmail(
-      NOTIFY_EMAIL,
+      NOTIFY_EMAILS.join(","),
       "Nouveau rendez-vous : " + label,
       "Nouvelle demande de rendez-vous depuis le site.\n\n" +
         "Date : " + label + "\n" +
