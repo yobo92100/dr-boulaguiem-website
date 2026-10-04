@@ -17,8 +17,8 @@ const values = [
   },
   {
     icon: CertificateIcon,
-    title: "Complémentarité",
-    text: "Une approche complémentaire qui respecte les limites et le suivi de santé classique."
+    title: "Approche globale",
+    text: "Une approche naturelle qui considère la personne dans sa globalité, corps et esprit."
   },
   {
     icon: HandIcon,

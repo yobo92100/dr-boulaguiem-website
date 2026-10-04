@@ -1,7 +1,9 @@
+import type { ReactNode } from "react";
+
 type SectionTitleProps = {
   eyebrow?: string;
   title: string;
-  text?: string;
+  text?: ReactNode;
   align?: "center" | "left";
   tone?: "dark" | "light";
 };

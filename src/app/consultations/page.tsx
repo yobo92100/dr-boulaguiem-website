@@ -4,17 +4,7 @@ import { Button } from "@/components/Button";
 import { Reveal } from "@/components/Reveal";
 import { SectionTitle } from "@/components/SectionTitle";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-import {
-  CalendarIcon,
-  ClockIcon,
-  HandIcon,
-  LeafIcon,
-  MapPinIcon,
-  PhoneIcon,
-  PlusIcon,
-  SeedIcon,
-  SparkIcon
-} from "@/components/Icons";
+import { CalendarIcon, ClockIcon, MapPinIcon, PhoneIcon } from "@/components/Icons";
 import { images } from "@/config/images";
 import { siteConfig } from "@/config/site";
 
@@ -28,22 +18,22 @@ const questionMessage =
 
 const reasons = [
   {
-    icon: HandIcon,
+    icon: "/images/motifs/douleur-articulaire.png",
     title: "Douleurs articulaires & musculaires",
-    text: "Dos, nuque, genoux, tensions : un accompagnement naturel, en complément de votre suivi."
+    text: "Dos, nuque, genoux, tensions : un accompagnement naturel pour retrouver du confort."
   },
   {
-    icon: SparkIcon,
+    icon: "/images/motifs/mal-de-tete.png",
     title: "Migraines & fatigue",
     text: "Maux de tête récurrents, baisse d'énergie : soulager et retrouver de l'élan."
   },
   {
-    icon: LeafIcon,
+    icon: "/images/motifs/anxiete.png",
     title: "Anxiété & sommeil",
     text: "Stress, nervosité, nuits difficiles : un rééquilibrage physique et émotionnel."
   },
   {
-    icon: SeedIcon,
+    icon: "/images/motifs/troubledigestif.png",
     title: "Troubles digestifs",
     text: "Ballonnements, inconfort digestif et autres troubles fonctionnels."
   }
@@ -127,16 +117,15 @@ export default function ConsultationsPage() {
             <SectionTitle
               eyebrow="Pour quels motifs ?"
               title="Ce pour quoi vous pouvez consulter"
-              text="Quelques motifs fréquents de consultation, en complément de votre suivi médical."
+              text="Les motifs de consultation les plus fréquents."
             />
           </Reveal>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {reasons.map((r, i) => (
               <Reveal key={r.title} delay={i * 80}>
                 <div className="h-full rounded-4xl border border-forest-900/8 bg-white/80 p-6 shadow-soft">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-forest-700/10 text-forest-700">
-                    <r.icon className="h-5 w-5" />
-                  </span>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={r.icon} alt="" className="h-14 w-14" />
                   <h3 className="mt-5 font-display text-lg font-semibold text-ink">
                     {r.title}
                   </h3>
@@ -147,9 +136,8 @@ export default function ConsultationsPage() {
           </div>
           <Reveal delay={120}>
             <div className="mt-5 flex items-center gap-4 rounded-4xl border border-forest-900/8 bg-sand/60 p-6">
-              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-white text-forest-700">
-                <PlusIcon className="h-5 w-5" />
-              </span>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/motifs/peur.png" alt="" className="h-14 w-14 shrink-0" />
               <p className="text-sm leading-7 text-ink/85">
                 <strong className="font-semibold text-ink">
                   Et toute autre pathologie, organique ou psychique.
@@ -255,11 +243,6 @@ export default function ConsultationsPage() {
             </aside>
           </div>
 
-          <p className="mx-auto mt-10 max-w-2xl text-center text-xs italic leading-6 text-muted">
-            Le Sujok et l'homéopathie ne remplacent pas le diagnostic médical ni
-            les traitements prescrits. Ils interviennent comme une approche
-            complémentaire destinée à améliorer le confort et le bien-être.
-          </p>
         </div>
       </section>
     </>

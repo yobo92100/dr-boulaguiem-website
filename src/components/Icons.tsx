@@ -245,10 +245,6 @@ export function CheckIcon({ className = "h-4 w-4" }: IconProps) {
   return base(<path d="m5 13 4 4L19 7" />, className);
 }
 
-export function PlusIcon({ className = "h-4 w-4" }: IconProps) {
-  return base(<path d="M12 5v14M5 12h14" />, className);
-}
-
 export function QuoteIcon({ className = "h-6 w-6" }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">

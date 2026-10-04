@@ -34,7 +34,7 @@ const stats = [
   { value: "Docteur", label: "en pharmacie" },
   { value: "+15 ans", label: "d'expérience terrain" },
   { value: "+500", label: "élèves formés au Maroc" },
-  { value: "Casablanca", label: "cabinet de consultation" }
+  { value: "100 %", label: "approche naturelle et personnalisée" }
 ];
 
 const disciplines = [
@@ -59,8 +59,8 @@ const doors = [
     key: "consultations",
     eyebrow: "Consulter",
     title: "Une consultation au cabinet",
-    text: "Douleurs, migraines, stress, sommeil, troubles digestifs… Une approche naturelle et personnalisée, en complément de votre suivi médical.",
-    image: images.sessionWide1,
+    text: "Douleurs, migraines, stress, sommeil, troubles digestifs… Une approche naturelle, globale et personnalisée.",
+    image: images.sessionWide2,
     imageAlt: "Le Dr Boulaguiem en consultation",
     points: [
       `Cabinet à Casablanca`,
@@ -76,8 +76,8 @@ const doors = [
     eyebrow: "Se former",
     title: "Une formation pour apprendre",
     text: "Apprenez l'homéopathie et le Sujok avec un pharmacien formateur depuis 2009, que vous soyez professionnel de santé ou débutant.",
-    image: images.sessionWide2,
-    imageAlt: "Le Dr Boulaguiem pendant une formation Sujok",
+    image: images.teachingConference,
+    imageAlt: "Le Dr Boulaguiem animant une formation",
     points: [
       "En présentiel partout au Maroc, ou en ligne",
       "Programme progressif, attestation remise",
@@ -97,8 +97,8 @@ const pillars = [
   },
   {
     icon: CertificateIcon,
-    title: "Complémentarité",
-    text: "Une approche complémentaire qui respecte les limites et le suivi de santé classique."
+    title: "Approche globale",
+    text: "Une approche naturelle qui considère la personne dans sa globalité, corps et esprit."
   },
   {
     icon: HandIcon,
@@ -120,11 +120,6 @@ const consultationFaq = [
   {
     question: "Où se trouve le cabinet ?",
     answer: `${siteConfig.cabinet.street}, ${siteConfig.cabinet.city}. Consultations ${siteConfig.consultation.days.toLowerCase()}, ${siteConfig.consultation.hours}.`
-  },
-  {
-    question: "Le Sujok et l'homéopathie remplacent-ils un traitement médical ?",
-    answer:
-      "Non. Ils ne remplacent ni le diagnostic ni les traitements prescrits par votre médecin : ils interviennent en complément, pour améliorer le confort et le bien-être."
   }
 ];
 
@@ -290,7 +285,17 @@ export default function Home() {
             <SectionTitle
               eyebrow="Consulter ou se former"
               title="Comment le Dr Boulaguiem peut vous accompagner"
-              text="Venir en consultation pour être soulagé, ou suivre une formation pour apprendre : deux façons de découvrir l'homéopathie et le Sujok."
+              text={
+                <>
+                  Venir en consultation pour être soulagé, ou suivre une
+                  formation pour apprendre : deux façons de découvrir
+                  l'homéopathie et le Sujok et{" "}
+                  <span className="font-medium text-forest-700">
+                    améliorer son bien-être
+                  </span>
+                  .
+                </>
+              }
             />
           </Reveal>
 

@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: `${siteConfig.name} | Consultations & formations en homéopathie et Sujok`,
     description:
-      "Consultations à Casablanca et formations partout au Maroc — une approche naturelle, claire et complémentaire.",
+      "Consultations à Casablanca et formations partout au Maroc — une approche naturelle, claire et personnalisée.",
     locale: "fr_FR",
     type: "website"
   }

@@ -12,6 +12,7 @@ export const images = {
   portrait: "/images/apropos.jpg", // head-and-shoulders portrait (À propos)
   teaching: "/images/lamethode.jpg", // teaching with microphone (landscape)
   teachingAlt: "/images/seminaire.jpg", // teaching, portrait orientation
+  teachingConference: "/images/formation-conference.jpg", // speaking to a seated group (landscape)
   sujokSession: "/images/sujok-session.jpg", // focused Sujok session (portrait)
   sujokSession2: "/images/sujok-session2.jpg", // stimulating a point on the hand (portrait)
   sessionWide1: "/images/consult2.jpg", // examining wrist (wide)

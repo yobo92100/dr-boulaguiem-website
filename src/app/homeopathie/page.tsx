@@ -2,7 +2,7 @@ import { Button } from "@/components/Button";
 import { ConsultationBanner } from "@/components/ConsultationBanner";
 import { Reveal } from "@/components/Reveal";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-import { ArrowRightIcon, CheckIcon, LeafIcon } from "@/components/Icons";
+import { ArrowRightIcon, CalendarIcon, CheckIcon, LeafIcon } from "@/components/Icons";
 import { images } from "@/config/images";
 
 const learningPoints = [
@@ -25,34 +25,50 @@ export default function HomeopathiePage() {
             </span>
             <p className="eyebrow mt-6 justify-center">Homéopathie</p>
             <h1 className="mx-auto mt-4 max-w-3xl font-display text-4xl font-semibold leading-[1.05] tracking-tight text-ink sm:text-5xl lg:text-6xl">
-              Comprendre l'homéopathie dans un cadre pédagogique
+              L'homéopathie, pour vous accompagner{" "}
+              <span className="italic text-forest-700">ou pour l'apprendre</span>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-              Une approche complémentaire, pratiquée en consultation et étudiée
-              en formation avec méthode et rigueur — pour les patients, les
-              professionnels de santé comme pour les curieux.
+              Une approche douce qui considère la personne dans sa globalité —
+              à découvrir en consultation au cabinet, ou à étudier avec méthode
+              et rigueur en formation.
             </p>
+            <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
+              <Button href="/consultations#rdv" size="lg">
+                <CalendarIcon />
+                Prendre rendez-vous
+              </Button>
+              <Button href="#formation" variant="secondary" size="lg">
+                Découvrir la formation
+                <ArrowRightIcon className="h-4 w-4 transition group-hover:translate-x-1" />
+              </Button>
+            </div>
           </Reveal>
         </div>
       </section>
 
       <ConsultationBanner
         title="Consulter en homéopathie"
-        text="Le Dr Boulaguiem vous reçoit à son cabinet pour un accompagnement en homéopathie, en complément de votre suivi médical."
+        text="Le Dr Boulaguiem vous reçoit à son cabinet pour un accompagnement en homéopathie, global et personnalisé."
         points={[
           "Stress, anxiété, sommeil",
           "Troubles digestifs fonctionnels",
           "Fatigue et baisse d'énergie",
-          "Une approche globale et personnalisée"
+          "Un accompagnement adapté à chacun"
         ]}
       />
 
-      <section className="py-16 sm:py-24">
+      {/* ---------- EN FORMATION ---------- */}
+      <section id="formation" className="scroll-mt-24 py-16 sm:py-24">
         <div className="container-x grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <Reveal>
             <div>
-              <h2 className="font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-                Objectif des formations
+              <p className="eyebrow">
+                <span className="rule-gold" aria-hidden="true" />
+                En formation
+              </p>
+              <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+                Apprendre l'homéopathie avec méthode
               </h2>
               <p className="mt-6 text-base leading-8 text-muted">
                 Apporter des bases structurées, un vocabulaire clair et une
@@ -61,8 +77,8 @@ export default function HomeopathiePage() {
                 l'accompagnement et les limites à respecter.
               </p>
               <p className="mt-4 text-base leading-8 text-muted">
-                Elles s'inscrivent dans une démarche d'éducation et de
-                complémentarité, aux côtés du suivi de santé classique.
+                Elles s'adressent aux professionnels de santé comme aux curieux
+                qui souhaitent comprendre l'homéopathie en profondeur.
               </p>
               <Button href="/formations" className="mt-8">
                 Voir les formations

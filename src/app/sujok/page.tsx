@@ -5,6 +5,7 @@ import { SectionTitle } from "@/components/SectionTitle";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import {
   ArrowRightIcon,
+  CalendarIcon,
   CheckIcon,
   ChevronDownIcon,
   DownloadIcon,
@@ -54,20 +55,71 @@ export default function SujokPage() {
             </span>
             <p className="eyebrow mt-6 justify-center">Sujok</p>
             <h1 className="mx-auto mt-4 max-w-3xl font-display text-4xl font-semibold leading-[1.05] tracking-tight text-ink sm:text-5xl lg:text-6xl">
-              Découvrir le Sujok avec une approche claire
+              Le Sujok, pour vous soulager{" "}
+              <span className="italic text-forest-700">ou pour l'apprendre</span>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-              Soulager la douleur, réduire le stress et améliorer la circulation
-              par la stimulation de points précis des mains et des pieds — en
-              séance au cabinet, ou en formation pour l'apprendre vous-même.
+              Une méthode douce qui stimule des points précis des mains et des
+              pieds pour soulager la douleur, réduire le stress et améliorer la
+              circulation.
             </p>
+            <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
+              <Button href="/consultations#rdv" size="lg">
+                <CalendarIcon />
+                Prendre rendez-vous
+              </Button>
+              <Button href="#formation" variant="secondary" size="lg">
+                Découvrir la formation
+                <ArrowRightIcon className="h-4 w-4 transition group-hover:translate-x-1" />
+              </Button>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* What Sujok is — common ground for patients and learners */}
+      <section className="py-16 sm:py-24">
+        <div className="container-x grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+          <Reveal>
+            <div>
+              <p className="eyebrow">
+                <span className="rule-gold" aria-hidden="true" />
+                Le principe
+              </p>
+              <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+                Une cartographie du corps
+              </h2>
+              <p className="mt-6 text-base leading-8 text-muted">
+                Le Sujok repose sur l'idée de zones de correspondance : certaines
+                régions des mains et des pieds sont associées, point par point, aux
+                différentes parties du corps.
+              </p>
+              <p className="mt-4 text-base leading-8 text-muted">
+                En consultation, le Dr Boulaguiem stimule ces points pour vous
+                soulager. En formation, vous apprenez à les repérer et à les
+                utiliser vous-même.
+              </p>
+            </div>
+          </Reveal>
+          <Reveal delay={100}>
+            <div className="rounded-5xl border border-forest-900/8 bg-white p-8 shadow-soft sm:p-10">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={images.sujokDiagram}
+                alt="Carte de réflexologie du pied en Sujok"
+                className="mx-auto max-h-[26rem] w-auto object-contain"
+              />
+              <p className="mt-6 text-center text-xs text-muted">
+                Exemple de zones de correspondance (schéma pédagogique).
+              </p>
+            </div>
           </Reveal>
         </div>
       </section>
 
       <ConsultationBanner
         title="Une séance de Sujok au cabinet"
-        text="Le Dr Boulaguiem pratique le Sujok en consultation pour soulager douleurs et tensions, en complément de votre suivi médical."
+        text="Le Dr Boulaguiem pratique le Sujok en consultation pour soulager douleurs et tensions, avec une approche douce et personnalisée."
         points={[
           "Douleurs articulaires et musculaires",
           "Maux de tête et migraines",
@@ -76,7 +128,8 @@ export default function SujokPage() {
         ]}
       />
 
-      <section className="py-16 sm:py-24">
+      {/* ---------- EN FORMATION ---------- */}
+      <section id="formation" className="scroll-mt-24 py-16 sm:py-24">
         <div className="container-x grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
           <Reveal>
             <div className="img-zoom relative overflow-hidden rounded-5xl shadow-lift">
@@ -92,8 +145,12 @@ export default function SujokPage() {
 
           <Reveal delay={100}>
             <div>
-              <h2 className="font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-                Une initiation progressive
+              <p className="eyebrow">
+                <span className="rule-gold" aria-hidden="true" />
+                En formation
+              </p>
+              <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+                Apprendre le Sujok, pas à pas
               </h2>
               <p className="mt-6 text-base leading-8 text-muted">
                 Le Sujok est une thérapie énergétique douce qui soulage la
@@ -104,8 +161,7 @@ export default function SujokPage() {
               <p className="mt-4 text-base leading-8 text-muted">
                 Maux de tête, douleurs dorsales, tensions, troubles digestifs,
                 stress : autant de situations du quotidien que les techniques
-                enseignées permettent d'aborder, en complément d'un suivi de
-                santé classique.
+                enseignées permettent d'aborder.
               </p>
               <Button href="/formations" className="mt-8">
                 Voir les formations
@@ -167,48 +223,8 @@ export default function SujokPage() {
         </div>
       </section>
 
-      {/* Pedagogical: reflexology map */}
-      <section className="py-20 sm:py-24">
-        <div className="container-x grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-          <Reveal>
-            <div>
-              <p className="eyebrow">
-                <span className="rule-gold" aria-hidden="true" />
-                Le principe
-              </p>
-              <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-                Une cartographie du corps
-              </h2>
-              <p className="mt-6 text-base leading-8 text-muted">
-                Le Sujok repose sur l'idée de zones de correspondance : certaines
-                régions des mains et des pieds sont associées, point par point, aux
-                différentes parties du corps.
-              </p>
-              <p className="mt-4 text-base leading-8 text-muted">
-                La formation apprend à repérer et à comprendre ces repères, dans
-                une démarche d'observation et de pratique — toujours en complément
-                d'un accompagnement de santé classique.
-              </p>
-            </div>
-          </Reveal>
-          <Reveal delay={100}>
-            <div className="rounded-5xl border border-forest-900/8 bg-white p-8 shadow-soft sm:p-10">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={images.sujokDiagram}
-                alt="Carte de réflexologie du pied en Sujok"
-                className="mx-auto max-h-[26rem] w-auto object-contain"
-              />
-              <p className="mt-6 text-center text-xs text-muted">
-                Exemple de zones de correspondance (schéma pédagogique).
-              </p>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
       {/* Techniques covered */}
-      <section className="bg-sand/60 py-20 sm:py-24">
+      <section className="py-20 sm:py-24">
         <div className="container-x">
           <Reveal>
             <SectionTitle
@@ -239,7 +255,7 @@ export default function SujokPage() {
       </section>
 
       {/* Full programme, three levels */}
-      <section id="programme" className="py-20 sm:py-24">
+      <section id="programme" className="bg-sand/60 py-20 sm:py-24">
         <div className="container-x">
           <Reveal>
             <SectionTitle

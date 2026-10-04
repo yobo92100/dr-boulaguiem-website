@@ -12,7 +12,7 @@ type ConsultationBannerProps = {
 /** Patient-facing call-out at the top of a discipline page, ahead of the training content. */
 export function ConsultationBanner({ title, text, points }: ConsultationBannerProps) {
   return (
-    <section className="pb-4 pt-2 sm:pb-8">
+    <section id="consultation" className="scroll-mt-24 py-12 sm:py-16">
       <div className="container-x">
         <Reveal>
           <div className="relative overflow-hidden rounded-5xl bg-forest-radial p-8 text-cream shadow-lift sm:p-12">

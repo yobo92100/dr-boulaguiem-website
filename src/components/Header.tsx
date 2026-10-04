@@ -149,20 +149,21 @@ export function Header() {
             className="mt-3 flex min-h-[3.25rem] items-center justify-center gap-2 rounded-full border border-forest-700/20 bg-white/70 px-5 text-[15px] font-medium text-forest-800"
           >
             <WhatsAppIcon />
-            Une question ? WhatsApp
+            Une question ?
           </a>
         </nav>
       </div>
 
-      {/* Floating WhatsApp on small screens */}
+      {/* Floating WhatsApp, always within reach */}
       <a
         href={getWhatsAppUrl(navMessage)}
         target="_blank"
         rel="noreferrer"
-        className="fixed bottom-5 right-5 z-30 flex h-14 w-14 items-center justify-center rounded-full bg-forest-700 text-cream shadow-lift transition hover:scale-105 sm:hidden"
-        aria-label="Écrire sur WhatsApp"
+        className="fixed bottom-4 right-4 z-30 flex h-12 items-center justify-center gap-2 rounded-full bg-forest-700 pl-3.5 pr-4 text-sm font-medium sm:bottom-5 sm:right-5 sm:h-14 sm:gap-2.5 sm:pl-4 sm:pr-5 sm:text-[15px] text-cream shadow-lift ring-1 ring-cream/10 transition hover:-translate-y-0.5 hover:bg-forest-800"
+        aria-label="Une question ? Écrire sur WhatsApp"
       >
         <WhatsAppIcon className="h-6 w-6" />
+        Une question ?
       </a>
     </>
   );
