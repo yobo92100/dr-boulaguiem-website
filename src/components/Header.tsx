@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { WhatsAppIcon, MenuIcon, CloseIcon, ArrowRightIcon } from "@/components/Icons";
+import { LogoMark } from "@/components/Logo";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 const navItems = [
@@ -47,9 +48,7 @@ export function Header() {
         <div className="container-x flex items-center justify-between gap-4 py-4">
           <Link href="/" className="group min-w-0" onClick={() => setOpen(false)}>
             <span className="flex items-center gap-3">
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-forest-700 font-display text-sm font-semibold text-cream shadow-soft">
-                NB
-              </span>
+              <LogoMark className="h-10 w-10 shrink-0" />
               <span className="min-w-0 leading-tight">
                 <span className="block truncate font-display text-[15px] font-semibold tracking-tight text-ink">
                   Dr Noureddine Boulaguiem

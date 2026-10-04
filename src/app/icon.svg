@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <style>
+    .yin{fill:#184b37}.yang{fill:#7cb298}.d1{fill:#faf6ec}.d2{fill:#184b37}.stem{stroke:#184b37}
+    @media (prefers-color-scheme: dark){.yin{fill:#faf6ec}.d1{fill:#184b37}.d2{fill:#faf6ec}.stem{stroke:#7cb298}}
+  </style>
+  <g transform="rotate(28 50 52) translate(0 1)">
+    <path class="stem" d="M50 87C49 91 47.5 94.5 45 97.5" fill="none" stroke-width="4" stroke-linecap="round"/>
+    <path class="yang" d="M50 6C76 22 82 60 50 87 18 60 24 22 50 6Z"/>
+    <path class="yin" d="M50 6C24 22 18 60 50 87 33 75 34 57 50 47 66 37 64 18 50 6Z"/>
+    <circle class="d1" cx="42" cy="32" r="4.6"/>
+    <circle class="d2" cx="58" cy="62" r="4.6"/>
+  </g>
+</svg>

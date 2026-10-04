@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { WhatsAppIcon, MapPinIcon } from "@/components/Icons";
+import { LogoMark } from "@/components/Logo";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 import { siteConfig } from "@/config/site";
 import { socialLinks } from "@/config/social";
@@ -34,9 +35,7 @@ export function Footer() {
         <div className="grid gap-10 md:grid-cols-[1.6fr_1fr_1fr]">
           <div>
             <span className="flex items-center gap-3">
-              <span className="flex h-11 w-11 items-center justify-center rounded-full bg-cream/10 font-display text-sm font-semibold text-cream ring-1 ring-cream/15">
-                NB
-              </span>
+              <LogoMark onDark className="h-11 w-11 shrink-0" />
               <span className="font-display text-lg font-semibold tracking-tight text-cream">
                 Dr Noureddine Boulaguiem
               </span>
