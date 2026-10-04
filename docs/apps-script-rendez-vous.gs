@@ -8,7 +8,7 @@
  */
 
 // Chaque demande est envoyée à toutes ces adresses (en ajouter entre guillemets, séparées par une virgule)
-const NOTIFY_EMAILS = ["boulag92@gmail.com"];
+const NOTIFY_EMAILS = ["boulag92@gmail.com", "yboulagu@icloud.com"];
 const SLOTS = ["14:00", "15:00", "16:00", "17:00"];
 const HEADERS = ["Reçu le", "Date", "Heure", "Nom", "Téléphone", "Motif", "Statut"];
 const CANCELLED = "Annulé";

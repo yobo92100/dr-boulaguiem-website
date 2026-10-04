@@ -6,7 +6,8 @@
  * empty, the form falls back to opening WhatsApp with the booking details.
  */
 export const bookingConfig = {
-  endpoint: "",
+  endpoint:
+    "https://script.google.com/macros/s/AKfycbwdLAQNgc3LdVIMuJe-Gv1rlWyS7b-AqAXu_CR4227TKF8GX1udZFSCTzeKdtuoocht/exec",
   // Hourly slots, Monday to Friday
   slots: ["14:00", "15:00", "16:00", "17:00"],
   openWeekdays: [1, 2, 3, 4, 5],
