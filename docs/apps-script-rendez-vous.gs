@@ -12,6 +12,7 @@ const NOTIFY_EMAILS = ["boulag92@gmail.com", "yboulagu@icloud.com"];
 const SLOTS = ["14:00", "15:00", "16:00", "17:00"];
 const HEADERS = ["Reçu le", "Date", "Heure", "Nom", "Téléphone", "Motif", "Statut"];
 const CANCELLED = "Annulé";
+const TIME_ZONE = "Africa/Casablanca";
 
 const DAYS = ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"];
 const MONTHS = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet",
@@ -23,9 +24,18 @@ function setup() {
   closuresSheet_();
 }
 
+/** À lancer à la main pour vérifier l'envoi des e-mails (redemande l'autorisation si elle manque). */
+function testEmail() {
+  MailApp.sendEmail(
+    NOTIFY_EMAILS.join(","),
+    "Test – rendez-vous du site",
+    "Si vous lisez ceci, les e-mails de rendez-vous fonctionnent."
+  );
+}
+
 /** Le site lit les créneaux déjà pris (sans aucun nom ni téléphone). */
 function doGet() {
-  const today = formatDate_(new Date());
+  const today = Utilities.formatDate(new Date(), TIME_ZONE, "yyyy-MM-dd");
   const booked = readBookings_()
     .filter(function (b) { return b.status !== CANCELLED && b.date >= today; })
     .map(function (b) { return { date: b.date, time: b.time }; });
@@ -54,9 +64,23 @@ function doPost(e) {
       return json_({ ok: false, error: "taken" });
     }
 
-    bookingsSheet_().appendRow([new Date(), date, time, name, phone, reason, "À confirmer"]);
+    bookingsSheet_().appendRow(
+      [new Date(), text_(date), text_(time), text_(name), text_(phone), text_(reason), "À confirmer"]
+    );
+    notify_(date, time, name, phone, reason);
+    return json_({ ok: true });
+  } catch (err) {
+    console.error(err);
+    return json_({ ok: false, error: "server" });
+  } finally {
+    lock.releaseLock();
+  }
+}
 
-    const label = dayLabel_(date) + " à " + Number(time.split(":")[0]) + " h";
+// La demande est déjà enregistrée : un e-mail qui échoue ne doit pas la faire échouer
+function notify_(date, time, name, phone, reason) {
+  const label = dayLabel_(date) + " à " + Number(time.split(":")[0]) + " h";
+  try {
     MailApp.sendEmail(
       NOTIFY_EMAILS.join(","),
       "Nouveau rendez-vous : " + label,
@@ -68,11 +92,8 @@ function doPost(e) {
         "Pensez à rappeler le patient pour confirmer.\n" +
         SpreadsheetApp.getActiveSpreadsheet().getUrl()
     );
-    return json_({ ok: true });
   } catch (err) {
-    return json_({ ok: false, error: "server" });
-  } finally {
-    lock.releaseLock();
+    console.error("E-mail non envoyé : " + err);
   }
 }
 
@@ -105,10 +126,11 @@ function closuresSheet_() {
 function readBookings_() {
   const sheet = bookingsSheet_();
   if (sheet.getLastRow() < 2) return [];
-  return sheet.getRange(2, 1, sheet.getLastRow() - 1, HEADERS.length).getValues()
-    .map(function (row) {
-      return { date: formatDate_(row[1]), time: formatTime_(row[2]), status: String(row[6]).trim() };
-    });
+  const range = sheet.getRange(2, 1, sheet.getLastRow() - 1, HEADERS.length);
+  const shown = range.getDisplayValues();
+  return range.getValues().map(function (row, i) {
+    return { date: formatDate_(row[1]), time: formatTime_(shown[i][2]), status: String(row[6]).trim() };
+  });
 }
 
 function readClosures_() {
@@ -119,19 +141,19 @@ function readClosures_() {
     .filter(function (d) { return d; });
 }
 
-// Accepte une vraie date Sheets ou un texte « 2026-10-15 »
+// Accepte un texte « 2026-10-15 » ou une date déjà convertie par Sheets
 function formatDate_(value) {
-  if (value instanceof Date) {
-    return Utilities.formatDate(value, Session.getScriptTimeZone(), "yyyy-MM-dd");
+  if (value && typeof value.getTime === "function") {
+    const zone = SpreadsheetApp.getActiveSpreadsheet().getSpreadsheetTimeZone();
+    return Utilities.formatDate(new Date(value.getTime()), zone, "yyyy-MM-dd");
   }
   return String(value || "").trim();
 }
 
-function formatTime_(value) {
-  if (value instanceof Date) {
-    return Utilities.formatDate(value, Session.getScriptTimeZone(), "HH:mm");
-  }
-  return String(value || "").trim();
+// Heure telle qu'affichée dans la cellule : « 17:00 », « 17:00:00 »… → « 17:00 »
+function formatTime_(shown) {
+  const match = String(shown || "").match(/(\d{1,2}):(\d{2})/);
+  return match ? ("0" + match[1]).slice(-2) + ":" + match[2] : "";
 }
 
 function dayLabel_(isoDate) {
@@ -140,10 +162,13 @@ function dayLabel_(isoDate) {
   return DAYS[d.getDay()] + " " + d.getDate() + " " + MONTHS[d.getMonth()];
 }
 
-// Texte court, et jamais interprété comme une formule par Sheets
 function clean_(value) {
-  const text = String(value || "").trim().slice(0, 200);
-  return /^[=+\-@]/.test(text) ? "'" + text : text;
+  return String(value || "").trim().slice(0, 200);
+}
+
+// L'apostrophe garde le texte tel quel : ni date, ni heure, ni formule, et le 0 de « 06… » reste
+function text_(value) {
+  return value ? "'" + value : "";
 }
 
 function json_(payload) {
