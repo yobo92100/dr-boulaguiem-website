@@ -5,13 +5,13 @@ import { getWhatsAppUrl } from "@/lib/whatsapp";
 import { siteConfig } from "@/config/site";
 import { socialLinks } from "@/config/social";
 
-const footerMessage =
-  "Bonjour Dr Boulaguiem, je souhaite connaître les prochaines dates de formation.";
+const footerMessage = "Bonjour Dr Boulaguiem, j'ai une question.";
 
 const columns = [
   {
     title: "Navigation",
     links: [
+      { href: "/consultations", label: "Consultations" },
       { href: "/formations", label: "Formations" },
       { href: "/a-propos", label: "À propos" },
       { href: "/#temoignages", label: "Témoignages" },
@@ -41,14 +41,23 @@ export function Footer() {
               </span>
             </span>
             <p className="mt-5 max-w-sm text-sm leading-7 text-cream/60">
-              Formations en homéopathie & Sujok au Maroc. Une pédagogie claire,
-              progressive et responsable, pensée en complément d'un suivi de
-              santé.
+              Consultations et formations en homéopathie & Sujok. Une approche
+              naturelle, claire et responsable, pensée en complément d'un suivi
+              de santé.
             </p>
-            <p className="mt-5 inline-flex items-center gap-2 text-sm text-cream/70">
-              <MapPinIcon className="h-4 w-4 text-gold-light" />
-              Partout à travers le Maroc
-            </p>
+            <a
+              href={siteConfig.cabinet.mapsUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-5 flex items-start gap-2 text-sm leading-6 text-cream/70 transition hover:text-cream"
+            >
+              <MapPinIcon className="mt-1 h-4 w-4 shrink-0 text-gold-light" />
+              <span>
+                Cabinet : {siteConfig.cabinet.street}, {siteConfig.cabinet.city}
+                <br />
+                Formations partout à travers le Maroc
+              </span>
+            </a>
             <ul className="mt-6 flex items-center gap-3">
               {socialLinks.map((social) => (
                 <li key={social.label}>
@@ -90,7 +99,7 @@ export function Footer() {
         <div className="mt-12 rounded-3xl border border-cream/10 bg-cream/[0.04] p-6 sm:flex sm:items-center sm:justify-between">
           <div>
             <p className="font-display text-lg font-medium text-cream">
-              Une question, une inscription ?
+              Une question, un rendez-vous ?
             </p>
             <p className="mt-1 text-sm text-cream/60">
               WhatsApp : {siteConfig.whatsappDisplay}
@@ -113,8 +122,8 @@ export function Footer() {
             réservés.
           </p>
           <p className="max-w-md">
-            Formations à vocation pédagogique, en complément d'un suivi de santé
-            classique.
+            Le Sujok et l'homéopathie ne remplacent ni un diagnostic ni un
+            traitement médical : ils les complètent.
           </p>
         </div>
       </div>

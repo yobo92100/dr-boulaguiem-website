@@ -1,4 +1,5 @@
 import { Button } from "@/components/Button";
+import { ConsultationBanner } from "@/components/ConsultationBanner";
 import { Reveal } from "@/components/Reveal";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { ArrowRightIcon, CheckIcon, LeafIcon } from "@/components/Icons";
@@ -27,12 +28,24 @@ export default function HomeopathiePage() {
               Comprendre l'homéopathie dans un cadre pédagogique
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-              Une approche complémentaire à étudier avec méthode et rigueur —
-              pour les professionnels de santé comme pour les curieux.
+              Une approche complémentaire, pratiquée en consultation et étudiée
+              en formation avec méthode et rigueur — pour les patients, les
+              professionnels de santé comme pour les curieux.
             </p>
           </Reveal>
         </div>
       </section>
+
+      <ConsultationBanner
+        title="Consulter en homéopathie"
+        text="Le Dr Boulaguiem vous reçoit à son cabinet pour un accompagnement en homéopathie, en complément de votre suivi médical."
+        points={[
+          "Stress, anxiété, sommeil",
+          "Troubles digestifs fonctionnels",
+          "Fatigue et baisse d'énergie",
+          "Une approche globale et personnalisée"
+        ]}
+      />
 
       <section className="py-16 sm:py-24">
         <div className="container-x grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">

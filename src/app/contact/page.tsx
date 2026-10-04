@@ -1,16 +1,22 @@
+import Link from "next/link";
 import { Reveal } from "@/components/Reveal";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-import { WhatsAppIcon, MapPinIcon, ClockIcon, CheckIcon } from "@/components/Icons";
+import {
+  WhatsAppIcon,
+  MapPinIcon,
+  ClockIcon,
+  CheckIcon,
+  CalendarIcon
+} from "@/components/Icons";
 import { siteConfig } from "@/config/site";
 import { socialLinks } from "@/config/social";
 
-const contactMessage =
-  "Bonjour Dr Boulaguiem, je souhaite connaître les prochaines dates de formation et réserver une place.";
+const contactMessage = "Bonjour Dr Boulaguiem, j'ai une question.";
 
 const points = [
-  "Connaître les prochaines dates",
-  "Vérifier les places disponibles",
-  "Réserver votre participation",
+  "Une question sur les consultations",
+  "Connaître les prochaines dates de formation",
+  "Réserver votre place en formation",
   "Poser toutes vos questions"
 ];
 
@@ -26,12 +32,12 @@ export default function ContactPage() {
               Contact
             </p>
             <h1 className="mt-5 max-w-xl font-display text-4xl font-semibold leading-[1.05] tracking-tight text-ink sm:text-5xl lg:text-6xl">
-              Intéressé par une formation ?
+              Une question, un rendez-vous ?
             </h1>
             <p className="mt-6 max-w-xl text-base leading-8 text-muted sm:text-lg">
-              Pour connaître les prochaines dates ou réserver votre place, vous
-              pouvez contacter directement le Dr Boulaguiem via WhatsApp. La
-              réponse est généralement rapide.
+              Pour une consultation comme pour une formation, vous pouvez
+              contacter directement le Dr Boulaguiem via WhatsApp. La réponse
+              est généralement rapide.
             </p>
             <ul className="mt-8 space-y-3">
               {points.map((p) => (
@@ -43,6 +49,13 @@ export default function ContactPage() {
                 </li>
               ))}
             </ul>
+            <Link
+              href="/consultations#rdv"
+              className="group mt-8 inline-flex items-center gap-2 text-[15px] font-medium text-forest-700"
+            >
+              <CalendarIcon />
+              Ou réservez directement une consultation en ligne
+            </Link>
           </div>
         </Reveal>
 
@@ -61,21 +74,26 @@ export default function ContactPage() {
             </div>
             <div className="p-8">
               <p className="leading-7 text-muted">
-                Formations en homéopathie & Sujok organisées à travers tout le
-                Maroc, selon le calendrier des sessions.
+                Consultations au cabinet de Casablanca. Formations en
+                homéopathie & Sujok organisées à travers tout le Maroc.
               </p>
               <div className="mt-6 space-y-3 text-sm text-forest-800">
-                <p className="flex items-center gap-2.5">
-                  <MapPinIcon className="h-4 w-4 text-forest-600" />
-                  Partout à travers le Maroc
-                </p>
+                <a
+                  href={siteConfig.cabinet.mapsUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-start gap-2.5 hover:underline"
+                >
+                  <MapPinIcon className="mt-0.5 h-4 w-4 shrink-0 text-forest-600" />
+                  {siteConfig.cabinet.street}, {siteConfig.cabinet.city}
+                </a>
                 <p className="flex items-center gap-2.5">
                   <ClockIcon className="h-4 w-4 text-forest-600" />
                   Réponse rapide, 7j/7
                 </p>
               </div>
               <WhatsAppButton message={contactMessage} className="mt-8 w-full">
-                S'inscrire via WhatsApp
+                Écrire sur WhatsApp
               </WhatsAppButton>
 
               <div className="mt-8 border-t border-forest-900/8 pt-6">

@@ -2,21 +2,28 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { WhatsAppIcon, MenuIcon, CloseIcon, ArrowRightIcon } from "@/components/Icons";
+import {
+  WhatsAppIcon,
+  MenuIcon,
+  CloseIcon,
+  ArrowRightIcon,
+  CalendarIcon
+} from "@/components/Icons";
 import { LogoMark } from "@/components/Logo";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 const navItems = [
+  { href: "/consultations", label: "Consultations" },
   { href: "/formations", label: "Formations" },
   { href: "/homeopathie", label: "Homéopathie" },
   { href: "/sujok", label: "Sujok" },
   { href: "/a-propos", label: "À propos" },
-  { href: "/#temoignages", label: "Témoignages" },
   { href: "/contact", label: "Contact" }
 ];
 
-const navMessage =
-  "Bonjour Dr Boulaguiem, je souhaite réserver une place pour une formation.";
+const bookingHref = "/consultations#rdv";
+
+const navMessage = "Bonjour Dr Boulaguiem, j'ai une question.";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -68,7 +75,7 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="rounded-full px-3.5 py-2 text-[13.5px] font-medium text-forest-900/70 transition hover:bg-forest-700/8 hover:text-forest-800"
+                className="whitespace-nowrap rounded-full px-2.5 py-2 text-[13.5px] xl:px-3.5 font-medium text-forest-900/70 transition hover:bg-forest-700/8 hover:text-forest-800"
               >
                 {item.label}
               </Link>
@@ -76,15 +83,14 @@ export function Header() {
           </nav>
 
           <div className="flex items-center gap-2">
-            <a
-              href={getWhatsAppUrl(navMessage)}
-              target="_blank"
-              rel="noreferrer"
-              className="hidden min-h-11 items-center justify-center gap-2 rounded-full bg-forest-700 px-5 py-2.5 text-sm font-medium text-cream shadow-soft transition hover:-translate-y-0.5 hover:bg-forest-800 sm:inline-flex"
+            <Link
+              href={bookingHref}
+              className="hidden min-h-11 items-center justify-center gap-2 whitespace-nowrap rounded-full bg-forest-700 px-5 py-2.5 text-sm font-medium text-cream shadow-soft transition hover:-translate-y-0.5 hover:bg-forest-800 sm:inline-flex"
             >
-              <WhatsAppIcon />
-              Réserver
-            </a>
+              <CalendarIcon />
+              <span className="lg:hidden xl:inline">Prendre rendez-vous</span>
+              <span className="hidden lg:inline xl:hidden">Rendez-vous</span>
+            </Link>
             <button
               type="button"
               onClick={() => setOpen((v) => !v)}
@@ -128,14 +134,22 @@ export function Header() {
               </Link>
             ))}
           </div>
+          <Link
+            href={bookingHref}
+            onClick={() => setOpen(false)}
+            className="mt-6 flex min-h-[3.25rem] items-center justify-center gap-2 rounded-full bg-forest-700 px-5 text-[15px] font-medium text-cream shadow-soft"
+          >
+            <CalendarIcon />
+            Prendre rendez-vous
+          </Link>
           <a
             href={getWhatsAppUrl(navMessage)}
             target="_blank"
             rel="noreferrer"
-            className="mt-6 flex min-h-[3.25rem] items-center justify-center gap-2 rounded-full bg-forest-700 px-5 text-[15px] font-medium text-cream shadow-soft"
+            className="mt-3 flex min-h-[3.25rem] items-center justify-center gap-2 rounded-full border border-forest-700/20 bg-white/70 px-5 text-[15px] font-medium text-forest-800"
           >
             <WhatsAppIcon />
-            Réserver une place
+            Une question ? WhatsApp
           </a>
         </nav>
       </div>
@@ -146,7 +160,7 @@ export function Header() {
         target="_blank"
         rel="noreferrer"
         className="fixed bottom-5 right-5 z-30 flex h-14 w-14 items-center justify-center rounded-full bg-forest-700 text-cream shadow-lift transition hover:scale-105 sm:hidden"
-        aria-label="Réserver via WhatsApp"
+        aria-label="Écrire sur WhatsApp"
       >
         <WhatsAppIcon className="h-6 w-6" />
       </a>

@@ -69,8 +69,10 @@ export default function AboutPage() {
               </h1>
               <div className="mt-8 space-y-5 text-base leading-8 text-muted">
                 <p>
-                  Pharmacien de formation, Dr Noureddine Boulaguiem transmet
-                  depuis plus de 15 ans son expérience en homéopathie et en Sujok.
+                  Pharmacien de formation, Dr Noureddine Boulaguiem reçoit ses
+                  patients en consultation à son cabinet de Casablanca, et
+                  transmet depuis plus de 15 ans son expérience en homéopathie et
+                  en Sujok.
                 </p>
                 <p>
                   Au fil des années, il a formé plus de 500 participants à travers

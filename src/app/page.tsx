@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Button } from "@/components/Button";
-import { FormatCard } from "@/components/FormatCard";
 import { Reveal } from "@/components/Reveal";
 import { SectionTitle } from "@/components/SectionTitle";
 import { VideoTestimonial } from "@/components/VideoTestimonial";
@@ -9,8 +8,10 @@ import {
   ArrowRightIcon,
   CalendarIcon,
   CertificateIcon,
+  CheckIcon,
   HandIcon,
   LeafIcon,
+  MapPinIcon,
   PhoneIcon,
   QuoteIcon,
   SparkIcon,
@@ -19,22 +20,21 @@ import {
 } from "@/components/Icons";
 import { images } from "@/config/images";
 import { siteConfig } from "@/config/site";
-import { formats } from "@/data/formats";
 import {
-  courseClips,
   longTestimonials,
   shortTestimonials,
   videoTestimonials
 } from "@/data/testimonials";
 
-const homeMessage =
-  "Bonjour Dr Boulaguiem, je souhaite réserver une place pour une formation en homéopathie ou Sujok au Maroc.";
+const homeMessage = "Bonjour Dr Boulaguiem, j'ai une question.";
+
+const bookingHref = "/consultations#rdv";
 
 const stats = [
   { value: "Docteur", label: "en pharmacie" },
   { value: "+15 ans", label: "d'expérience terrain" },
   { value: "+500", label: "élèves formés au Maroc" },
-  { value: "Partout", label: "à travers le Maroc" }
+  { value: "Casablanca", label: "cabinet de consultation" }
 ];
 
 const disciplines = [
@@ -43,22 +43,57 @@ const disciplines = [
     href: "/homeopathie",
     image: images.homeo1,
     icon: LeafIcon,
-    text: "Une découverte progressive des principes fondamentaux à travers des cas concrets, un vocabulaire clair et un cadre d'usage responsable."
+    text: "Une approche douce qui considère la personne dans sa globalité. Pratiquée en consultation, enseignée pas à pas en formation."
   },
   {
     name: "Sujok",
     href: "/sujok",
     image: images.sujokBall,
     icon: HandIcon,
-    text: "Apprenez à soulager la douleur et les tensions du quotidien par la stimulation de points précis des mains et des pieds. Accessible sans prérequis médical."
+    text: "Soulager la douleur et les tensions du quotidien par la stimulation de points précis des mains et des pieds — en séance au cabinet, ou en l'apprenant vous-même."
+  }
+];
+
+const doors = [
+  {
+    key: "consultations",
+    eyebrow: "Consulter",
+    title: "Une consultation au cabinet",
+    text: "Douleurs, migraines, stress, sommeil, troubles digestifs… Une approche naturelle et personnalisée, en complément de votre suivi médical.",
+    image: images.sessionWide1,
+    imageAlt: "Le Dr Boulaguiem en consultation",
+    points: [
+      `Cabinet à Casablanca`,
+      `${siteConfig.consultation.days}, ${siteConfig.consultation.hours}`,
+      `${siteConfig.consultation.price} au lieu de ${siteConfig.consultation.regularPrice} — offre de lancement`
+    ],
+    cta: "Prendre rendez-vous",
+    href: bookingHref,
+    dark: true
+  },
+  {
+    key: "formations",
+    eyebrow: "Se former",
+    title: "Une formation pour apprendre",
+    text: "Apprenez l'homéopathie et le Sujok avec un pharmacien formateur depuis 2009, que vous soyez professionnel de santé ou débutant.",
+    image: images.sessionWide2,
+    imageAlt: "Le Dr Boulaguiem pendant une formation Sujok",
+    points: [
+      "En présentiel partout au Maroc, ou en ligne",
+      "Programme progressif, attestation remise",
+      "+500 élèves déjà formés"
+    ],
+    cta: "Découvrir les formations",
+    href: "/formations",
+    dark: false
   }
 ];
 
 const pillars = [
   {
     icon: SparkIcon,
-    title: "Pédagogie claire",
-    text: "Pas de discours mystique. Des repères solides, des cas pratiques et une progression pensée pour être comprise."
+    title: "Clarté",
+    text: "Pas de discours mystique. Des explications simples, pour comprendre ce que l'on vous propose comme ce que l'on apprend."
   },
   {
     icon: CertificateIcon,
@@ -68,7 +103,28 @@ const pillars = [
   {
     icon: HandIcon,
     title: "Ancrée dans la pratique",
-    text: "Des exercices, des études de cas et des mises en situation pour repartir avec des outils utilisables."
+    text: "Des conseils concrets en consultation, des exercices et des cas réels en formation : des outils utilisables au quotidien."
+  }
+];
+
+const consultationFaq = [
+  {
+    question: "Comment prendre rendez-vous ?",
+    answer:
+      "Choisissez un jour et un créneau sur la page Consultations, puis laissez votre nom et votre téléphone. Le Dr Boulaguiem vous recontacte pour confirmer. Vous pouvez aussi écrire sur WhatsApp."
+  },
+  {
+    question: "Combien coûte une consultation ?",
+    answer: `${siteConfig.consultation.price} au lieu de ${siteConfig.consultation.regularPrice}, dans le cadre de l'offre de lancement.`
+  },
+  {
+    question: "Où se trouve le cabinet ?",
+    answer: `${siteConfig.cabinet.street}, ${siteConfig.cabinet.city}. Consultations ${siteConfig.consultation.days.toLowerCase()}, ${siteConfig.consultation.hours}.`
+  },
+  {
+    question: "Le Sujok et l'homéopathie remplacent-ils un traitement médical ?",
+    answer:
+      "Non. Ils ne remplacent ni le diagnostic ni les traitements prescrits par votre médecin : ils interviennent en complément, pour améliorer le confort et le bien-être."
   }
 ];
 
@@ -130,25 +186,28 @@ export default function Home() {
           <div className="flex flex-col justify-center">
             <p className="eyebrow animate-fade-in">
               <span className="rule-gold" aria-hidden="true" />
-              Docteur en pharmacie · Formateur certifié
+              Docteur en pharmacie · Praticien & formateur
             </p>
             <h1 className="mt-6 max-w-2xl font-display text-[2.75rem] font-semibold leading-[1.02] tracking-tightest text-ink sm:text-6xl lg:text-[4.25rem]">
-              Des formations complètes en{" "}
-              <span className="italic text-forest-700">homéopathie</span> &{" "}
-              <span className="italic text-forest-700">Sujok</span>.
+              <span className="italic text-forest-700">Homéopathie</span> &{" "}
+              <span className="italic text-forest-700">Sujok</span>, en
+              consultation et en formation.
             </h1>
             <p className="mt-6 font-display text-xl italic text-clay-dark">
               Bien-être & équilibre naturel.
             </p>
             <p className="mt-6 max-w-xl text-base leading-8 text-muted sm:text-lg">
-              Animées par un pharmacien fort de 15 ans de terrain. Pour les
-              professionnels de santé comme pour les apprenants sérieux,
-              partout à travers le Maroc.
+              Pharmacien fort de 15 ans de terrain, le Dr Boulaguiem vous reçoit
+              en consultation à son cabinet de Casablanca, et forme
+              professionnels de santé et passionnés partout au Maroc.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <WhatsAppButton message={homeMessage}>Réserver une place</WhatsAppButton>
-              <Button href="#formations" variant="secondary" size="lg">
-                Voir les formations
+              <Button href={bookingHref} size="lg">
+                <CalendarIcon />
+                Prendre rendez-vous
+              </Button>
+              <Button href="/formations" variant="secondary" size="lg">
+                Découvrir les formations
                 <ArrowRightIcon className="h-4 w-4 transition group-hover:translate-x-1" />
               </Button>
             </div>
@@ -185,13 +244,15 @@ export default function Home() {
             {/* Floating credential card */}
             <div className="absolute -bottom-5 -left-2 flex items-center gap-3 rounded-2xl border border-forest-900/8 bg-cream/95 px-4 py-3 shadow-lift backdrop-blur sm:left-4">
               <span className="flex h-10 w-10 items-center justify-center rounded-full bg-forest-700/10 text-forest-700">
-                <CertificateIcon className="h-5 w-5" />
+                <MapPinIcon className="h-5 w-5" />
               </span>
               <div className="leading-tight">
                 <p className="font-display text-sm font-semibold text-ink">
-                  Attestation remise
+                  Cabinet à Casablanca
                 </p>
-                <p className="text-[11px] text-muted">à chaque formation</p>
+                <p className="text-[11px] text-muted">
+                  {siteConfig.consultation.days.toLowerCase()}
+                </p>
               </div>
             </div>
             <div className="absolute -right-1 top-6 hidden items-center gap-2 rounded-full border border-forest-900/8 bg-cream/95 px-3.5 py-2 shadow-lift backdrop-blur sm:flex">
@@ -222,14 +283,103 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ---------- TWO DOORS ---------- */}
+      <section className="py-20 sm:py-28">
+        <div className="container-x">
+          <Reveal>
+            <SectionTitle
+              eyebrow="Consulter ou se former"
+              title="Comment le Dr Boulaguiem peut vous accompagner"
+              text="Venir en consultation pour être soulagé, ou suivre une formation pour apprendre : deux façons de découvrir l'homéopathie et le Sujok."
+            />
+          </Reveal>
+
+          <div className="mt-14 grid gap-6 md:grid-cols-2">
+            {doors.map((door, i) => (
+              <Reveal key={door.key} delay={i * 120}>
+                <div
+                  className={`flex h-full flex-col overflow-hidden rounded-4xl shadow-soft ${
+                    door.dark
+                      ? "bg-forest-radial text-cream shadow-lift"
+                      : "border border-forest-900/8 bg-white"
+                  }`}
+                >
+                  <div className="img-zoom relative overflow-hidden">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={door.image}
+                      alt={door.imageAlt}
+                      className="aspect-[16/10] w-full object-cover"
+                    />
+                  </div>
+                  <div className="flex flex-1 flex-col p-8 sm:p-10">
+                    <p className={`eyebrow ${door.dark ? "!text-gold-light" : ""}`}>
+                      <span className="rule-gold" aria-hidden="true" />
+                      {door.eyebrow}
+                    </p>
+                    <h3
+                      className={`mt-4 font-display text-2xl font-semibold sm:text-3xl ${
+                        door.dark ? "text-cream" : "text-ink"
+                      }`}
+                    >
+                      {door.title}
+                    </h3>
+                    <p
+                      className={`mt-4 text-[15px] leading-7 ${
+                        door.dark ? "text-cream/75" : "text-muted"
+                      }`}
+                    >
+                      {door.text}
+                    </p>
+                    <ul className="mt-6 space-y-3">
+                      {door.points.map((point) => (
+                        <li
+                          key={point}
+                          className={`flex items-start gap-3 text-sm ${
+                            door.dark ? "text-cream/85" : "text-ink/80"
+                          }`}
+                        >
+                          <CheckIcon
+                            className={`mt-0.5 h-4 w-4 shrink-0 ${
+                              door.dark ? "text-gold-light" : "text-forest-600"
+                            }`}
+                          />
+                          {point}
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="mt-auto pt-8">
+                      {door.dark ? (
+                        <Link
+                          href={door.href}
+                          className="group inline-flex min-h-[3.25rem] items-center justify-center gap-2 rounded-full bg-cream px-7 py-3.5 text-[15px] font-medium text-forest-800 shadow-soft transition hover:-translate-y-0.5"
+                        >
+                          <CalendarIcon />
+                          {door.cta}
+                        </Link>
+                      ) : (
+                        <Button href={door.href} variant="secondary" size="lg">
+                          {door.cta}
+                          <ArrowRightIcon className="h-4 w-4 transition group-hover:translate-x-1" />
+                        </Button>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ---------- DISCIPLINES ---------- */}
-      <section className="relative overflow-hidden py-20 sm:py-28">
+      <section className="relative overflow-hidden bg-sand/60 py-20 sm:py-28">
         <div className="container-x">
           <Reveal>
             <SectionTitle
               eyebrow="Les disciplines"
-              title="Deux formations, une même exigence"
-              text="Enseignées avec méthode et rigueur, deux formations que vous pouvez suivre selon vos envies."
+              title="Deux disciplines complémentaires"
+              text="Pratiquées en consultation et enseignées en formation, avec la même méthode et la même rigueur."
             />
           </Reveal>
 
@@ -289,8 +439,8 @@ export default function Home() {
               <SectionTitle
                 align="left"
                 eyebrow="La méthode"
-                title="Une formation sérieuse, humaine et utile"
-                text="Chaque session est construite autour de la compréhension et de la pratique, dans un cadre professionnel assumé."
+                title="Une approche sérieuse, humaine et utile"
+                text="En consultation comme en formation : de l'écoute, des explications claires et un cadre professionnel assumé."
               />
             </Reveal>
             <div className="mt-10 space-y-4">
@@ -338,16 +488,16 @@ export default function Home() {
                     Qui est Dr Noureddine Boulaguiem ?
                   </h2>
                   <p className="mt-3 text-sm font-medium text-forest-700">
-                    Docteur en pharmacie · Formateur depuis 2009
+                    Docteur en pharmacie · Praticien & formateur depuis 2009
                   </p>
                   <p className="mt-6 text-base leading-8 text-muted">
-                    Pharmacien de formation, il accompagne depuis plus de 15 ans
+                    Pharmacien de formation, il reçoit ses patients en
+                    consultation à Casablanca et accompagne depuis plus de 15 ans
                     des professionnels de santé et des apprenants à travers le
-                    Maroc. Ses formations donnent des repères solides, des outils
-                    pratiques et une posture professionnelle.
+                    Maroc.
                   </p>
                   <div className="mt-7 flex flex-wrap gap-2.5">
-                    {["Officine", "Homéopathie", "Sujok", "Formation continue"].map(
+                    {["Officine", "Homéopathie", "Sujok", "Consultations", "Formation continue"].map(
                       (tag) => (
                         <span
                           key={tag}
@@ -369,36 +519,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ---------- GALLERY ---------- */}
-      <section className="py-20 sm:py-28">
-        <div className="container-x">
-          <Reveal>
-            <SectionTitle
-              eyebrow="En images"
-              title="Un aperçu des cours"
-              text="Trois extraits filmés pendant une session, pour voir concrètement comment se déroule une formation."
-            />
-          </Reveal>
-
-          {/* Course clips */}
-          <div className="mt-12 grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-3">
-            {courseClips.map((c, i) => (
-              <Reveal key={c.key} delay={i * 100}>
-                <VideoTestimonial item={c} />
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ---------- TESTIMONIALS ---------- */}
       <section id="temoignages" className="scroll-mt-24 bg-sand/60 py-20 sm:py-28">
         <div className="container-x">
           <Reveal>
             <SectionTitle
               eyebrow="Témoignages"
-              title="Ce que disent les participants"
-              text="Des élèves venus de tous horizons, professionnels de santé comme débutants complets."
+              title="Ce qu'ils en disent"
+              text="Des personnes venues de tous horizons, professionnels de santé comme débutants complets."
             />
           </Reveal>
 
@@ -479,44 +607,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ---------- FORMATIONS (FORMATS) ---------- */}
-      <section id="formations" className="scroll-mt-24 bg-sand/60 py-20 sm:py-28">
-        <div className="container-x">
-          <Reveal>
-            <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-              <SectionTitle
-                align="left"
-                eyebrow="Les formats"
-                title="En présentiel ou en ligne"
-                text="Chaque formation est proposée en présentiel ou en ligne, selon votre emploi du temps."
-              />
-              <Link
-                href="/formations"
-                className="group inline-flex shrink-0 items-center gap-2 text-sm font-medium text-forest-700"
-              >
-                En savoir plus
-                <ArrowRightIcon className="h-4 w-4 transition group-hover:translate-x-1" />
-              </Link>
-            </div>
-          </Reveal>
-
-          <Reveal delay={80}>
-            <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-clay/20 bg-clay-50 px-4 py-2 text-[13px] font-medium text-clay-dark">
-              <CalendarIcon className="h-4 w-4" />
-              Prochaines dates bientôt annoncées — inscrivez-vous pour être informé(e) en priorité.
-            </div>
-          </Reveal>
-
-          <div className="mt-10 grid gap-6 md:grid-cols-2">
-            {formats.map((format, i) => (
-              <Reveal key={format.key} delay={i * 100}>
-                <FormatCard format={format} />
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ---------- FAQ ---------- */}
       <section className="py-20 sm:py-28">
         <div className="container-x mx-auto max-w-3xl">
@@ -524,31 +614,39 @@ export default function Home() {
             <SectionTitle
               align="center"
               eyebrow="Questions fréquentes"
-              title="Tout ce qu'il faut savoir avant de vous inscrire"
+              title="Tout ce qu'il faut savoir"
             />
           </Reveal>
-          <Reveal delay={80}>
-            <div className="mt-12 divide-y divide-forest-900/8 rounded-4xl border border-forest-900/8 bg-white/70 px-6 shadow-soft sm:px-8">
-              {faqItems.map((item) => (
-                <details key={item.question} className="group py-5">
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-lg font-medium text-ink marker:hidden">
-                    {item.question}
-                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-forest-900/15 text-forest-700 transition group-open:rotate-45">
-                      +
-                    </span>
-                  </summary>
-                  <p className="mt-3 text-sm leading-7 text-muted">{item.answer}</p>
-                </details>
-              ))}
-            </div>
-          </Reveal>
+          {[
+            { title: "Consultations", items: consultationFaq },
+            { title: "Formations", items: faqItems }
+          ].map((group, g) => (
+            <Reveal key={group.title} delay={80 + g * 40}>
+              <h3 className="mt-12 font-display text-xl font-semibold text-forest-800">
+                {group.title}
+              </h3>
+              <div className="mt-4 divide-y divide-forest-900/8 rounded-4xl border border-forest-900/8 bg-white/70 px-6 shadow-soft sm:px-8">
+                {group.items.map((item) => (
+                  <details key={item.question} className="group py-5">
+                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-lg font-medium text-ink marker:hidden">
+                      {item.question}
+                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-forest-900/15 text-forest-700 transition group-open:rotate-45">
+                        +
+                      </span>
+                    </summary>
+                    <p className="mt-3 text-sm leading-7 text-muted">{item.answer}</p>
+                  </details>
+                ))}
+              </div>
+            </Reveal>
+          ))}
           <Reveal delay={120}>
             <div className="mt-10 flex flex-col items-center gap-4 text-center">
               <p className="text-base text-muted">
                 Une autre question ? Écrivez directement sur WhatsApp, la
                 réponse est rapide.
               </p>
-              <WhatsAppButton message="Bonjour Dr Boulaguiem, j'ai une question à propos des formations.">
+              <WhatsAppButton message={homeMessage}>
                 Poser une question
               </WhatsAppButton>
             </div>
@@ -564,30 +662,38 @@ export default function Home() {
             <div className="relative">
               <p className="eyebrow !text-gold-light">
                 <span className="rule-gold" aria-hidden="true" />
-                Présentiel & en ligne
+                Consultations & formations
               </p>
               <h2 className="mx-auto mt-5 max-w-2xl font-display text-3xl font-semibold leading-tight text-cream sm:text-5xl">
-                Prêt à réserver votre place ?
+                Prêt à faire le premier pas ?
               </h2>
               <p className="mx-auto mt-5 max-w-xl text-base leading-8 text-cream/70">
-                Pour connaître les prochaines dates ou réserver, contactez
-                directement le Dr Boulaguiem sur WhatsApp.
+                Réservez votre consultation en ligne, ou écrivez directement au
+                Dr Boulaguiem sur WhatsApp pour toute question sur les
+                consultations ou les formations.
               </p>
               <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+                <Link
+                  href={bookingHref}
+                  className="inline-flex min-h-[3.25rem] items-center justify-center gap-2 rounded-full bg-cream px-7 py-3.5 text-[15px] font-medium text-forest-800 shadow-soft transition hover:-translate-y-0.5"
+                >
+                  <CalendarIcon />
+                  Prendre rendez-vous
+                </Link>
                 <a
                   href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(homeMessage)}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex min-h-[3.25rem] items-center justify-center gap-2 rounded-full bg-cream px-7 py-3.5 text-[15px] font-medium text-forest-800 shadow-soft transition hover:-translate-y-0.5"
+                  className="inline-flex min-h-[3.25rem] items-center justify-center gap-2 rounded-full border border-cream/25 px-7 py-3.5 text-[15px] font-medium text-cream transition hover:-translate-y-0.5 hover:bg-cream/10"
                 >
                   <WhatsAppIcon />
-                  S'inscrire via WhatsApp
+                  Écrire sur WhatsApp
                 </a>
-                <span className="inline-flex items-center gap-2 text-sm text-cream/70">
-                  <PhoneIcon className="h-4 w-4 text-gold-light" />
-                  {siteConfig.whatsappDisplay}
-                </span>
               </div>
+              <p className="mt-6 inline-flex items-center gap-2 text-sm text-cream/70">
+                <PhoneIcon className="h-4 w-4 text-gold-light" />
+                {siteConfig.whatsappDisplay}
+              </p>
             </div>
           </div>
         </div>

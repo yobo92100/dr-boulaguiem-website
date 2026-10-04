@@ -1,4 +1,5 @@
 import { Button } from "@/components/Button";
+import { ConsultationBanner } from "@/components/ConsultationBanner";
 import { Reveal } from "@/components/Reveal";
 import { SectionTitle } from "@/components/SectionTitle";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
@@ -56,14 +57,24 @@ export default function SujokPage() {
               Découvrir le Sujok avec une approche claire
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-              Apprenez à soulager la douleur, à réduire le stress et à améliorer
-              la circulation par la stimulation de points précis des mains et
-              des pieds. Une formation accessible aux professionnels comme au
-              grand public.
+              Soulager la douleur, réduire le stress et améliorer la circulation
+              par la stimulation de points précis des mains et des pieds — en
+              séance au cabinet, ou en formation pour l'apprendre vous-même.
             </p>
           </Reveal>
         </div>
       </section>
+
+      <ConsultationBanner
+        title="Une séance de Sujok au cabinet"
+        text="Le Dr Boulaguiem pratique le Sujok en consultation pour soulager douleurs et tensions, en complément de votre suivi médical."
+        points={[
+          "Douleurs articulaires et musculaires",
+          "Maux de tête et migraines",
+          "Stress et tensions",
+          "Une approche douce, adaptée à chacun"
+        ]}
+      />
 
       <section className="py-16 sm:py-24">
         <div className="container-x grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">

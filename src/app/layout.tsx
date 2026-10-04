@@ -19,14 +19,14 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: `${siteConfig.name} | Formations en homéopathie & Sujok au Maroc`,
+  title: `${siteConfig.name} | Consultations & formations en homéopathie et Sujok — Casablanca`,
   description:
-    "Formations en homéopathie et Sujok au Maroc avec Dr Noureddine Boulaguiem, docteur en pharmacie. Une pédagogie claire et complémentaire, partout à travers le Maroc.",
+    "Consultations en homéopathie et Sujok au cabinet de Casablanca, et formations partout au Maroc, avec Dr Noureddine Boulaguiem, docteur en pharmacie. Prise de rendez-vous en ligne.",
   metadataBase: new URL("https://www.example.com"),
   openGraph: {
-    title: `${siteConfig.name} | Formations en homéopathie & Sujok`,
+    title: `${siteConfig.name} | Consultations & formations en homéopathie et Sujok`,
     description:
-      "Formations en homéopathie et Sujok au Maroc — une pédagogie claire et complémentaire.",
+      "Consultations à Casablanca et formations partout au Maroc — une approche naturelle, claire et complémentaire.",
     locale: "fr_FR",
     type: "website"
   }
