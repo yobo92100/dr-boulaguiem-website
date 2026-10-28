@@ -24,7 +24,7 @@ export const images = {
   // Sujok (thematic)
   sujokRing: "/images/sujok-ring.jpg", // Sujok spring ring on a finger
   sujokBall: "/images/sujok-ball.jpg", // spiky Sujok ball on a foot
-  sujokDiagram: "/images/sujok-diagram.png", // reflexology foot map (illustration)
+  sujokDiagram: "/images/sujok-diagram2.png", // hand correspondence map (illustration)
 
   // Participant avatars (hero trust row)
   participant1: "/images/participant1.jpg",

@@ -191,7 +191,7 @@ export default function SujokPage() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={images.sujokDiagram}
-                alt="Carte de réflexologie du pied en Sujok"
+                alt="Carte des correspondances de la main en Sujok"
                 className="mx-auto max-h-[26rem] w-auto object-contain"
               />
               <p className="mt-6 text-center text-xs text-muted">
