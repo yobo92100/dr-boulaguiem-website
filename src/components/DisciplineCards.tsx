@@ -20,19 +20,13 @@ const disciplines = [
   }
 ];
 
-type DisciplineCardsProps = {
-  /** Appended to each discipline link, e.g. "#programme". */
-  hash?: string;
-  cta?: string;
-};
-
-export function DisciplineCards({ hash = "", cta = "En savoir plus" }: DisciplineCardsProps) {
+export function DisciplineCards() {
   return (
     <div className="mt-14 grid gap-6 md:grid-cols-2">
       {disciplines.map((d, i) => (
         <Reveal key={d.name} delay={i * 120}>
           <Link
-            href={d.href + hash}
+            href={d.href}
             className="img-zoom group relative flex h-full min-h-[22rem] flex-col justify-end overflow-hidden rounded-4xl shadow-soft transition-all duration-500 hover:-translate-y-1 hover:shadow-lift"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -53,7 +47,7 @@ export function DisciplineCards({ hash = "", cta = "En savoir plus" }: Disciplin
                 {d.text}
               </p>
               <span className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-gold-light">
-                {cta}
+                En savoir plus
                 <ArrowRightIcon className="h-4 w-4 transition group-hover:translate-x-1" />
               </span>
             </div>

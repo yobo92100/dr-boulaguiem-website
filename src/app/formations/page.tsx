@@ -68,7 +68,7 @@ export default function FormationsPage() {
               text="Enseignées avec méthode et rigueur, deux formations que vous pouvez suivre selon vos envies."
             />
           </Reveal>
-          <DisciplineCards hash="#programme" cta="Voir le programme" />
+          <DisciplineCards />
 
           <div className="mt-20">
             <Reveal>
