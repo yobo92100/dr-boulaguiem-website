@@ -25,6 +25,7 @@ export const images = {
   sujokRing: "/images/sujok-ring.jpg", // Sujok spring ring on a finger
   sujokBall: "/images/sujok-ball.jpg", // spiky Sujok ball on a foot
   sujokDiagram: "/images/sujok-diagram2.png", // hand correspondence map (illustration)
+  sujokVideoPoster: "/images/video-sawt-al-mowatin.jpg", // YouTube poster, Sawt Al Mowatin report
 
   // Participant avatars (hero trust row)
   participant1: "/images/participant1.jpg",

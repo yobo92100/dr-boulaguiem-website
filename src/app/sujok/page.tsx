@@ -2,6 +2,7 @@ import { Button } from "@/components/Button";
 import { Reveal } from "@/components/Reveal";
 import { SectionTitle } from "@/components/SectionTitle";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { YouTubeVideo } from "@/components/YouTubeVideo";
 import {
   ArrowRightIcon,
   CheckIcon,
@@ -198,6 +199,36 @@ export default function SujokPage() {
                 Exemple de zones de correspondance (schéma pédagogique).
               </p>
             </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* In the media: YouTube report */}
+      <section className="bg-forest-radial py-20 text-cream sm:py-24">
+        <div className="container-x grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+          <Reveal>
+            <div>
+              <p className="eyebrow !text-gold-light">
+                <span className="rule-gold" aria-hidden="true" />
+                Dans les médias
+              </p>
+              <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
+                Le Sujok expliqué en vidéo
+              </h2>
+              <p className="mt-6 text-base leading-8 text-cream/75">
+                Au micro de Sawt Al Mowatin, le Dr Boulaguiem présente le Sujok
+                et montre, sur la main, comment quelques points suffisent à
+                soulager une douleur.
+              </p>
+              <p className="mt-4 text-sm text-cream/55">Vidéo en arabe.</p>
+            </div>
+          </Reveal>
+          <Reveal delay={100}>
+            <YouTubeVideo
+              id="Z379SHXtSsw"
+              title="Les secrets du Sujok avec le Dr Noureddine Boulaguiem (Sawt Al Mowatin)"
+              poster={images.sujokVideoPoster}
+            />
           </Reveal>
         </div>
       </section>
