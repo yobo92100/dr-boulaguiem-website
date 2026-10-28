@@ -1,7 +1,7 @@
 import { Button } from "@/components/Button";
 import { Reveal } from "@/components/Reveal";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-import { ArrowRightIcon, CheckIcon, LeafIcon } from "@/components/Icons";
+import { ArrowRightIcon, CheckIcon, ChevronDownIcon, LeafIcon } from "@/components/Icons";
 import { images } from "@/config/images";
 
 const learningPoints = [
@@ -30,6 +30,12 @@ export default function HomeopathiePage() {
               Une approche complémentaire à étudier avec méthode et rigueur —
               pour les professionnels de santé comme pour les curieux.
             </p>
+          </Reveal>
+          <Reveal delay={80}>
+            <Button href="#programme" size="lg" className="mt-9">
+              Voir le programme complet
+              <ChevronDownIcon className="h-4 w-4 transition group-hover:translate-y-0.5" />
+            </Button>
           </Reveal>
         </div>
       </section>
@@ -72,7 +78,7 @@ export default function HomeopathiePage() {
         </div>
       </section>
 
-      <section className="bg-sand/60 py-20 sm:py-24">
+      <section id="programme" className="scroll-mt-16 bg-sand/60 py-20 sm:py-24">
         <div className="container-x grid gap-12 lg:grid-cols-2 lg:items-center">
           <Reveal>
             <div>

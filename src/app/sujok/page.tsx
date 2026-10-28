@@ -62,6 +62,12 @@ export default function SujokPage() {
               grand public.
             </p>
           </Reveal>
+          <Reveal delay={80}>
+            <Button href="#programme" size="lg" className="mt-9">
+              Voir le programme complet
+              <ChevronDownIcon className="h-4 w-4 transition group-hover:translate-y-0.5" />
+            </Button>
+          </Reveal>
         </div>
       </section>
 
@@ -228,7 +234,7 @@ export default function SujokPage() {
       </section>
 
       {/* Full programme, three levels */}
-      <section id="programme" className="py-20 sm:py-24">
+      <section id="programme" className="scroll-mt-16 py-20 sm:py-24">
         <div className="container-x">
           <Reveal>
             <SectionTitle
