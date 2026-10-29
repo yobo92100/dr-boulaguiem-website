@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Programme de formation Sujok · Niveau 1 · Dr Noureddine Boulaguiem</title>
+<style>
+  /* Source of public/programme-formation-sujok-dr-boulaguiem.pdf — rebuild with: node print/build-pdf.mjs */
+  @font-face { font-family: Inter; font-weight: 100 900; src: url(fonts/inter.woff2) format("woff2"); }
+  @font-face { font-family: Fraunces; font-weight: 100 900; src: url(fonts/fraunces.woff2) format("woff2"); }
+  @font-face { font-family: Fraunces; font-style: italic; font-weight: 100 900; src: url(fonts/fraunces-italic.woff2) format("woff2"); }
+  @page { size: A4; margin: 0; }
+  :root {
+    --forest-200: #abcfbc; --forest-600: #1f5f44; --forest-700: #184b37; --forest-800: #123729; --forest-900: #0c231b;
+    --gold: #b0893f; --gold-light: #c9a566; --gold-dark: #8c6a2c;
+    --cream: #faf6ec; --sand: #f2e9d8; --ink: #16241d; --muted: #5c6b63;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-family: Inter, sans-serif; color: var(--ink); background: #888; }
+  .display { font-family: Fraunces, serif; }
+
+  .page { width: 210mm; height: 297mm; position: relative; overflow: hidden; background: var(--cream);
+    page-break-after: always; break-after: page; padding: 15mm 18mm 22mm; }
+  .page:last-child { page-break-after: auto; break-after: auto; }
+  .grid { position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(31,95,68,.045) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(31,95,68,.045) 1px, transparent 1px);
+    background-size: 9mm 9mm; }
+  .glow { position: absolute; inset: 0;
+    background: radial-gradient(60% 40% at 90% 0%, rgba(201,165,102,.22), transparent 70%),
+                radial-gradient(50% 35% at 0% 100%, rgba(31,95,68,.08), transparent 70%); }
+  .content { position: relative; height: 100%; display: flex; flex-direction: column; }
+
+  /* Header / footer */
+  .brand { display: flex; align-items: center; gap: 3mm; }
+  .brand svg { width: 11mm; height: 11mm; }
+  .brand b { display: block; font-family: Fraunces, serif; font-size: 12pt; font-weight: 600; }
+  .brand small { display: block; font-size: 7.5pt; color: var(--muted); letter-spacing: .02em; margin-top: .6mm; }
+  .footer { position: absolute; left: 18mm; right: 18mm; bottom: 8mm; display: flex; justify-content: space-between;
+    align-items: center; padding-top: 3.5mm; border-top: 1px solid rgba(22,36,29,.1); font-size: 7.5pt; color: var(--muted); }
+  .footer .brand svg { width: 5mm; height: 5mm; display: block; }
+  .footer .num { font-family: Fraunces, serif; font-weight: 600; color: var(--forest-700); font-size: 9pt; }
+
+  .eyebrow { display: flex; align-items: center; gap: 3mm; font-size: 7.5pt; font-weight: 600; letter-spacing: .2em;
+    text-transform: uppercase; color: var(--gold-dark); }
+  .eyebrow::before { content: ""; width: 12mm; height: 1px; background: linear-gradient(90deg, transparent, var(--gold)); }
+
+  /* Cover */
+  .cover-photo { margin-top: 12mm; height: 112mm; border-radius: 7mm; overflow: hidden; position: relative;
+    box-shadow: 0 2mm 6mm rgba(18,55,41,.12); border: 1mm solid rgba(255,255,255,.75); }
+  .cover-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%; }
+  .cover-title { margin-top: 11mm; }
+  .cover-title h1 { margin-top: 4mm; font-family: Fraunces, serif; font-size: 44pt; font-weight: 600; line-height: 1.02; letter-spacing: -.02em; }
+  .cover-title h1 em { color: var(--forest-700); }
+  .cover-title .sub { margin-top: 3mm; font-family: Fraunces, serif; font-style: italic; font-size: 17pt; color: #9f5539; }
+  .chips { margin-top: 6mm; display: flex; flex-wrap: wrap; gap: 2.5mm; }
+  .chip { padding: 2.2mm 4.5mm; border-radius: 99px; border: 1px solid rgba(12,35,27,.1); background: rgba(255,255,255,.75);
+    font-size: 9.5pt; color: var(--forest-800); }
+  .overview { margin-top: auto; border-radius: 6mm; background: var(--forest-800); color: var(--cream); padding: 7mm 8mm;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 3.5mm 8mm; }
+  .overview h2 { grid-column: 1 / -1; font-size: 7.5pt; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-light); }
+  .overview div { display: flex; gap: 3mm; font-size: 10pt; line-height: 1.4; color: rgba(250,246,236,.9); }
+  .overview span { font-family: Fraunces, serif; font-weight: 600; color: var(--gold-light); flex: none; }
+
+  /* Module pages */
+  .modules { margin-top: 6mm; display: flex; flex-direction: column; gap: 6mm; }
+  .module { border-radius: 6mm; background: #fff; border: 1px solid rgba(12,35,27,.07); box-shadow: 0 1.5mm 5mm rgba(18,55,41,.06);
+    padding: 7mm 9mm; }
+  .module header { display: flex; align-items: baseline; gap: 4mm; padding-bottom: 3.5mm; margin-bottom: 4mm;
+    border-bottom: 1px solid rgba(12,35,27,.08); }
+  .module .tag { font-size: 8pt; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--forest-600); flex: none; }
+  .module h3 { font-family: Fraunces, serif; font-size: 15.5pt; font-weight: 600; line-height: 1.2; }
+  .module ol { list-style: none; display: grid; gap: 2.8mm; }
+  .module li { display: flex; gap: 4mm; font-size: 11pt; line-height: 1.45; color: rgba(22,36,29,.9); }
+  .module li > span { width: 6mm; flex: none; font-family: Fraunces, serif; font-weight: 600; font-size: 10.5pt; color: var(--gold-dark);
+    font-variant-numeric: tabular-nums; }
+  .module li p.detail { margin-top: 1.2mm; font-size: 9pt; line-height: 1.5; color: var(--muted); }
+
+  .closing { margin-top: 5mm; border-radius: 6mm; background: var(--sand); padding: 5mm 7mm; display: flex;
+    justify-content: space-between; align-items: center; gap: 6mm; }
+  .closing b { display: block; font-family: Fraunces, serif; font-size: 12pt; font-weight: 600; }
+  .closing p { margin-top: 1mm; font-size: 8.5pt; color: var(--muted); line-height: 1.5; }
+  .closing .pill { flex: none; padding: 2.8mm 5mm; border-radius: 99px; background: var(--forest-700); color: var(--cream);
+    font-size: 9pt; font-weight: 600; }
+
+  @media screen { .page { margin: 8mm auto; box-shadow: 0 2mm 8mm rgba(0,0,0,.25); } }
+  @media print { body { background: none; } }
+</style>
+</head>
+<body>
+<template id="logo"><svg viewBox="0 0 100 100"><g transform="rotate(28 50 52) translate(0 1)">
+  <path d="M50 87C49 91 47.5 94.5 45 97.5" fill="none" stroke="#184b37" stroke-width="4" stroke-linecap="round"/>
+  <path d="M50 6C76 22 82 60 50 87 18 60 24 22 50 6Z" fill="#7cb298"/>
+  <path d="M50 6C24 22 18 60 50 87 33 75 34 57 50 47 66 37 64 18 50 6Z" fill="#184b37"/>
+  <circle cx="42" cy="32" r="4.6" fill="#faf6ec"/><circle cx="58" cy="62" r="4.6" fill="#184b37"/></g></svg></template>
+
+<section class="page">
+  <div class="grid"></div><div class="glow"></div>
+  <div class="content">
+    <div class="brand" data-logo><span><b>Dr Noureddine Boulaguiem</b><small>Homéopathie · Sujok · Maroc</small></span></div>
+    <div class="cover-photo"><img src="../public/images/sujok-session2.jpg" alt=""></div>
+    <div class="cover-title">
+      <p class="eyebrow">Programme de formation</p>
+      <h1>Formation <em>Sujok</em></h1>
+      <p class="sub">Niveau 1 · Les fondamentaux</p>
+      <div class="chips">
+        <span class="chip">6 modules</span>
+        <span class="chip">1 journée de 8 h par module</span>
+        <span class="chip">Aucun prérequis</span>
+        <span class="chip">Attestation de participation</span>
+      </div>
+    </div>
+    <div class="overview" id="overview"><h2>Les six modules</h2></div>
+  </div>
+  <div class="footer"></div>
+</section>
+
+<div id="module-pages"></div>
+
+<script>
+  const modules = [
+    { title: "Système standard : face Yin", items: [
+      "Historique et principes fondamentaux du Su Jok",
+      "Notions de thérapeutique bioénergétique",
+      "Énergies cosmique et tellurique : sens de circulation",
+      "Présentation du système standard de correspondance",
+      "Cartographie de la face Yin de la main",
+      "Projection des organes internes et des parties antérieures du corps",
+      "Recherche et détection des points douloureux",
+      "Techniques de stimulation : pression, massage, graines et couleurs",
+      "Travaux pratiques et cas cliniques"] },
+    { title: "Système standard : face Yang", items: [
+      "Cartographie de la face Yang de la main",
+      "Projection des différentes parties postérieures du corps",
+      "Étude des zones difficiles et des points cachés",
+      "Cartographie des pieds : projections Yin et Yang",
+      "Détermination des points thérapeutiques",
+      "Les différentes étapes du traitement : exploration, acupression, tonification et dispersion, chromothérapie, application des graines, moxibustion et acupuncture Su Jok",
+      "Travaux pratiques et cas cliniques"] },
+    { title: "Système Insecte : principes et cartographie", items: [
+      "Présentation du système Insecte et de ses avantages",
+      "Comparaison avec le système standard",
+      "Cartographie générale des doigts",
+      "Projection de la tête, du tronc et des membres",
+      "Correspondances Yin et Yang",
+      "Détection des points de correspondance",
+      "Manipulation des stylets et massage des points",
+      "Travaux pratiques et cas cliniques"] },
+    { title: "Système Insecte : traitements énergétiques", items: [
+      "Notions de support énergétique dans le système Insecte",
+      "Étude des différentes énergies des doigts",
+      "Les Six Ki et leurs correspondances avec les organes",
+      "Cycle énergétique des Six Ki",
+      "Techniques de tonification et de dispersion",
+      "Équilibrage énergétique par la chromothérapie",
+      "Utilisation des couleurs et de leur pouvoir énergétique",
+      "Application des graines, aimants, anneaux et stimulateurs de surface",
+      "Protocoles thérapeutiques et cas cliniques"] },
+    { title: "Mini-système", items: [
+      "Présentation et principes du Mini-système",
+      "Cartographie des Mini-systèmes sur les doigts",
+      "Projection des différentes parties du corps",
+      "Repérage précis des points de correspondance",
+      "Choix du Mini-système adapté à chaque situation",
+      "Techniques de diagnostic et de traitement",
+      "Utilisation des stylets, graines, couleurs, aimants et moxas",
+      "Applications pratiques : douleurs articulaires et musculaires, céphalées et migraines, troubles digestifs, respiratoires et uro-génitaux",
+      "Travaux pratiques, cas cliniques et questions-réponses"] },
+    { title: "Système de la tête animale et traitement royal", items: [
+      "Présentation et principes du système de la tête animale",
+      "Cartographie complète du système",
+      "Recherche et stimulation des points thérapeutiques",
+      ["Applications en ORL et en odontologie",
+        "Étude des points de correspondance et des techniques de stimulation appliquées aux affections ORL : rhinite, sinusite, otite, angine et troubles de la gorge.",
+        "Applications aux troubles bucco-dentaires : douleurs dentaires, gingivite, aphtes et douleurs des mâchoires, avec exercices pratiques de localisation des points."],
+      ["La chaleur qui revitalise : les reins, batteries de l'organisme",
+        "Traitement royal : stimulation de points énergétiques spécifiques visant, selon le Su Jok, à harmoniser les énergies et soutenir la vitalité par la stimulation et la chaleur."],
+      "Travaux pratiques, cas cliniques et questions-réponses"] }
+  ];
+
+  const pad = (n) => String(n).padStart(2, "0");
+  const logo = document.getElementById("logo").innerHTML;
+  const footer = (n) => `<span class="brand" style="gap:2mm">${logo}Dr Noureddine Boulaguiem · Formation Sujok, niveau 1</span>
+    <span>WhatsApp +212 6 61 44 14 63</span><span class="num">${n}</span>`;
+
+  document.getElementById("overview").insertAdjacentHTML("beforeend",
+    modules.map((m, i) => `<div><span>${pad(i + 1)}</span>${m.title}</div>`).join(""));
+
+  const moduleHtml = (m, i) => `<article class="module">
+    <header><span class="tag">Module ${pad(i + 1)}</span><h3>${m.title}</h3></header>
+    <ol>${m.items.map((it, j) => {
+      const [text, ...details] = Array.isArray(it) ? it : [it];
+      return `<li><span>${pad(j + 1)}</span><div>${text}${details.map((d) => `<p class="detail">${d}</p>`).join("")}</div></li>`;
+    }).join("")}</ol></article>`;
+
+  const pages = [[0, 1], [2, 3], [4, 5]];
+  document.getElementById("module-pages").outerHTML = pages.map((group, p) => `<section class="page">
+    <div class="grid"></div><div class="glow"></div>
+    <div class="content">
+      <p class="eyebrow">Niveau 1 · Modules ${group.map((i) => pad(i + 1)).join(" et ")}</p>
+      <div class="modules">${group.map((i) => moduleHtml(modules[i], i)).join("")}</div>
+      ${p === pages.length - 1 ? `<div class="closing"><div><b>Envie de vous inscrire ?</b>
+        <p>Les places sont limitées à chaque session. Écrivez-nous pour connaître les prochaines dates.</p></div>
+        <span class="pill">WhatsApp +212 6 61 44 14 63</span></div>` : ""}
+    </div>
+    <div class="footer"></div></section>`).join("");
+
+  document.querySelectorAll("[data-logo]").forEach((el) => el.insertAdjacentHTML("afterbegin", logo));
+  document.querySelectorAll(".page").forEach((pg, i) => (pg.querySelector(".footer").innerHTML = footer(i + 1)));
+</script>
+</body>
+</html>

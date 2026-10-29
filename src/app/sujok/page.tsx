@@ -323,10 +323,10 @@ export default function SujokPage() {
             <div className="mx-auto mt-10 max-w-3xl rounded-4xl border border-forest-900/8 bg-sand/60 p-6 sm:flex sm:items-center sm:justify-between sm:gap-6 sm:p-8">
               <div>
                 <p className="font-display text-lg font-medium text-ink">
-                  Le programme détaillé
+                  Le programme détaillé du niveau 1
                 </p>
                 <p className="mt-1 text-sm leading-7 text-muted">
-                  Le contenu de chaque module, dans le détail.
+                  Les six modules, point par point. Le détail des niveaux 2 et 3 arrive bientôt.
                 </p>
               </div>
               <a

@@ -18,12 +18,12 @@ export const sujokLevels: SujokLevel[] = [
     intro:
       "Le point de départ, sans aucun prérequis. On y pose les bases : d'où vient le Sujok, comment lire la main et le pied, et comment appliquer les premiers gestes.",
     modules: [
-      "Histoire du Sujok, notions de bio-énergétique et cartographie de la main",
-      "Cartographie des pieds et les sept étapes de la pratique",
-      "Le système « insecte », chromothérapie et cycle des Six Ki",
-      "Les énergies des doigts et l'équilibrage énergétique",
-      "Les outils : stylets, anneaux, rouleaux, stimulateurs, aimants",
-      "Applications courantes : rhume, toux, fièvre, céphalées, ballonnements"
+      "Système standard : la face Yin de la main",
+      "Système standard : la face Yang de la main et les pieds",
+      "Système Insecte : principes et cartographie des doigts",
+      "Système Insecte : énergies des doigts, Six Ki et chromothérapie",
+      "Le Mini-système : repérage et applications pratiques",
+      "Système de la tête animale et traitement royal"
     ]
   },
   {
