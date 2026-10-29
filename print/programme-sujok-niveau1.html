@@ -46,14 +46,15 @@
   .eyebrow::before { content: ""; width: 12mm; height: 1px; background: linear-gradient(90deg, transparent, var(--gold)); }
 
   /* Cover */
-  .cover-photo { margin-top: 12mm; height: 112mm; border-radius: 7mm; overflow: hidden; position: relative;
-    box-shadow: 0 2mm 6mm rgba(18,55,41,.12); border: 1mm solid rgba(255,255,255,.75); }
-  .cover-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%; }
-  .cover-title { margin-top: 11mm; }
-  .cover-title h1 { margin-top: 4mm; font-family: Fraunces, serif; font-size: 44pt; font-weight: 600; line-height: 1.02; letter-spacing: -.02em; }
+  .cover-main { margin-top: 34mm; display: grid; grid-template-columns: 1fr 70mm; gap: 10mm; align-items: center; }
+  .cover-photo { height: 96mm; border-radius: 7mm; overflow: hidden; border: 1mm solid rgba(255,255,255,.75);
+    box-shadow: 0 2mm 6mm rgba(18,55,41,.14); }
+  .cover-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+  .cover-title .intro { margin-top: 6mm; font-size: 10.5pt; line-height: 1.65; color: var(--muted); }
+  .cover-title h1 { margin-top: 4mm; font-family: Fraunces, serif; font-size: 50pt; font-weight: 600; line-height: 1.02; letter-spacing: -.02em; }
   .cover-title h1 em { color: var(--forest-700); }
-  .cover-title .sub { margin-top: 3mm; font-family: Fraunces, serif; font-style: italic; font-size: 17pt; color: #9f5539; }
-  .chips { margin-top: 6mm; display: flex; flex-wrap: wrap; gap: 2.5mm; }
+  .cover-title .sub { margin-top: 4mm; font-family: Fraunces, serif; font-style: italic; font-size: 17pt; color: #9f5539; }
+  .chips { margin-top: 10mm; display: flex; flex-wrap: wrap; gap: 2.5mm; }
   .chip { padding: 2.2mm 4.5mm; border-radius: 99px; border: 1px solid rgba(12,35,27,.1); background: rgba(255,255,255,.75);
     font-size: 9.5pt; color: var(--forest-800); }
   .overview { margin-top: auto; border-radius: 6mm; background: var(--forest-800); color: var(--cream); padding: 7mm 8mm;
@@ -98,18 +99,21 @@
   <div class="grid"></div><div class="glow"></div>
   <div class="content">
     <div class="brand" data-logo><span><b>Dr Noureddine Boulaguiem</b><small>Homéopathie · Sujok · Maroc</small></span></div>
-    <div class="cover-photo"><img src="../public/images/sujok-session2.jpg" alt=""></div>
+    <div class="cover-main">
     <div class="cover-title">
       <p class="eyebrow">Programme de formation</p>
-      <h1>Formation <em>Sujok</em></h1>
+      <h1>Formation<br><em>Sujok</em></h1>
       <p class="sub">Niveau 1 · Les fondamentaux</p>
-      <div class="chips">
+      <p class="intro">Le point de départ, sans aucun prérequis. On y pose les bases : d'où vient le Sujok, comment lire la main et le pied, et comment appliquer les premiers gestes.</p>
+    </div>
+    <div class="cover-photo"><img src="../public/images/hero.jpg" alt=""></div>
+    </div>
+    <div class="chips">
         <span class="chip">6 modules</span>
         <span class="chip">1 journée de 8 h par module</span>
         <span class="chip">Aucun prérequis</span>
         <span class="chip">Attestation de participation</span>
       </div>
-    </div>
     <div class="overview" id="overview"><h2>Les six modules</h2></div>
   </div>
   <div class="footer"></div>
