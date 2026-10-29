@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <title>Programme de formation Sujok · Niveau 1 · Dr Noureddine Boulaguiem</title>
 <style>
+  /* No box-shadows: Chrome prints them as soft-masked images that Preview and phone PDF viewers draw as grey boxes. */
   /* Source of public/programme-formation-sujok-dr-boulaguiem.pdf — rebuild with: node print/build-pdf.mjs */
   @font-face { font-family: Inter; font-weight: 100 900; src: url(fonts/inter.woff2) format("woff2"); }
   @font-face { font-family: Fraunces; font-weight: 100 900; src: url(fonts/fraunces.woff2) format("woff2"); }
@@ -47,8 +48,8 @@
 
   /* Cover */
   .cover-main { margin-top: 34mm; display: grid; grid-template-columns: 1fr 70mm; gap: 10mm; align-items: center; }
-  .cover-photo { height: 96mm; border-radius: 7mm; overflow: hidden; border: 1mm solid rgba(255,255,255,.75);
-    box-shadow: 0 2mm 6mm rgba(18,55,41,.14); }
+  .cover-photo { height: 96mm; border-radius: 7mm; overflow: hidden; border: 1mm solid #fff;
+    outline: 1px solid rgba(12,35,27,.12); }
   .cover-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
   .cover-title .intro { margin-top: 6mm; font-size: 10.5pt; line-height: 1.65; color: var(--muted); }
   .cover-title h1 { margin-top: 4mm; font-family: Fraunces, serif; font-size: 50pt; font-weight: 600; line-height: 1.02; letter-spacing: -.02em; }
@@ -65,7 +66,7 @@
 
   /* Module pages */
   .modules { margin-top: 6mm; display: flex; flex-direction: column; gap: 6mm; }
-  .module { border-radius: 6mm; background: #fff; border: 1px solid rgba(12,35,27,.07); box-shadow: 0 1.5mm 5mm rgba(18,55,41,.06);
+  .module { border-radius: 6mm; background: #fff; border: 1px solid rgba(12,35,27,.11);
     padding: 7mm 9mm; }
   .module header { display: flex; align-items: baseline; gap: 4mm; padding-bottom: 3.5mm; margin-bottom: 4mm;
     border-bottom: 1px solid rgba(12,35,27,.08); }
