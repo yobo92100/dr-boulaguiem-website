@@ -23,3 +23,6 @@ raw-reviews/
 raw-videos/
 raw-live/
 logo-pistes/
+
+# programme documents as sent by the doctor (styled PDFs are built from print/)
+raw-programmes/
