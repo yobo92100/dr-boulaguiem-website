@@ -1,8 +1,10 @@
 import { Button } from "@/components/Button";
 import { Reveal } from "@/components/Reveal";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-import { ArrowRightIcon, CheckIcon, ChevronDownIcon, LeafIcon } from "@/components/Icons";
+import { ArrowRightIcon, CheckIcon, ChevronDownIcon, DownloadIcon, LeafIcon } from "@/components/Icons";
+import { SectionTitle } from "@/components/SectionTitle";
 import { images } from "@/config/images";
+import { homeopathieModules, homeopathieProgrammePdf } from "@/data/homeopathie-programme";
 
 const learningPoints = [
   "Les principes fondamentaux de l'homéopathie",
@@ -78,7 +80,7 @@ export default function HomeopathiePage() {
         </div>
       </section>
 
-      <section id="programme" className="scroll-mt-16 bg-sand/60 py-20 sm:py-24">
+      <section className="bg-sand/60 py-20 sm:py-24">
         <div className="container-x grid gap-12 lg:grid-cols-2 lg:items-center">
           <Reveal>
             <div>
@@ -122,6 +124,102 @@ export default function HomeopathiePage() {
                   M'inscrire en homéopathie
                 </WhatsAppButton>
               </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+      {/* Full programme, ten modules */}
+      <section id="programme" className="scroll-mt-16 py-20 sm:py-24">
+        <div className="container-x">
+          <Reveal>
+            <SectionTitle
+              eyebrow="Le programme"
+              title="Dix modules sur les pathologies aiguës"
+              text="On commence par les bases, puis chaque module traite une famille de situations aiguës courantes : les remèdes à connaître, le choix de la dilution et la posologie, travaillés sur des cas cliniques."
+            />
+          </Reveal>
+
+          <div className="mx-auto mt-14 max-w-3xl space-y-4">
+            {homeopathieModules.map((module, i) => (
+              <Reveal key={module.title} delay={Math.min(i, 4) * 60}>
+                <details
+                  className="group overflow-hidden rounded-4xl border border-forest-900/8 bg-white shadow-soft"
+                  open={i === 0}
+                >
+                  <summary className="flex cursor-pointer list-none items-center gap-5 p-6 marker:hidden sm:p-8">
+                    <span className="min-w-0 flex-1">
+                      <span className="block text-xs font-semibold uppercase tracking-[0.18em] text-forest-600">
+                        Module {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span className="mt-1.5 block font-display text-xl font-semibold text-ink sm:text-2xl">
+                        {module.title}
+                      </span>
+                    </span>
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-forest-900/15 text-forest-700 transition group-open:rotate-180">
+                      <ChevronDownIcon className="h-4 w-4" />
+                    </span>
+                  </summary>
+
+                  <div className="border-t border-forest-900/8 px-6 pb-8 pt-6 sm:px-8">
+                    {module.objective && (
+                      <p className="mb-6 text-sm leading-7 text-muted">{module.objective}</p>
+                    )}
+                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold-dark">
+                      {module.listLabel}
+                    </p>
+                    <ul className="mt-4 space-y-3">
+                      {module.items.map((item) => (
+                        <li key={item} className="flex items-start gap-3">
+                          <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-forest-600" />
+                          <span className="text-base leading-7 text-ink/90">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    {module.remedies.length > 0 && (
+                      <>
+                        <p className="mt-7 text-xs font-semibold uppercase tracking-[0.18em] text-gold-dark">
+                          Remèdes étudiés
+                        </p>
+                        <div className="mt-3 flex flex-wrap gap-2">
+                          {module.remedies.map((remedy) => (
+                            <span
+                              key={remedy}
+                              className="rounded-full bg-forest-700/8 px-3 py-1 font-display text-sm italic text-forest-800"
+                            >
+                              {remedy}
+                            </span>
+                          ))}
+                        </div>
+                      </>
+                    )}
+                    <p className="mt-7 border-t border-forest-900/8 pt-5 text-sm leading-7 text-muted">
+                      <span className="font-medium text-ink">Travaux pratiques :</span> {module.practice}
+                      <br />
+                      <span className="font-medium text-ink">Évaluation :</span> {module.evaluation}
+                    </p>
+                  </div>
+                </details>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal delay={120}>
+            <div className="mx-auto mt-10 max-w-3xl rounded-4xl border border-forest-900/8 bg-sand/60 p-6 sm:flex sm:items-center sm:justify-between sm:gap-6 sm:p-8">
+              <div>
+                <p className="font-display text-lg font-medium text-ink">
+                  Le programme détaillé
+                </p>
+                <p className="mt-1 text-sm leading-7 text-muted">
+                  Les dix modules, avec les pathologies et les remèdes étudiés.
+                </p>
+              </div>
+              <a
+                href={homeopathieProgrammePdf}
+                className="mt-5 inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-forest-800 px-5 py-2.5 text-sm font-medium text-cream transition hover:-translate-y-0.5 sm:mt-0 sm:shrink-0"
+              >
+                <DownloadIcon className="h-4 w-4" />
+                Télécharger le PDF
+              </a>
             </div>
           </Reveal>
         </div>

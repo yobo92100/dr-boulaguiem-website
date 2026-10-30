@@ -1,0 +1,148 @@
+{
+  "title": "Pathologies et étude des traitements homéopathiques",
+  "notice": "Les situations graves ou urgentes nécessitent des soins médicaux ; l'homéopathie ne remplace pas les traitements indispensables.",
+  "modules": [
+    {
+      "title": "Initiation & bases pratiques de l'homéopathie",
+      "objective": "Acquérir les bases indispensables à une pratique efficace et sécurisée en aigu.",
+      "listLabel": "Contenu",
+      "items": [
+        "Définition et principes fondamentaux",
+        "Dilutions CH/DH et dynamisation",
+        "Lecture rapide du symptôme aigu",
+        "Posologies en aigu",
+        "Aggravation homéopathique",
+        "Limites et responsabilité du praticien"
+      ],
+      "remedies": [],
+      "practice": "Analyse de cas cliniques courts et choix de dilution.",
+      "evaluation": "Cas cliniques + QCM"
+    },
+    {
+      "title": "Pathologies ORL, respiratoires et oculaires aiguës",
+      "listLabel": "Pathologies étudiées",
+      "items": [
+        "Rhinite, rhinopharyngite et sinusite",
+        "Angine, otite et laryngite",
+        "Grippe, bronchite et toux sèche ou grasse",
+        "Conjonctivite, irritation et larmoiement",
+        "Orgelet, blépharite et sécheresse oculaire"
+      ],
+      "remedies": ["Aconitum", "Belladonna", "Allium cepa", "Euphrasia", "Hepar sulfur", "Mercurius", "Gelsemium", "Bryonia", "Drosera", "Spongia", "Staphysagria"],
+      "practice": "Cas cliniques, choix du remède, dilution et posologie.",
+      "evaluation": "Cas cliniques + QCM"
+    },
+    {
+      "title": "Pathologies digestives et bucco-dentaires aiguës",
+      "listLabel": "Pathologies étudiées",
+      "items": [
+        "Indigestion, nausées et vomissements",
+        "Gastro-entérite, diarrhée et coliques abdominales",
+        "Ballonnements et constipation occasionnelle",
+        "Aphtes, stomatite et gingivite",
+        "Douleurs dentaires et suites de soins dentaires"
+      ],
+      "remedies": ["Nux vomica", "Ipecacuanha", "Arsenicum album", "Podophyllum", "Colocynthis", "Veratrum album", "Borax", "Mercurius", "Chamomilla", "Arnica"],
+      "practice": "Cas cliniques, choix du remède, dilution et posologie.",
+      "evaluation": "Cas cliniques + QCM"
+    },
+    {
+      "title": "Pathologies cutanées, allergiques et ganglionnaires",
+      "listLabel": "Pathologies étudiées",
+      "items": [
+        "Urticaire et dermatite de contact",
+        "Piqûres d'insectes et réactions locales",
+        "Brûlures superficielles",
+        "Panaris et infections cutanées localisées : accompagnement",
+        "Ganglions réactionnels : accompagnement"
+      ],
+      "remedies": ["Apis mellifica", "Urtica urens", "Cantharis", "Belladonna", "Rhus toxicodendron", "Hepar sulfur", "Mercurius"],
+      "practice": "Cas cliniques, choix du remède, dilution et posologie.",
+      "evaluation": "Cas cliniques + QCM"
+    },
+    {
+      "title": "Pathologies ostéo-articulaires et traumatologiques aiguës",
+      "listLabel": "Pathologies étudiées",
+      "items": [
+        "Contusions et ecchymoses traumatiques",
+        "Entorses et suites de traumatismes",
+        "Lombalgie aiguë et torticolis",
+        "Tendinite et bursite",
+        "Crise de goutte : accompagnement"
+      ],
+      "remedies": ["Arnica montana", "Bryonia alba", "Rhus toxicodendron", "Ruta graveolens", "Ledum palustre", "Colchicum"],
+      "practice": "Cas cliniques, choix du remède, dilution et posologie.",
+      "evaluation": "Cas cliniques + QCM"
+    },
+    {
+      "title": "Pathologies urinaires et génitales aiguës",
+      "listLabel": "Pathologies étudiées",
+      "items": [
+        "Cystite et brûlures mictionnelles",
+        "Colique néphrétique : accompagnement",
+        "Vulvovaginite et irritations génitales",
+        "Symptômes prostatiques : accompagnement",
+        "Douleurs menstruelles et spasmes pelviens"
+      ],
+      "remedies": ["Cantharis", "Berberis vulgaris", "Apis mellifica", "Staphysagria", "Mercurius solubilis", "Colocynthis", "Magnesia phosphorica"],
+      "practice": "Cas cliniques, choix du remède, dilution et posologie.",
+      "evaluation": "Cas cliniques + QCM"
+    },
+    {
+      "title": "Pathologies circulatoires, lymphatiques et sanguines",
+      "listLabel": "Pathologies étudiées",
+      "items": [
+        "Palpitations et malaises fonctionnels",
+        "Jambes lourdes et troubles veineux",
+        "Œdèmes lymphatiques : accompagnement",
+        "Ecchymoses et suites de saignements : accompagnement",
+        "Fatigue associée à une anémie : accompagnement"
+      ],
+      "remedies": ["Aconitum", "Gelsemium", "Hamamelis", "Vipera", "Arnica", "China rubra", "Ferrum metallicum"],
+      "practice": "Cas cliniques, choix du remède, dilution et posologie.",
+      "evaluation": "Cas cliniques + QCM"
+    },
+    {
+      "title": "Pathologies neurologiques et douleurs aiguës",
+      "listLabel": "Pathologies étudiées",
+      "items": [
+        "Céphalées et migraines",
+        "Névralgies",
+        "Sciatique",
+        "Douleurs spasmodiques",
+        "Douleurs après traumatisme nerveux"
+      ],
+      "remedies": ["Belladonna", "Glonoinum", "Spigelia", "Magnesia phosphorica", "Hypericum", "Colocynthis"],
+      "practice": "Cas cliniques, choix du remède, dilution et posologie.",
+      "evaluation": "Cas cliniques + QCM"
+    },
+    {
+      "title": "Troubles hépato-biliaires, endocriniens et métaboliques",
+      "listLabel": "Pathologies étudiées",
+      "items": [
+        "Troubles digestifs d'origine hépato-biliaire : accompagnement",
+        "Indigestion après excès alimentaires",
+        "Bouffées de chaleur et sueurs hormonales",
+        "Troubles du cycle et syndrome prémenstruel",
+        "Troubles thyroïdiens : accompagnement symptomatique"
+      ],
+      "remedies": ["Chelidonium majus", "Nux vomica", "Lycopodium", "Carduus marianus", "Lachesis", "Sepia", "Pulsatilla", "Iodum"],
+      "practice": "Cas cliniques, choix du remède, dilution et posologie.",
+      "evaluation": "Cas cliniques + QCM"
+    },
+    {
+      "title": "Situations aiguës courantes et synthèse thérapeutique",
+      "listLabel": "Pathologies étudiées",
+      "items": [
+        "Fièvre et syndromes viraux : accompagnement",
+        "Réactions allergiques locales",
+        "Trac et anxiété aiguë",
+        "Fatigue après maladie aiguë",
+        "Révision des principaux tableaux et choix des remèdes"
+      ],
+      "remedies": ["Aconitum", "Belladonna", "Gelsemium", "Apis mellifica", "Ignatia", "Arsenicum album", "China rubra"],
+      "practice": "Cas cliniques, choix du remède, dilution et posologie.",
+      "evaluation": "Cas cliniques + QCM"
+    }
+  ]
+}

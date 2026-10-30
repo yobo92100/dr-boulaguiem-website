@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Programme de formation en homéopathie · Dr Noureddine Boulaguiem</title>
+<link rel="stylesheet" href="programme.css">
+<style>
+  /* Module content comes from src/data/homeopathie-programme.json (shared with the site). */
+  .cover-main { margin-top: 20mm; }
+  .notice { margin-top: 6mm; font-size: 8.5pt; line-height: 1.55; color: var(--muted); font-style: italic; max-width: 150mm; }
+  .overview { gap: 3mm 8mm; }
+  .overview div { font-size: 9.5pt; }
+  .modules { gap: 4.5mm; }
+  .closing { margin-top: 4mm; padding: 4.5mm 7mm; }
+  .module { padding: 6mm 8mm; }
+  .module header { padding-bottom: 3mm; margin-bottom: 3.5mm; }
+
+  .module .objective { margin-bottom: 3.5mm; font-size: 10pt; line-height: 1.5; color: var(--muted); }
+  .module .objective b { color: var(--ink); font-weight: 600; }
+  .module .label { margin-bottom: 2.5mm; font-size: 7.5pt; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--gold-dark); }
+  .module ul { list-style: none; display: grid; gap: 1.5mm; }
+  .module ul li { display: flex; gap: 3.5mm; font-size: 10.5pt; line-height: 1.45; color: rgba(22,36,29,.9); }
+  .module ul li::before { content: ""; width: 1.6mm; height: 1.6mm; margin-top: 2mm; border-radius: 50%; background: var(--forest-600); flex: none; }
+  .remedies { margin-top: 3.5mm; }
+  .remedies div { display: flex; flex-wrap: wrap; gap: 1.6mm; }
+  .remedies span { padding: 1.1mm 3mm; border-radius: 99px; background: rgba(31,95,68,.08); color: var(--forest-800);
+    font-family: Fraunces, serif; font-style: italic; font-size: 9pt; }
+  .module .meta { margin-top: 3.5mm; padding-top: 3mm; border-top: 1px solid rgba(12,35,27,.08); display: flex; gap: 8mm;
+    font-size: 8.5pt; line-height: 1.5; color: var(--muted); }
+  .module .meta b { color: var(--ink); font-weight: 600; }
+  .module .meta span:last-child { white-space: nowrap; }
+</style>
+</head>
+<body>
+<template id="logo"><svg viewBox="0 0 100 100"><g transform="rotate(28 50 52) translate(0 1)">
+  <path d="M50 87C49 91 47.5 94.5 45 97.5" fill="none" stroke="#184b37" stroke-width="4" stroke-linecap="round"/>
+  <path d="M50 6C76 22 82 60 50 87 18 60 24 22 50 6Z" fill="#7cb298"/>
+  <path d="M50 6C24 22 18 60 50 87 33 75 34 57 50 47 66 37 64 18 50 6Z" fill="#184b37"/>
+  <circle cx="42" cy="32" r="4.6" fill="#faf6ec"/><circle cx="58" cy="62" r="4.6" fill="#184b37"/></g></svg></template>
+
+<section class="page">
+  <div class="grid"></div><div class="glow"></div>
+  <div class="content">
+    <div class="brand" data-logo><span><b>Dr Noureddine Boulaguiem</b><small>Homéopathie · Sujok · Maroc</small></span></div>
+    <div class="cover-main">
+      <div class="cover-title">
+        <p class="eyebrow">Programme de formation</p>
+        <h1>Formation<br><em>Homéopathie</em></h1>
+        <p class="sub">Les pathologies aiguës · 10 modules</p>
+        <p class="intro">Pour chaque situation aiguë courante : les remèdes à connaître, le choix de la dilution et la posologie, travaillés sur des cas cliniques.</p>
+      </div>
+      <div class="cover-photo"><img src="../public/images/hero.jpg" alt=""></div>
+    </div>
+    <div class="chips">
+      <span class="chip">10 modules</span>
+      <span class="chip">Cas cliniques à chaque module</span>
+      <span class="chip">Évaluation : cas cliniques + QCM</span>
+      <span class="chip">Attestation de participation</span>
+    </div>
+    <p class="notice" id="notice"></p>
+    <div class="overview" id="overview"><h2>Les dix modules</h2></div>
+  </div>
+  <div class="footer"></div>
+</section>
+
+<div id="module-pages"></div>
+
+<script>
+  const pad = (n) => String(n).padStart(2, "0");
+  const logo = document.getElementById("logo").innerHTML;
+  const footer = (n) => `<span class="brand" style="gap:2mm">${logo}Dr Noureddine Boulaguiem · Formation en homéopathie</span>
+    <span>WhatsApp +212 6 61 44 14 63</span><span class="num">${n}</span>`;
+
+  const moduleHtml = (m, i) => `<article class="module">
+    <header><span class="tag">Module ${pad(i + 1)}</span><h3>${m.title}</h3></header>
+    ${m.objective ? `<p class="objective"><b>Objectif :</b> ${m.objective}</p>` : ""}
+    <p class="label">${m.listLabel}</p>
+    <ul>${m.items.map((it) => `<li>${it}</li>`).join("")}</ul>
+    ${m.remedies.length ? `<div class="remedies"><p class="label">Remèdes étudiés</p>
+      <div>${m.remedies.map((r) => `<span>${r}</span>`).join("")}</div></div>` : ""}
+    <p class="meta"><span><b>Travaux pratiques :</b> ${m.practice}</span><span><b>Évaluation :</b> ${m.evaluation}</span></p>
+  </article>`;
+
+  fetch("../src/data/homeopathie-programme.json").then((r) => r.json()).then(({ notice, modules }) => {
+    document.getElementById("notice").textContent = notice;
+    document.getElementById("overview").insertAdjacentHTML("beforeend",
+      modules.map((m, i) => `<div><span>${pad(i + 1)}</span>${m.title}</div>`).join(""));
+
+    const pages = [];
+    for (let i = 0; i < modules.length; i += 2) pages.push([i, i + 1].filter((j) => j < modules.length));
+    document.getElementById("module-pages").outerHTML = pages.map((group, p) => `<section class="page">
+      <div class="grid"></div><div class="glow"></div>
+      <div class="content">
+        <p class="eyebrow">Homéopathie · Modules ${group.map((i) => pad(i + 1)).join(" et ")}</p>
+        <div class="modules">${group.map((i) => moduleHtml(modules[i], i)).join("")}</div>
+        ${p === pages.length - 1 ? `<div class="closing"><div><b>Envie de vous inscrire ?</b>
+          <p>Les places sont limitées à chaque session. Écrivez-nous pour connaître les prochaines dates.</p></div>
+          <span class="pill">WhatsApp +212 6 61 44 14 63</span></div>` : ""}
+      </div>
+      <div class="footer"></div></section>`).join("");
+
+    document.querySelectorAll("[data-logo]").forEach((el) => el.insertAdjacentHTML("afterbegin", logo));
+    document.querySelectorAll(".page").forEach((pg, i) => (pg.querySelector(".footer").innerHTML = footer(i + 1)));
+  });
+</script>
+</body>
+</html>
